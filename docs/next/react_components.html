@@ -1,0 +1,163 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>React Components · GoodData UI SDK</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="React Components · GoodData UI SDK"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/ui-sdk/index.html"/><meta property="og:description" content="The element where you are inserting a React component in must have the height and width set up. Otherwise, the visualization will not work correctly."/><link rel="shortcut icon" href="/ui-sdk/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/ui-sdk/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/ui-sdk/"><img class="logo" src="/ui-sdk/img/gooddata_white.svg"/><h2 class="headerTitle">GoodData UI SDK</h2></a><a href="/ui-sdk/versions.html"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/ui-sdk/docs/next/getting_started.html" target="_self">Docs</a></li><li class=""><a href="/ui-sdk/docs/next/examples.html" target="_self">Examples</a></li><li class=""><a href="/ui-sdk/docs/next/trouble_shooting.html" target="_self">FAQ</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>React Components</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/getting_started.html">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/prerequisities.html">Prerequisities</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/platform_intro.html">Platform Introduction</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tutorials</h3><ul><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/ht_create_your_first_visualization.html">How to Create Your First Visualization with GoodData UI SDK</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/ht_build_app.html">How to Build an App</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/ht_access_gd_api_directly.html">How to Access the GoodData API Directly</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/ht_configure_webpack_proxy.html">How to Configure a Webpack Proxy</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/ht_set_up_loading_state_for_embedded_insights.html">How to Set Up a Loading State for Embedded Insights</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/ht_render_visualization_from_different_domain.html">How to Render Visualizations from Different Domains and Projects</a></li></ul></div><div class="navGroup navGroupActive"><h3>React Components</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/ui-sdk/docs/next/react_components.html">React Components</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/afm_react_components.html">AFM React Components</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/chart_config.html">Chart Config</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/drillable_item.html">DrillableItem</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/on_legend_ready.html">OnLegendReady</a></li></ul></div><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/afm.html">AFM</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/result_specification.html">Result Specification</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/execute_component.html">Execute Component</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/data_layer.html">DataLayer</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/execution_rest_api_and_result.html">Execution REST API and Result</a></li><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/table_totals_in_execution_object.html">Table Totals in ExecutionObject</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tools</h3><ul><li class="navListItem"><a class="navItem" href="/ui-sdk/docs/next/gdc_catalog_export.html">gdc-catalog-export</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>React Components</h1></header><article><div><span><p>The element where you are inserting a React component in must have the height and width set up. Otherwise, the visualization will not work correctly.</p>
+<p>Example:</p>
+<pre><code class="hljs css javacsript"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">height:</span> <span class="hljs-attr">400</span>, <span class="hljs-attr">width:</span> <span class="hljs-attr">600</span> }}&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Visualization</span> <span class="hljs-attr">...</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Server-side rendering is <em>not</em> supported.</p>
+<p>Though you can use either object URIs or object identifiers, we recommend that you use the <strong>object identifiers</strong>, which are consistent across your domain regardless of the GoodData project they live in. That is, an object used in any project within your domain would have the_same_object identifier in_any_of those projects). To get a list of catalog items and date datasets from a GoodData project in form of a JavaScript object, use <a href="/ui-sdk/docs/next/gdc_catalog_export.html">gdc-catalog-export</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="kpi"></a><a href="#kpi" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>KPI</h2>
+<p>KPI (Key Performance Indicator) renders a measure calculated by the GoodData platform.</p>
+<h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th style="text-align:left">Name</th><th style="text-align:left">Required?</th><th style="text-align:left">Type</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">measure</td><td style="text-align:left">true</td><td style="text-align:left">string</td><td style="text-align:left">Measure URI</td></tr>
+<tr><td style="text-align:left">projectId</td><td style="text-align:left">true</td><td style="text-align:left">string</td><td style="text-align:left">Project ID</td></tr>
+<tr><td style="text-align:left">filters</td><td style="text-align:left">false</td><td style="text-align:left"><a href="/ui-sdk/docs/next/afm.html#AFM-Filter">FilterItem</a>[]</td><td style="text-align:left">KPI filters</td></tr>
+<tr><td style="text-align:left">format</td><td style="text-align:left">false</td><td style="text-align:left">string</td><td style="text-align:left">Measure format. If specified, overrides the format stored with the measure.</td></tr>
+<tr><td style="text-align:left">onError</td><td style="text-align:left">false</td><td style="text-align:left">function</td><td style="text-align:left">Custom error handler. Called with the argument containing the state and original error message, for example: <code>{ status:ErrorStates.BAD_REQUEST,error: {...} }</code> See the <a href="https://github.com/gooddata/gooddata-react-components/blob/master/src/constants/errorStates.ts">full list of error states</a>. Defaults to <code>console.error</code>.</td></tr>
+<tr><td style="text-align:left">onLoadingChanged</td><td style="text-align:left">false</td><td style="text-align:left">function</td><td style="text-align:left">Custom loading handler. Called when a KPI changes to/from the loading state. Called with the argument denoting a valid state, for example: <code>{ isLoading:false}</code></td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="structure"></a><a href="#structure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure</h3>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { Kpi } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+
+&lt;Kpi
+    measure="&lt;measure-identifier&gt;"
+    projectId="&lt;project-id&gt;"
+    filters={&lt;filters&gt;}
+    format="&lt;format&gt;"
+/&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>This example uses data from the GoodSales demo project. For testing purposes, you can use this snippet as is.</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { Kpi } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+ 
+<span class="hljs-comment">// with absolute dateFilter</span>
+&lt;Kpi
+    projectId=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+    measure=<span class="hljs-string">"aaeb7jTCfexV"</span>
+    filters={[
+        {
+            <span class="hljs-attr">absoluteDateFilter</span>: {
+                <span class="hljs-attr">dataSet</span>: {
+                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'oppclose.dataset.dt'</span>
+                },
+                <span class="hljs-attr">from</span>: <span class="hljs-string">'2016-01-01'</span>,
+                <span class="hljs-attr">to</span>: <span class="hljs-string">'2016-12-31'</span>
+            }
+        }
+    ]}
+/&gt;
+ 
+ 
+<span class="hljs-comment">// with positive attributeFilter</span>
+&lt;Kpi
+    projectId=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+    measure=<span class="hljs-string">"aaeb7jTCfexV"</span>
+    filters={[
+        {
+            <span class="hljs-attr">positiveAttributeFilter</span>: {
+                <span class="hljs-attr">displayForm</span>: {
+                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'label.account.id.name'</span>
+                },
+                <span class="hljs-attr">in</span>: [<span class="hljs-string">'{label.account.id.name?958077}'</span>, <span class="hljs-string">'{label.account.id.name?961040}'</span>, <span class="hljs-string">'{label.account.id.name?961042}'</span>]
+            }
+        }
+    ]}
+/&gt;
+ 
+ 
+<span class="hljs-comment">// with negative attributeFilter</span>
+&lt;Kpi
+    projectId=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+    measure=<span class="hljs-string">"aaeb7jTCfexV"</span>
+    filters={[
+        {
+            <span class="hljs-attr">negativeAttributeFilter</span>: {
+                <span class="hljs-attr">displayForm</span>: {
+                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'label.account.id.name'</span>
+                },
+                <span class="hljs-attr">notIn</span>: [<span class="hljs-string">'{label.account.id.name?958077}'</span>, <span class="hljs-string">'{label.account.id.name?961040}'</span>, <span class="hljs-string">'{label.account.id.name?961042}'</span>]
+            }
+        }
+    ]}
+/&gt;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="visualization"></a><a href="#visualization" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Visualization</h2>
+<p>A visualization is a generic component that renders a chart according to the given URI. It can render a table or any type of the chart stated above.</p>
+<h3><a class="anchor" aria-hidden="true" id="parameters"></a><a href="#parameters" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parameters</h3>
+<table>
+<thead>
+<tr><th style="text-align:left">Name</th><th style="text-align:left">Required?</th><th style="text-align:left">Type</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left">projectId</td><td style="text-align:left">true</td><td style="text-align:left">string</td><td style="text-align:left">Project ID</td></tr>
+<tr><td style="text-align:left">uri</td><td style="text-align:left">false</td><td style="text-align:left">string</td><td style="text-align:left">URI of the visualization to be rendered Can be omitted if the visualization identifier is present.</td></tr>
+<tr><td style="text-align:left">identifier</td><td style="text-align:left">false</td><td style="text-align:left">string</td><td style="text-align:left">Identifier of the visualization to be rendered Can be omitted if the visualization URI is present.</td></tr>
+<tr><td style="text-align:left">locale</td><td style="text-align:left">false</td><td style="text-align:left">string</td><td style="text-align:left">Localization of the visualization Defaults to<code>en-US</code>. For other languages, see the <a href="https://github.com/gooddata/gooddata-react-components/tree/master/src/translations">full list of available localizations</a>.</td></tr>
+<tr><td style="text-align:left">config</td><td style="text-align:left">false</td><td style="text-align:left"><a href="/ui-sdk/docs/next/chart_config.html">ChartConfig</a></td><td style="text-align:left">Chart configuration</td></tr>
+<tr><td style="text-align:left">filters</td><td style="text-align:left">false</td><td style="text-align:left"><a href="/ui-sdk/docs/next/afm.html#AFM-Filter">FilterItem</a>[]</td><td style="text-align:left">List of filters to be applied to the visualization</td></tr>
+<tr><td style="text-align:left">drillableItems</td><td style="text-align:left">false</td><td style="text-align:left"><a href="drillable_item">DrillableItem</a>[]</td><td style="text-align:left">Drilling configuration</td></tr>
+<tr><td style="text-align:left">onFiredDrillEvent</td><td style="text-align:left">false</td><td style="text-align:left"><a href="on_fired_drill_event.md">onFiredDrillEvent</a>()</td><td style="text-align:left">Drilling event catcher Called when drilling happens.</td></tr>
+<tr><td style="text-align:left">uriResolver</td><td style="text-align:left">false</td><td style="text-align:left">function</td><td style="text-align:left">Custom method for querying URIs for identifiers. Defaults to the standard Gooddata SDK .<code>getObjectUri()</code>.</td></tr>
+<tr><td style="text-align:left">onError</td><td style="text-align:left">false</td><td style="text-align:left">function</td><td style="text-align:left">Custom error handler. Called with the argument containing the state and original error message, for example: <code>{ status:ErrorStates.BAD_REQUEST,error: {...} }</code> See the <a href="https://github.com/gooddata/gooddata-react-components/blob/master/src/constants/errorStates.ts">full list of error states</a>. Defaults to<code>console.error</code>.</td></tr>
+<tr><td style="text-align:left">onLoadingChanged</td><td style="text-align:left">false</td><td style="text-align:left">function</td><td style="text-align:left">Custom loading handler. Called when a visualization changes to/from the loading state. Called with the argument denoting a valid state, for example: <code>{ isLoading:false}</code></td></tr>
+<tr><td style="text-align:left">onLegendReady</td><td style="text-align:left">false</td><td style="text-align:left"><a href="on_legend_ready">OnLegendReady</a>()</td><td style="text-align:left">Legend ready callback. Called when the visualization series are ready to render. Can be used to rendering custom legend.</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="structure"></a><a href="#structure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure</h3>
+<p>To have the visualization rendered, specify either the visualization URI or visualization identifier.</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
+<span class="hljs-keyword">import</span> { Visualization } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+ 
+&lt;div style={{ height: 400, width: 600 }}&gt;
+    &lt;Visualization
+        projectId="&lt;project-id&gt;"
+        identifier="&lt;visualization-identifier&gt;"
+        config={&lt;chart-config&gt;}
+    /&gt;
+&lt;/div&gt;
+</code></pre>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
+<span class="hljs-keyword">import</span> { Visualization } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+
+&lt;div style={{ height: 400, width: 600 }}&gt;
+    &lt;Visualization
+        projectId="&lt;project-id&gt;"
+        uri="&lt;visualization-uri&gt;"
+        config={&lt;chart-config&gt;}
+    /&gt;
+&lt;/div&gt;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<p>This example uses data from the GoodSales demo project. For testing purposes, you can use this snippet as is.</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
+<span class="hljs-keyword">import</span> { Visualization } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+ 
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">height:</span> <span class="hljs-attr">400</span>, <span class="hljs-attr">width:</span> <span class="hljs-attr">600</span> }}&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Visualization</span>
+        <span class="hljs-attr">identifier</span>=<span class="hljs-string">"aoJqpe5Ib4mO"</span>
+        <span class="hljs-attr">projectId</span>=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+        <span class="hljs-attr">config</span>=<span class="hljs-string">{{</span>
+            <span class="hljs-attr">colors:</span> ['<span class="hljs-attr">rgba</span>(<span class="hljs-attr">195</span>, <span class="hljs-attr">49</span>, <span class="hljs-attr">73</span>, <span class="hljs-attr">1</span>)', '<span class="hljs-attr">rgba</span>(<span class="hljs-attr">168</span>, <span class="hljs-attr">194</span>, <span class="hljs-attr">86</span>, <span class="hljs-attr">1</span>)'],
+            <span class="hljs-attr">legend:</span> {
+                <span class="hljs-attr">enabled:</span> <span class="hljs-attr">true</span>,
+                <span class="hljs-attr">position:</span> '<span class="hljs-attr">bottom</span>'
+            }
+        }}
+    /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre>
+<h2><a class="anchor" aria-hidden="true" id="charts-and-tables"></a><a href="#charts-and-tables" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Charts and Tables</h2>
+<p>Alternatively, you can use various charts or table components defined by AFM, see <a href="/ui-sdk/docs/next/afm_react_components.html">AFM React Components</a>).</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="ht_render_visualization_from_different_domain.html">← How to Render Visualizations from Different Domains and Projects</a><a class="docs-next button" href="afm_react_components.html">AFM React Components →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#kpi">KPI</a><ul class="toc-headings"><li><a href="#parameters">Parameters</a></li><li><a href="#structure">Structure</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#visualization">Visualization</a><ul class="toc-headings"><li><a href="#parameters">Parameters</a></li><li><a href="#structure">Structure</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#charts-and-tables">Charts and Tables</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="text-align:center;"><a href="/ui-sdk/" class="nav-home"><img src="/ui-sdk/img/gooddata_white.svg" alt="GoodData UI SDK" width="66" height="58"/></a><ul><li><a href="/ui-sdk/docs/getting_started.html">Docs</a></li><li><a href="/ui-sdk/docs/examples.html">Examples</a></li><li><a href="/ui-sdk/docs/trouble_shooting.html">FAQ</a></li></ul></section><section class="copyright">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved</section></footer></div></body></html>
