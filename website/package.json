@@ -1,0 +1,20 @@
+{
+  "name": "@gooddata/gdc-ui-sdk-docs",
+  "version": "4.1.0",
+  "description": "GoodData React Components Documentation",
+  "repository": "git@github.com:gooddata/gdc-ui-sdk-docs.git",
+  "author": "GoodData Corporation",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "examples": "docusaurus-examples",
+    "start": "docusaurus-start",
+    "build": "docusaurus-build",
+    "publish-gh-pages": "docusaurus-publish",
+    "write-translations": "docusaurus-write-translations",
+    "version": "docusaurus-version",
+    "rename-version": "docusaurus-rename-version"
+  },
+  "devDependencies": {
+    "docusaurus": "^1.0.9"
+  }
+}
