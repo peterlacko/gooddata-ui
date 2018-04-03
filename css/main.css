@@ -1888,58 +1888,34 @@ footer .copyright {
   }
 }
 
-/* your custom css */
-
+/*
+For now build using `sass static/css/custom.scss static/css/custom.css`
+*/
 .fixedHeaderContainer {
-    background: linear-gradient(-180deg, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.8) 100%);
-}
+  background: #131C28; }
 
 .navigationSlider .slidingNav ul li a {
-    
-    border-bottom: 2px solid transparent;
-    margin: 0 2px;
-}
-
+  margin: 0 2px;
+  border-bottom: 2px solid transparent; }
 .navigationSlider .slidingNav ul li a:focus,
-.navigationSlider .slidingNav ul li a:hover,
-.navigationSlider .slidingNav ul li.siteNavItemActive a,
-.navigationSlider .slidingNav ul li.siteNavGroupActive a {
-    border-color: #14b2e2;
-    /* color: #14b2e2; */
-    background: transparent;
-    transition: all 100ms ease-in;
-}
+.navigationSlider .slidingNav ul li a:hover, .navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+  border-color: #14b2e2;
+  /* color: #14b2e2; */
+  background: transparent;
+  transition: all 100ms ease-in; }
 
 footer.nav-footer {
-    background: linear-gradient(to bottom, #1e2025 0%, #0a0d14 100%);
-}
+  background: linear-gradient(to bottom, #1e2025 0%, #0a0d14 100%); }
 
 h1,
-.mainContainer .wrapper .post h1, 
-.mainContainer .wrapper .post h2, 
+.mainContainer .wrapper .post h1,
+.mainContainer .wrapper .post h2,
 .mainContainer .wrapper .post h3 {
-    color: #1e2025;
-}
+  color: #1e2025; }
 
 nav.toc .toggleNav .navGroup.navGroupActive {
-    background: rgba(230, 230, 230, 1);
-}
+  background: #e6e6e6; }
+  nav.toc .toggleNav .navGroup.navGroupActive h3 {
+    background: linear-gradient(to bottom, #1e2025 0%, #0a0d14 100%); }
 
-nav.toc .toggleNav .navGroup.navGroupActive h3 {
-    background: linear-gradient(to bottom, #1e2025 0%, #0a0d14 100%);
-}
-
-@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
-}
-
-@media only screen and (min-width: 1024px) {
-}
-
-@media only screen and (max-width: 1023px) {
-}
-
-@media only screen and (min-width: 1400px) {
-}
-
-@media only screen and (min-width: 1500px) {
-}
+/*# sourceMappingURL=custom.css.map */
