@@ -1,7 +1,7 @@
 ---
 id: ht_use_react_components_with_vanilla_js
-title: How to Use React Components with Vanilla JavaScript
-sidebar_label: How to Use React Components with Vanilla JavaScript
+title: Use React Components with Vanilla JavaScript
+sidebar_label: Use React Components with Vanilla JavaScript
 copyright: (C) 2007-2018 GoodData Corporation
 ---
 
@@ -12,13 +12,6 @@ This tutorial focuses only on integrating the GoodData UI SDK with Vanilla JavaS
 * Using [webpack](https://webpack.js.org/) to transpile and bundle the files provided by the GoodData UI SDK into a single minified file that can be included by the `<script src=...>` HTML tag
 * Creating Vanilla JavaScript helper functions for attaching and detaching React components to/from DOM nodes
 * Copying the CSS style sheet from the GoodData UI SDK and including it in your HTML page using the `<link src…>` HTML tag
-
-## Prerequisites
-
-You must haveoneof the following software installed on your machine:
-
-* `node.js` and `npm`
-* `yarn`
 
 ## Sample Code
 
