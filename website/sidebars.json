@@ -13,6 +13,12 @@
     ],
     "React Components": [
       "react_components",
+      "table_component",
+      "column_chart_component",
+      "bar_chart_component",
+      "line_chart_component",
+      "area_chart_component",
+      "pie_chart_component",
       "afm_react_components",
       "loading_component",
       "error_component",

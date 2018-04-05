@@ -13,9 +13,9 @@ Following component props can be used as lifecycle callbacks.
 
 | Property | Description | Parameters |
 | :--- | :--- | :--- |
-| onLoadingChanged | function that is called when loading state is change | ```{ isLoading: boolean }``` |
-| onError | function that is called when error state is changed | ```{ status: string, ...}``` |
-| onLoadingChanged  | function that is called when a chart legend is rendered | ```{ legendItems: [...] }``` |
+| onLoadingChanged | A function that is called when loading state is change | ```{ isLoading: boolean }``` |
+| onError | A function that is called when error state is changed | ```{ status: string, ...}``` |
+| onLegendReady  | A function that is called when a chart legend is rendered | ```{ legendItems: [...] }``` |
 
 ## Successful render
 
@@ -51,3 +51,4 @@ This is the order of event that take place during a visualization that encounter
 ## Flow chart
 
 ![Visualization lifecycle chart](assets/visualization_lifecycle.png "Visualization lifecycle chart")
+<!-- https://drive.google.com/open?id=1sNjUcs9s0SOn68lIvVtIE3-edw6EMiY_ -->
