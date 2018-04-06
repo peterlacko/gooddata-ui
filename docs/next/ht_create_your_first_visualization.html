@@ -145,7 +145,7 @@ export default App;
 </code></pre>
 <p>The <code>src/catalog.json</code> file becomes a JSON file in your application.</p>
 <pre><code class="hljs css javascript">{
-  <span class="hljs-string">"metrics"</span>: {
+  <span class="hljs-string">"measures"</span>: {
     <span class="hljs-string">"_Close [BOP]"</span>: {
       <span class="hljs-string">"identifier"</span>: <span class="hljs-string">"aaeb7jTCfexV"</span>,
       <span class="hljs-string">"tags"</span>: <span class="hljs-string">""</span>
@@ -181,7 +181,7 @@ You can now reference the measure using its human-readable alias (<code>Avg Deal
             &lt;/div&gt;
             &lt;Kpi
                projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-               measure={C.metric('Avg Deal Size')} /&gt;
+               measure={C.measure('Avg Deal Size')} /&gt;
             &lt;p className="App-intro"&gt;
                To get started, edit &lt;code&gt;src/App.js&lt;/code&gt; and save to reload.
             &lt;/p&gt;
