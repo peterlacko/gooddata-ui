@@ -2,7 +2,7 @@
 title: Chart Config
 sidebar_label: Chart Config
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-chart_config
+id: version-4.1.1-chart_config
 original_id: chart_config
 ---
 ## Structure

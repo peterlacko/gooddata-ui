@@ -2,7 +2,7 @@
 title: DrillableItem
 sidebar_label: DrillableItem
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-drillable_item
+id: version-4.1.1-drillable_item
 original_id: drillable_item
 ---
 

@@ -2,7 +2,7 @@
 title: Result Specification (resultSpec)
 sidebar_label: Result Specification
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-result_specification
+id: version-4.1.1-result_specification
 original_id: result_specification
 ---
 

@@ -1,10 +1,19 @@
 ---
-title: Build an App
-sidebar_label: Build an App
+title: How to Build an App
+sidebar_label: How to Build an App
 copyright: (C) 2007-2018 GoodData Corporation
 id: version-4.1.1-ht_build_app
 original_id: ht_build_app
 ---
+
+## Prerequisites
+
+To start using GoodData UI SDK, you must have the following:
+
+* An account on the GoodData platform. If you do not have a GoodData account yet, [create a trial one](https://secure.gooddata.com/account.html?lastUrl=%252F#/registration/projectTemplate/urn%253Agooddata%253AOnboardingProductTour).
+* GIT [https://git-scm.com/](https://git-scm.com/)
+* `node.js` &gt; 6.9.1 and `npm` \(shipped together\) [https://nodejs.org/](https://nodejs.org/)
+* \(Optional but recommended\) `yarn` [https://yarnpkg.com/](https://yarnpkg.com/)
 
 ## Build an App from Scratch
 
@@ -269,7 +278,7 @@ render() {
 }
 ```
 
-7. Set up a configobject for your chart.
+7. Set up aconfigobject for your chart.
 
 To personalize the bar chart further \(for example, change colors\), override the default chart options. For more information, see [AFM React Components](amf.md).
 

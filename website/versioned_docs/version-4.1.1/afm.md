@@ -2,7 +2,7 @@
 title: AFM
 sidebar_label: AFM
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-afm
+id: version-4.1.1-afm
 original_id: afm
 ---
 

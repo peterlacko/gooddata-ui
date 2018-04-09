@@ -2,7 +2,7 @@
 title: Legal Notices
 sidebar_label: Legal Notices
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-legal_notices
+id: version-4.1.1-legal_notices
 original_id: legal_notices
 ---
 

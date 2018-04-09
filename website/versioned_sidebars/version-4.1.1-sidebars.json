@@ -1,33 +1,24 @@
 {
   "version-4.1.1-docs": {
     "Introduction": [
-      "version-4.1.1-getting_started",
-      "version-4.1.1-prerequisities",
-      "version-4.1.1-platform_intro"
+      "version-4.1.1-getting_started"
     ],
     "Tutorials": [
       "version-4.1.1-ht_create_your_first_visualization",
+      "version-4.1.1-ht_build_app",
       "version-4.1.1-ht_access_gd_api_directly",
-      "version-4.1.1-cors",
-      "version-4.1.1-ht_render_visualization_from_different_domain"
+      "version-4.1.1-ht_configure_webpack_proxy",
+      "version-4.1.1-ht_set_up_loading_state_for_embedded_insights",
+      "version-4.1.1-ht_use_react_components_with_vanilla_js"
     ],
     "React Components": [
       "version-4.1.1-react_components",
-      "version-4.1.1-table_component",
-      "version-4.1.1-column_chart_component",
-      "version-4.1.1-bar_chart_component",
-      "version-4.1.1-line_chart_component",
-      "version-4.1.1-area_chart_component",
-      "version-4.1.1-pie_chart_component",
       "version-4.1.1-afm_react_components",
-      "version-4.1.1-loading_component",
-      "version-4.1.1-error_component",
       "version-4.1.1-chart_config",
       "version-4.1.1-drillable_item",
       "version-4.1.1-on_legend_ready"
     ],
     "Reference": [
-      "version-4.1.1-visualization_lifecycle",
       "version-4.1.1-afm",
       "version-4.1.1-result_specification",
       "version-4.1.1-execute_component",
@@ -48,7 +39,6 @@
       "version-4.1.1-trouble_shooting",
       "version-4.1.1-ht_use_react_component_in_angular_1.x",
       "version-4.1.1-ht_use_react_component_in_angular_2.x",
-      "version-4.1.1-ht_use_react_components_with_vanilla_js",
       "version-4.1.1-glossary"
     ]
   }

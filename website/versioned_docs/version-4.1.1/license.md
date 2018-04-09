@@ -2,7 +2,7 @@
 title: License
 sidebar_label: License
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-license
+id: version-4.1.1-license
 original_id: license
 ---
 

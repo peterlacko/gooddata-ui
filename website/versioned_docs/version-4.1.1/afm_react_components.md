@@ -2,7 +2,7 @@
 title: AFM React Components
 sidebar_label: AFM React Components
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-afm_react_components
+id: version-4.1.1-afm_react_components
 original_id: afm_react_components
 ---
 
