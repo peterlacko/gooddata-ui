@@ -2,7 +2,7 @@
 title: How to Access the GoodData API Directly
 sidebar_label: How to Access the GoodData API Directly
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-ht_access_gd_api_directly
+id: version-4.1.1-ht_access_gd_api_directly
 original_id: ht_access_gd_api_directly
 ---
 

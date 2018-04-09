@@ -2,7 +2,7 @@
 title: Table Totals in ExecutionObject
 sidebar_label: Table Totals in ExecutionObject
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-table_totals_in_execution_object
+id: version-4.1.1-table_totals_in_execution_object
 original_id: table_totals_in_execution_object
 ---
 

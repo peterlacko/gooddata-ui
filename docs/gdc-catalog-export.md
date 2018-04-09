@@ -136,7 +136,7 @@ import { CatalogHelper } from '@gooddata/react-components';
 import catalogJson from './catalog.json';
 
 const C = new CatalogHelper(catalogJson);
-const revenueId = C.metric('Revenue');
+const revenueId = C.measure('Revenue');
 ```
 
 ### API Reference
@@ -150,7 +150,7 @@ The optional parameters are marked with a question mark.
 ```javascript
 class CatalogHelper {
   // properties for accessing the original structure of supplied JSON file
-  metrics: {};
+  measures: {};
   visualizations: {};
   attributes: {};
   dateDataSets: {};
@@ -158,9 +158,9 @@ class CatalogHelper {
   // supply exported json file as a js object
   constructor(catalog: ICatalog);
 
-  // metric id and metric tag by its name
-  metric(name: string): string;
-  metricTags(name: string): string;
+  // measure id and measure tag by its name
+  measure(name: string): string;
+  measureTags(name: string): string;
 
   // visualization id and tag by its name
   visualization(name: string): string;

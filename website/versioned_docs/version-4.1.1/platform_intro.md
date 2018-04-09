@@ -1,5 +1,5 @@
 ---
-id: version-4.1.0-platform_intro
+id: version-4.1.1-platform_intro
 title: GoodData Platform Introduction
 sidebar_label: Platform Introduction
 copyright: (C) 2007-2018 GoodData Corporation

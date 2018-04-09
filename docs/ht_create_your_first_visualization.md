@@ -205,7 +205,7 @@ $ gdc-catalog-export--project-idla84vcyhrq8jwbu4wpipw66q2sqeb923 --username <you
 
 ```javascript
 {
-  "metrics": {
+  "measures": {
     "_Close [BOP]": {
       "identifier": "aaeb7jTCfexV",
       "tags": ""
@@ -242,7 +242,7 @@ class App extends Component {
             </div>
             <Kpi
                projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-               measure={C.metric('Avg Deal Size')} />
+               measure={C.measure('Avg Deal Size')} />
             <p className="App-intro">
                To get started, edit <code>src/App.js</code> and save to reload.
             </p>

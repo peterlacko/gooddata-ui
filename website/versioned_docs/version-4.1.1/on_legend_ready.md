@@ -2,7 +2,7 @@
 title: OnLegendReady
 sidebar_label: OnLegendReady
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-on_legend_ready
+id: version-4.1.1-on_legend_ready
 original_id: on_legend_ready
 ---
 

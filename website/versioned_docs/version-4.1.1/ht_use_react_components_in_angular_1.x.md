@@ -2,7 +2,7 @@
 title: How to Use React Components in Angular 1.x
 sidebar_label: How to Use React Components in Angular 1.x
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-ht_use_react_component_in_angular_1.x
+id: version-4.1.1-ht_use_react_component_in_angular_1.x
 original_id: ht_use_react_component_in_angular_1.x
 ---
 

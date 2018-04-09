@@ -2,7 +2,7 @@
 title: Glossary
 sidebar_label: Glossary
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-glossary
+id: version-4.1.1-glossary
 original_id: glossary
 ---
 

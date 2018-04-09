@@ -2,7 +2,7 @@
 title: React Components
 sidebar_label: React Components
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-react_components
+id: version-4.1.1-react_components
 original_id: react_components
 ---
 

@@ -2,7 +2,7 @@
 title: Getting Started
 sidebar_label: Getting Started
 copyright: (C) 2007-2018 GoodData Corporation
-id: version-4.1.0-getting_started
+id: version-4.1.1-getting_started
 original_id: getting_started
 ---
 
