@@ -5,39 +5,38 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: visualization_lifecycle
 ---
 
-This page describes events that take place between visualization mount and render. During this time, new datasource is created based on saved visualization identifier or uri and once it's execution is resolved the result is rendered.
+This page describes events that take place between mounting and rendering a visualization. During this time, a new datasource is created based on the saved visualization identifier or URI. Once its execution is resolved, the result is rendered.
 
-Ad hoc insights rendered using components like PieChart or Table also follow the same lifecycle.
+Ad hoc insights rendered using components like PieChart or Table follow the same lifecycle.
 
-Following component props can be used as lifecycle callbacks.
+The following component props can be used as lifecycle callbacks:
 
 | Property | Description | Parameters |
 | :--- | :--- | :--- |
-| onLoadingChanged | A function that is called when loading state is change | ```{ isLoading: boolean }``` |
-| onError | A function that is called when error state is changed | ```{ status: string, ...}``` |
+| onLoadingChanged | A function that is called when a loading state changes | ```{ isLoading: boolean }``` |
+| onError | A function that is called when an error state changes | ```{ status: string, ...}``` |
 | onLegendReady  | A function that is called when a chart legend is rendered | ```{ legendItems: [...] }``` |
 
-## Successful render
+## Visualization Rendered Successfully
 
-This is the order of event that take place during a successful visualization render.
+If a visualization is successfully rendered, the following events occur:
 
-0. Visualization is mounted and rendered immediately using a ```LoadingComponent```
-0. onLoadingChanged callback is called with a parameter ```{ isLoading: true }```
-0. onError callback is called with a parameter ```{ status: "OK" }```
-0. onLoadingChanged callback is called with a parameter ```{ isLoading: false }```
-0. visualization is rendered
-0. onLegendReady callback is called with a parameter ```{ legendItems: [...] }```
+0. The visualization is mounted and rendered immediately using a ```LoadingComponent```.
+0. onLoadingChanged callback is called with a parameter ```{ isLoading: true }```.
+0. onError callback is called with a parameter ```{ status: "OK" }```.
+0. onLoadingChanged callback is called with a parameter ```{ isLoading: false }```.
+0. The visualization is rendered.
+0. onLegendReady callback is called with a parameter ```{ legendItems: [...] }```.
 
-## Failed render
+## Visualization Failed to Render
 
-This is the order of event that take place during a visualization that encountered an error during execution (e.g. data too large).
+If an error is encountered during rendering a visualization (for example, too much data to display), the following events occur:
 
-0. Visualization is mounted and rendered immediately using a ```LoadingComponent```
-0. onLoadingChanged callback is called with a parameter
-```{ isLoading: true }```
-0. onError callback is called with a parameter ```{ status: "OK" }```
-0. onLoadingChanged callback is called with a parameter ```{ isLoading: false }```
-0. onError callback is called with a parameter
+0. The visualization is mounted and rendered immediately using a ```LoadingComponent```.
+0. onLoadingChanged callback is called with a parameter ```{ isLoading: true }```.
+0. onError callback is called with a parameter ```{ status: "OK" }```.
+0. onLoadingChanged callback is called with a parameter ```{ isLoading: false }```.
+0. onError callback is called with the following parameter:
 ```json
 {
     "status": "DATA_TOO_LARGE_TO_DISPLAY",
@@ -46,9 +45,9 @@ This is the order of event that take place during a visualization that encounter
     }
 }
 ```
-6. Visualization is rerendered using ```ErrorComponent```
+6. The visualization is rerendered using an ```ErrorComponent```.
 
-## Flow chart
+## Flow Chart
 
 ![Visualization lifecycle chart](assets/visualization_lifecycle.png "Visualization lifecycle chart")
 <!-- https://drive.google.com/open?id=1sNjUcs9s0SOn68lIvVtIE3-edw6EMiY_ -->
