@@ -1,0 +1,12 @@
+.button {
+    border: none;
+    text-transform: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $gd-color-text;
+        text-decoration: underline !important;
+        background: transparent;
+    }
+}

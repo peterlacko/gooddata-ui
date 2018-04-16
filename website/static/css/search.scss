@@ -1,0 +1,31 @@
+.navSearchWrapper {
+    &::before,
+    &::after {
+        display: none;
+    }
+}
+
+.reactNavSearchWrapper {
+    @media only screen and (max-width: 735px) {
+        top: 15px;
+    }
+
+    input#search_input_react {
+        height: 28px;
+        font-size: 0.8rem;
+        line-height: 28px;
+
+        &,
+        &:focus,
+        &:active {
+            width: 234px;
+            padding: 0 1rem;
+            color: $gd-color-text;
+            background: #ddd;
+        }
+
+        &::placeholder {
+            color: $gd-color-state-blank;
+        }
+    }
+}

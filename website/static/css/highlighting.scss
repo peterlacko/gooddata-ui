@@ -1,0 +1,59 @@
+code,
+.hljs {
+    box-shadow: none;
+    background-color: transparentize(#88aab9, 0.9);
+}
+
+.hljs,
+.hljs-subst {
+    color: $gd-color-text;
+}
+
+.hljs-comment {
+    color: $gd-color-state-blank;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+    color: $gd-color-negative;
+}
+
+.hljs-title,
+.hljs-section {
+    color: darken($gd-color-negative, 20%);
+}
+
+.hljs-regexp,
+.hljs-symbol,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-link,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+    color: lighten($gd-color-negative, 6%);
+}
+
+.hljs-literal {
+    color: $gd-color-positive;
+}
+
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code,
+.hljs-addition {
+    color: darken($gd-color-positive, 12%);
+}
+
+.hljs-meta {
+    color: darken($gd-color-highlight, 12%);
+}
+
+.hljs-meta-string {
+    color: $gd-color-highlight;
+}
