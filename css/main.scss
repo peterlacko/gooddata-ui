@@ -1,0 +1,18 @@
+body,
+.mainContainer {
+    background: #fafafa;
+}
+
+.docMainWrapper.wrapper {
+    margin: 0;
+
+    @media only screen and (min-width: 736px) {
+        padding-left: 0;
+    }
+}
+
+.doc.separateOnPageNav.sideNavVisible .navPusher .mainContainer {
+    @media only screen and (min-width: 1024px) {
+        padding-left: 20px;
+    }
+}

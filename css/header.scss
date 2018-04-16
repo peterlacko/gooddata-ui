@@ -1,25 +1,115 @@
 .fixedHeaderContainer {
-    background: #131C28;
+    height: 64px;
+    padding: 15px 0;
+    background: #fdfdfd;
+
+    header img,
+    .logo {
+        width: 116px;
+        height: 34px;
+    }
+
+    header {
+        display: flex;
+
+        > a {
+            flex: 0 0 auto;
+        }
+
+        a {
+            .logo {
+                opacity: 0.9;
+            }
+
+            &:hover .logo {
+                opacity: 1;
+            }
+        }
+
+        h2,
+        h3 {
+            color: $gd-color-text;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        h3 {
+            font-family: $gd-font-primary;
+            font-size: 14px;
+
+        }
+    }
 }
 
 .navigationSlider {
+    position: relative;
+    flex: 1 1 auto;
+
     .slidingNav {
+        ul {
+            justify-content: center;
+
+            @media only screen and (max-width: 735px) {
+                margin-top: 64px;
+                background-color: rgba(250,250,250,0.9);
+            }
+
+            @media only screen and (min-width: 736px) {
+                margin-right: 218px;
+            }
+        }
+
         ul li {
+            padding-left: 1.4rem;
+            padding-right: 1.4rem;
+
+            @media only screen and (min-width: 736px) {
+                flex: 0 0 auto;
+            }
+
             a {
-                margin: 0 2px;
+                margin: 0;
+                padding-left: 1.4rem;
+                padding-right: 1.4rem;
                 border-bottom: 2px solid transparent;
+                color: transparentize($gd-color-dark, 0.3);
+                font-size: 0.95rem;
+
+                @media only screen and (max-width: 735px) {
+                    height: 1.5rem;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    line-height: 1.5rem;
+                }
             }
 
             a:focus,
             a:hover,
             &.siteNavItemActive a,
             &.siteNavGroupActive a {
-                border-color: #14b2e2;
-                /* color: #14b2e2; */
+                border-bottom-color: $gd-color-highlight;
+                color: transparentize($gd-color-dark, 0.1);
                 background: transparent;
                 transition: all 100ms ease-in;
             }
         }
+    }
+}
+
+.navSearchWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 218px;
+}
+
+.navPusher {
+    padding-top: 88px;
+
+    @media only screen and (min-width: 736px) {
+        padding-top: 64px;
     }
 }
 

@@ -2,4 +2,14 @@
 For now build using `sass static/css/custom.scss static/css/custom.css`
 */
 
+@import 'variables';
+@import 'avenir';
+@import 'typo';
+@import 'global';
 @import 'header';
+@import 'main';
+@import 'navigation';
+@import 'search';
+@import 'highlighting';
+@import 'button';
+@import 'footer';
