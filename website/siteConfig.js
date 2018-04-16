@@ -16,7 +16,7 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'GoodData UI SDK' /* title for your website */,
+  title: 'UI SDK' /* title for your website */,
   tagline: '',
   url: 'https://gooddata.github.io' /* your website url */,
   baseUrl: '/gdc-ui-sdk-doc/' /* base url for your project */,
@@ -24,14 +24,15 @@ const siteConfig = {
   headerLinks: [
     {doc: 'getting_started', label: 'Docs'},
     {doc: 'examples', label: 'Examples'},
-    {doc: 'trouble_shooting', label: 'FAQ'}
+    {doc: 'trouble_shooting', label: 'FAQ'},
+    {search: true},
   ],
   onPageNav: 'separate',
   users,
   /* path to images for header/footer */
   headerIcon: 'img/gooddata_white.svg',
   footerIcon: 'img/gooddata_white.svg',
-  favicon: 'img/favicon.png',
+  favicon: 'img/favicon.ico',
   /* colors for website */
   colors: {
     primaryColor: '#14B2E2',
@@ -64,6 +65,10 @@ const siteConfig = {
   repoUrl: 'https://github.com/gooddata/gooddata-react-components',
   /* On page navigation for the current documentation page */
   // onPageNav: 'separate',
+  /* algolia: {
+    apiKey: 'my-search-only-api-key-1234',
+    indexName: 'my-index-name'
+  }*/
 };
 
 module.exports = siteConfig;

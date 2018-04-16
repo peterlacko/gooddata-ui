@@ -1,0 +1,76 @@
+.doc.separateOnPageNav .docsNavContainer {
+    @media only screen and (min-width: 736px) {
+        flex: 0 0 290px;
+        margin-right: 1rem;
+    }
+}
+
+.docsSliderActive nav.toc .navBreadcrumb,
+.doc.separateOnPageNav .docsNavContainer,
+.navigationSlider .slidingNav ul {
+    @media only screen and (max-width: 735px) {
+        z-index: 1;
+        background: #fdfdfd;
+    }
+}
+
+nav.toc {
+    width: auto;
+
+    .toggleNav {
+        background: transparent;
+
+        @media only screen and (min-width: 736px) {
+            padding: 1.25rem;
+        }
+
+        .navGroup.navGroupActive {
+            margin-bottom: 1.25rem;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.20);
+            background: $gd-color-white;
+
+            h3 {
+                padding: 1.25rem 1.25rem 0;
+                color: $gd-color-dark;
+                font-size: 18px;
+                font-weight: bold;
+                background: transparent;
+            }
+
+            ul li {
+                font-size: 16px;
+                line-height: 22px;
+
+                a {
+                    position: relative;
+                    margin: 0.5rem 1.25rem 0.2rem;
+                    padding: 0 0 0.3rem;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        height: 0;
+                        width: 0;
+                        border-bottom: 2px solid transparent;
+                        transition: .2s width;
+                    }
+
+                    &,
+                    &.navItemActive {
+                        color: $gd-color-text;
+                    }
+
+                    &:hover,
+                    &.navItemActive {
+                        &::before {
+                            width: 100%;
+                            border-bottom-color: $gd-color-highlight;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

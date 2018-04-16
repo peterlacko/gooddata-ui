@@ -1,0 +1,55 @@
+// (C) 2007-2018 GoodData Corporation
+$base_path: '../';
+
+// stylelint-disable function-url-quotes
+
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://webfonts.fonts.com
+*/
+// Avenir LT W02 55 Roman
+@font-face {
+    src: url($base_path + 'fonts/Avenir-LT-W02-55-Roman.eot?#iefix');
+    src:
+        url($base_path + 'fonts/Avenir-LT-W02-55-Roman.eot?#iefix') format('eot'),
+        url($base_path + 'fonts/Avenir-LT-W02-55-Roman.woff') format('woff'),
+        url($base_path + 'fonts/Avenir-LT-W02-55-Roman.ttf') format('truetype'),
+        url($base_path + 'fonts/Avenir-LT-W02-55-Roman.svg#Avenir-LT-W02-55-Roman') format('svg');
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+}
+
+// Avenir LT W02 85 Heavy
+@font-face {
+    src: url($base_path + 'fonts/Avenir-LT-W02-85-Heavy.eot?#iefix');
+    src:
+        url($base_path + 'fonts/Avenir-LT-W02-85-Heavy.eot?#iefix') format('eot'),
+        url($base_path + 'fonts/Avenir-LT-W02-85-Heavy.woff') format('woff'),
+        url($base_path + 'fonts/Avenir-LT-W02-85-Heavy.ttf') format('truetype'),
+        url($base_path + 'fonts/Avenir-LT-W02-85-Heavy.svg#Avenir-LT-W02-85-Heavy') format('svg');
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 700;
+}
+
+// Smoother Rendering in Chrome
+// http://www.fontspring.com/blog/smoother-rendering-in-chrome-update
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: 'Avenir';
+        src: url($base_path + 'fonts/Avenir-LT-W02-55-Roman.svg#Avenir-LT-W02-55-Roman') format('svg');
+        font-style: normal;
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'Avenir';
+        src: url($base_path + 'fonts/Avenir-LT-W02-85-Heavy.svg#Avenir-LT-W02-85-Heavy') format('svg');
+        font-style: normal;
+        font-weight: 700;
+    }
+}
