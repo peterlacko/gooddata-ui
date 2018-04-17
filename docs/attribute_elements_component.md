@@ -5,12 +5,16 @@ sidebar_label: AttributeElements Component
 copyright: (C) 2007-2018 GoodData Corporation
 ---
 
-This is a low level counterpart to the [AttributeFilter component](attribute_filter_component.md) that lists attribute values, but enables you to completely customize how it is rendered. 
-The children function receives four arguments - an array of attributes, a callback to load more values, loading status and optional error object.
+This is a low level counterpart to the [AttributeFilter component](attribute_filter_component.md) that lists attribute values and lets you completely customize how they are rendered. 
+The children function receives the following arguments:
+*  An array of attributes
+*  A callback to load more values
+*  Loading status
+*  An optional error object
 
 ## Example
 
-In the following example we list attribute values as a pair of checkbox and label elements, a 'load more' button and an ```onChange``` callback that logs the selected values to the console.
+In the following example, attribute values are listed as a combination of checkboxes and label elements, a 'load more' button, and an ```onChange``` callback that logs the selected values to the console.
 
 <!-- code from Examples: https://github.com/gooddata/gooddata-react-components/blob/master/examples/src/components/AttributeElementsExample.jsx -->
 ```javascript
