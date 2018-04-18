@@ -15,80 +15,83 @@ The children function receives the following arguments:</p>
 <h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
 <p>In the following example, attribute values are listed as a combination of checkboxes and label elements, a 'load more' button, and an <code>onChange</code> callback that logs the selected values to the console.</p>
 <!-- code from Examples: https://github.com/gooddata/gooddata-react-components/blob/master/examples/src/components/AttributeElementsExample.jsx -->
-```javascript
-import React, { Component } from 'react';
-import { AttributeElements } from '@gooddata/react-components';
-import PropTypes from 'prop-types';
-<p>import '@gooddata/react-components/styles/css/main.css';</p>
-<p>import { employeeNameIdentifier, projectId } from '../utils/fixtures';</p>
-<p>export class AttributeFilterItem extends Component {
-static propTypes = {
-title: PropTypes.string.isRequired,
-uri: PropTypes.string.isRequired
-};</p>
-<pre><code class="hljs">onChange(uri) {
-    // eslint-disable-next-line no-console
-    return event =&gt; console.log('AttributeFilterItem onChange', uri, event.target.value === 'on');
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { AttributeElements } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+<span class="hljs-keyword">import</span> PropTypes <span class="hljs-keyword">from</span> <span class="hljs-string">'prop-types'</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
+
+<span class="hljs-keyword">import</span> { employeeNameIdentifier, projectId } <span class="hljs-keyword">from</span> <span class="hljs-string">'../utils/fixtures'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AttributeFilterItem</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">static</span> propTypes = {
+        <span class="hljs-attr">title</span>: PropTypes.string.isRequired,
+        <span class="hljs-attr">uri</span>: PropTypes.string.isRequired
+    };
+
+    onChange(uri) {
+        <span class="hljs-comment">// eslint-disable-next-line no-console</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'AttributeFilterItem onChange'</span>, uri, event.target.value === <span class="hljs-string">'on'</span>);
+    }
+
+    render() {
+        <span class="hljs-keyword">const</span> { title, uri } = <span class="hljs-keyword">this</span>.props;
+        <span class="hljs-keyword">return</span> (
+            &lt;label className="gd-list-item s-attribute-filter-list-item" style={{ display: 'inline-flex' }}&gt;
+                &lt;input type="checkbox" className="gd-input-checkbox" onChange={this.onChange(uri)} /&gt;
+                &lt;span&gt;{title}&lt;/span&gt;
+            &lt;/label&gt;
+        );
+    }
 }
 
-render() {
-    const { title, uri } = this.props;
-    return (
-        &lt;label className=&quot;gd-list-item s-attribute-filter-list-item&quot; style={{ display: 'inline-flex' }}&gt;
-            &lt;input type=&quot;checkbox&quot; className=&quot;gd-input-checkbox&quot; onChange={this.onChange(uri)} /&gt;
-            &lt;span&gt;{title}&lt;/span&gt;
-        &lt;/label&gt;
-    );
-}
-</code></pre>
-<p>}</p>
-<p>export class AttributeElementsExample extends Component {
-render() {
-return (
-&lt;div style={{ minHeight: 500 }}&gt;
-&lt;AttributeElements identifier={employeeNameIdentifier} projectId={projectId} options={{ limit: 20 }}&gt;
-{({ validElements, loadMore, isLoading, error }) =&gt; {
-const {
-offset = null,
-count = null,
-total = null
-} = validElements ? validElements.paging : {};
-if (error) {
-return <div>{error}</div>;
-}
-return (
-<div>
-&lt;button
-className=&quot;button button-secondary s-show-more-filters-button&quot;
-onClick={loadMore}
-disabled={isLoading || (offset + count === total)}
-&gt;More
-</button>
-<h2>validElements</h2>
-<pre>
-isLoading: {isLoading.toString()}<br />
-offset: {offset}<br />
-count: {count}<br />
-total: {total}<br />
-nextOffset: {offset + count}
-</pre>
-<div>
-{validElements ? validElements.items.map(item =&gt; (
-<AttributeFilterItem
+export class AttributeElementsExample extends Component {
+    render() {
+        return (
+            &lt;div style={{ minHeight: 500 }}&gt;
+                &lt;AttributeElements identifier={employeeNameIdentifier} projectId={projectId} options={{ limit: 20 }}&gt;
+                    {({ validElements, loadMore, isLoading, error }) =&gt; {
+                        const {
+                            offset = null,
+                            count = null,
+                            total = null
+                        } = validElements ? validElements.paging : {};
+                        if (error) {
+                            return &lt;div&gt;{error}&lt;/div&gt;;
+                        }
+                        return (
+                            &lt;div&gt;
+                                &lt;button
+                                    className="button button-secondary s-show-more-filters-button"
+                                    onClick={loadMore}
+                                    disabled={isLoading || (offset + count === total)}
+                                &gt;More
+                                &lt;/button&gt;
+                                &lt;h2&gt;validElements&lt;/h2&gt;
+                                &lt;pre&gt;
+                                    isLoading: {isLoading.toString()}&lt;br /&gt;
+                                    offset: {offset}&lt;br /&gt;
+                                    count: {count}&lt;br /&gt;
+                                    total: {total}&lt;br /&gt;
+                                    nextOffset: {offset + count}
+                                &lt;/pre&gt;
+                                &lt;div&gt;
+                                    {validElements ? validElements.items.map(item =&gt; (
+                                        &lt;AttributeFilterItem
                                             key={item.element.uri}
                                             uri={item.element.uri}
                                             title={item.element.title}
-                                        />
-)) : null}
-</div>
-{validElements ? <pre>{JSON.stringify(validElements, null, '  ')}</pre> : null}
-</div>
-);
-}}
-</AttributeElements>
-</div>
-);
+                                        /&gt;
+                                    )) : null}
+                                &lt;/div&gt;
+                                {validElements ? &lt;pre&gt;{JSON.stringify(validElements, null, '  ')}&lt;/pre&gt; : null}
+                            &lt;/div&gt;
+                        );
+                    }}
+                &lt;/AttributeElements&gt;
+            &lt;/div&gt;
+        );
+    }
 }
-}</p>
-<pre><code class="hljs"></code></pre>
+</code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="attribute_filter_component.html">← AttributeFilter Component</a><a class="docs-next button" href="loading_component.html">LoadingComponent →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#example">Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="text-align:center;"><a href="/gdc-ui-sdk-doc/" class="nav-home"><img src="/gdc-ui-sdk-doc/img/gooddata_white.svg" alt="UI SDK" width="66" height="58"/></a><ul><li><a href="/gdc-ui-sdk-doc/docs/getting_started.html">Docs</a></li><li><a href="/gdc-ui-sdk-doc/docs/examples.html">Examples</a></li><li><a href="/gdc-ui-sdk-doc/docs/trouble_shooting.html">FAQ</a></li></ul></section><section class="copyright">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved</section></footer></div></body></html>

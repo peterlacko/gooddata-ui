@@ -9,28 +9,30 @@
 <h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
 <p>In the following example, attribute values are listed and the <code>onApply</code> callback function is triggered when a user clicks <strong>Apply</strong> to confirm the selection.</p>
 <!-- code from Examples: https://github.com/gooddata/gooddata-react-components/blob/master/examples/src/components/AttributeFilterExample.jsx -->
-```javascript
-import React, { Component } from 'react';
-import { AttributeFilter } from '@gooddata/react-components';
-<p>import '@gooddata/react-components/styles/css/main.css';</p>
-<p>import { employeeNameIdentifier, projectId } from '../utils/fixtures';</p>
-<p>export class AttributeFilterExample extends Component {
-onApply(params) {
-// eslint-disable-next-line no-console
-console.log('AttributeFilterExample onApply', ...params);
-}</p>
-<pre><code class="hljs">render() {
-    return (
-        &lt;div&gt;
-            &lt;AttributeFilter
-                identifier={employeeNameIdentifier}
-                projectId={projectId}
-                onApply={this.onApply}
-            /&gt;
-        &lt;/div&gt;
-    );
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
+<span class="hljs-keyword">import</span> { AttributeFilter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
+
+<span class="hljs-keyword">import</span> { employeeNameIdentifier, projectId } <span class="hljs-keyword">from</span> <span class="hljs-string">'../utils/fixtures'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AttributeFilterExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    onApply(params) {
+        <span class="hljs-comment">// eslint-disable-next-line no-console</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'AttributeFilterExample onApply'</span>, ...params);
+    }
+
+    render() {
+        <span class="hljs-keyword">return</span> (
+            <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">AttributeFilter</span>
+                    <span class="hljs-attr">identifier</span>=<span class="hljs-string">{employeeNameIdentifier}</span>
+                    <span class="hljs-attr">projectId</span>=<span class="hljs-string">{projectId}</span>
+                    <span class="hljs-attr">onApply</span>=<span class="hljs-string">{this.onApply}</span>
+                /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        );
+    }
 }
-</code></pre>
-<p>}</p>
-<pre><code class="hljs"></code></pre>
+</span></code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="afm_react_components.html">← AFM React Components</a><a class="docs-next button" href="attribute_elements_component.html">AttributeElements Component →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#example">Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="text-align:center;"><a href="/gdc-ui-sdk-doc/" class="nav-home"><img src="/gdc-ui-sdk-doc/img/gooddata_white.svg" alt="UI SDK" width="66" height="58"/></a><ul><li><a href="/gdc-ui-sdk-doc/docs/getting_started.html">Docs</a></li><li><a href="/gdc-ui-sdk-doc/docs/examples.html">Examples</a></li><li><a href="/gdc-ui-sdk-doc/docs/trouble_shooting.html">FAQ</a></li></ul></section><section class="copyright">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved</section></footer></div></body></html>
