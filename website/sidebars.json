@@ -17,15 +17,19 @@
       "sso",
       "ht_render_visualization_from_different_domain"
     ],
-    "React Components": [
-      "react_components",
-      "table_component",
-      "column_chart_component",
-      "bar_chart_component",
-      "line_chart_component",
+    "Visual Components": [
+      "start_with_visual_components",
       "area_chart_component",
-      "pie_chart_component",
+      "bar_chart_component",
+      "column_chart_component",
       "headline_component",
+      "kpi_component",
+      "line_chart_component",
+      "pie_chart_component",
+      "table_component",
+      "visualization_component"
+    ],
+    "Properties": [
       "afm_react_components",
       "attribute_filter_component",
       "attribute_elements_component",

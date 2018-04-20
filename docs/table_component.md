@@ -1,11 +1,11 @@
 ---
-title: Table Component
-sidebar_label: Table Component
+title: Table
+sidebar_label: Table
 copyright: (C) 2007-2018 GoodData Corporation
 id: table_component
 ---
 
-Table component is used to show data in columns and rows. Compared to charts you can also display only attribute values without any metrics. Tables have also higher limits for datapoint count.
+The Table component shows data in columns and rows. Unlike charts, a table can display only attribute values without any measures. Also, tables have higher limits for the number of datapoints to display.
 
 ![Table Component](assets/table.png "Table Component")
 
@@ -52,17 +52,17 @@ const attributes = [
 
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
-| projectId | false | string | Project ID |
+| projectId | false | string | The project ID |
 | measures | false | Measure[] | An array of measure definitions |
 | attributes | false | Attribute[] | An array of attribute definitions |
 | totals | false | Total[] | An array of total definitions |
 | filters | false | Filter[] | An array of filter definitions |
-| locale | false | string | Location string for translations |
+| locale | false | string | The location string for translations |
 | drillableItems | false | DrillableItem[] | An array of points and attribute values to be drillable
 | ErrorComponent | false | Component | A component to be rendered if this component is in error state |
 | LoadingComponent | false | Component | A component to be rendered if this component is in loading state |
-| onError | false | Function | A callback when component updates it's error state |
-| onLoadingChanged | false | Function | A callback when component updates it's loading state |
+| onError | false | Function | A callback when component updates its error state |
+| onLoadingChanged | false | Function | A callback when component updates its loading state |
 
 <!-- These internals are intentionally undocumented
 | afterRender | false | Function | A callback after component is rendered |
