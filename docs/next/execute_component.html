@@ -35,8 +35,8 @@
  
 &lt;Execute afm={&lt;afm&gt;} projectId={&lt;project-id&gt;}&gt; onLoadingChanged={e=&gt;{}} onError={e=&gt;{}}&gt;
     {
-        (executionResult) =&gt; {
-            console.log(isEmptyResult(executionResult) ? 'empty result' : executionResult);
+        (execution) =&gt; {
+            console.log(isEmptyResult(execution.result) ? 'empty result' : execution.result);
         }
     }
 &lt;/Execute&gt;
@@ -110,107 +110,139 @@
 <h2><a class="anchor" aria-hidden="true" id="complex-use-case-example"></a><a href="#complex-use-case-example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complex Use Case Example</h2>
 <p>In this example, you can see how to handle <code>onLoadingChanged</code> and <code>onError</code> callbacks within a custom component. The React <code>key</code> prop is used here to force remounting of the Execute component on retry. The example fails randomly 50% of the time to showcase handling of error states.</p>
 <pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
-<span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
-<span class="hljs-keyword">import</span> { Execute } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+<span class="hljs-keyword">import</span> { Execute, isEmptyResult } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
 
+<span class="hljs-keyword">import</span> { totalSalesIdentifier, projectId } <span class="hljs-keyword">from</span> <span class="hljs-string">'../utils/fixtures'</span>;
+<span class="hljs-keyword">import</span> { Loading } <span class="hljs-keyword">from</span> <span class="hljs-string">'./utils/Loading'</span>;
+<span class="hljs-keyword">import</span> { <span class="hljs-built_in">Error</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'./utils/Error'</span>;
 
-<span class="hljs-comment">// This generates true/false randomly, so we can test failing execution</span>
-<span class="hljs-keyword">const</span> randomBoolean = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (<span class="hljs-built_in">Math</span>.random() &gt;= <span class="hljs-number">0.5</span> ? <span class="hljs-string">''</span> : <span class="hljs-string">'fail'</span>);
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ExecuteExample</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    <span class="hljs-keyword">constructor</span>(props) {
+        <span class="hljs-keyword">super</span>(props);
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomExecute</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
-  <span class="hljs-keyword">constructor</span>(props) {
-    <span class="hljs-keyword">super</span>(props);
-
-    <span class="hljs-comment">// We need to track error and isLoading states, executionNumber to force remount of execution component</span>
-    <span class="hljs-keyword">this</span>.state = {
-      <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>,
-      <span class="hljs-attr">isLoading</span>: <span class="hljs-literal">true</span>,
-      <span class="hljs-attr">executionNumber</span>: <span class="hljs-number">0</span>,
-      <span class="hljs-attr">willFail</span>: randomBoolean()
-    };
-    <span class="hljs-keyword">this</span>.onLoadingChanged = <span class="hljs-keyword">this</span>.onLoadingChanged.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.onError = <span class="hljs-keyword">this</span>.onError.bind(<span class="hljs-keyword">this</span>);
-    <span class="hljs-keyword">this</span>.retry = <span class="hljs-keyword">this</span>.retry.bind(<span class="hljs-keyword">this</span>);
-  }
-
-  onLoadingChanged({isLoading}) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'isLoading'</span>, isLoading);
-    <span class="hljs-comment">// onLoadingChanged must reset error, so that we are not in error during loading</span>
-    <span class="hljs-comment">// onError is run after onLoadingChanged, so we do not have to worry about overriding current error</span>
-    <span class="hljs-keyword">this</span>.setState({
-      isLoading,
-      <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>
-    });
-  }
-
-  onError(error) {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'onError'</span>, error);
-    <span class="hljs-keyword">this</span>.setState({
-      error
-    });
-  }
-
-  retry() {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'retry'</span>);
-    <span class="hljs-comment">// We need to track executionNumber so that we can remount Execute component</span>
-    <span class="hljs-comment">// In order to showcase error states, here we also decide if the next execution will fail or not</span>
-    <span class="hljs-keyword">this</span>.setState({
-      <span class="hljs-attr">executionNumber</span>: <span class="hljs-keyword">this</span>.state.executionNumber + <span class="hljs-number">1</span>,
-      <span class="hljs-attr">willFail</span>: randomBoolean()
-    });
-  }
-
-  render() {
-    <span class="hljs-keyword">const</span> { error, isLoading, executionNumber, willFail } = <span class="hljs-keyword">this</span>.state;
-    <span class="hljs-keyword">const</span> projectId = <span class="hljs-string">'hdint8y1xvk9oyns1r0iefknwivzlb4g'</span>;
-    <span class="hljs-keyword">const</span> afm = {
-      <span class="hljs-attr">measures</span>: [
-        {
-          <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'measure'</span>,
-          <span class="hljs-attr">definition</span>: {
-              <span class="hljs-attr">measure</span>: {
-                  <span class="hljs-attr">item</span>: {
-                      <span class="hljs-comment">// In order to showcase the fail state, we send invalid measure uri</span>
-                      uri: willFail ? <span class="hljs-string">`/gdc/md/<span class="hljs-subst">${projectId}</span>/obj/15415`</span> : <span class="hljs-literal">null</span>
-                  },
-                  <span class="hljs-attr">aggregation</span>: <span class="hljs-string">'sum'</span>
-              }
-          }
-        }
-      ]
-    };
-
-    <span class="hljs-keyword">let</span> status = <span class="hljs-literal">null</span>;
-
-    <span class="hljs-comment">// This is how we render loading and error states</span>
-    <span class="hljs-keyword">if</span> (isLoading) {
-      status = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Loading…<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;
-    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(error) {
-      status = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Oops, error!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></span>;
+        <span class="hljs-comment">// We need to track error and isLoading states, executionNumber to force remount of execution component</span>
+        <span class="hljs-keyword">this</span>.state = {
+            <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>,
+            <span class="hljs-attr">isLoading</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">executionNumber</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">willFail</span>: <span class="hljs-literal">true</span>
+        };
+        <span class="hljs-keyword">this</span>.onLoadingChanged = <span class="hljs-keyword">this</span>.onLoadingChanged.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.onError = <span class="hljs-keyword">this</span>.onError.bind(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">this</span>.retry = <span class="hljs-keyword">this</span>.retry.bind(<span class="hljs-keyword">this</span>);
     }
 
-    <span class="hljs-keyword">return</span> (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-      {status}
-      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.retry}</span>&gt;</span>Retry<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span> (fails randomly 50%)<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
-      {/* We need to render the Execute component even during loading otherwise the ongoing request is cancelled */}
-      <span class="hljs-tag">&lt;<span class="hljs-name">Execute</span>
-        <span class="hljs-attr">key</span>=<span class="hljs-string">{executionNumber}</span>
-        <span class="hljs-attr">afm</span>=<span class="hljs-string">{afm}</span>
-        <span class="hljs-attr">projectId</span>=<span class="hljs-string">{projectId}</span>
-        <span class="hljs-attr">onLoadingChanged</span>=<span class="hljs-string">{this.onLoadingChanged}</span>
-        <span class="hljs-attr">onError</span>=<span class="hljs-string">{this.onError}</span>
-        <span class="hljs-attr">children</span>=<span class="hljs-string">{</span>
-          (<span class="hljs-attr">executionResult</span>) =&gt;</span> {
-            console.log(executionResult);
-            return !error ? (<span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>Example KPI: <span class="hljs-tag">&lt;<span class="hljs-name">big</span>&gt;</span>{executionResult.result.executionResult.executionResult.data[0]}<span class="hljs-tag">&lt;/<span class="hljs-name">big</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
-              <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>{JSON.stringify(executionResult, null, '  ')}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
-            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>) : <span class="hljs-tag">&lt;<span class="hljs-name">div</span> /&gt;</span>;
-          }
+    onLoadingChanged({ isLoading }) {
+        <span class="hljs-comment">// eslint-disable-next-line no-console</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'isLoading'</span>, isLoading);
+        <span class="hljs-comment">// onLoadingChanged must reset the error so that we are not in error during loading</span>
+        <span class="hljs-comment">// onError is run after onLoadingChanged so we do not have to worry about an overriding current error</span>
+        <span class="hljs-keyword">this</span>.setState({
+            isLoading,
+            <span class="hljs-attr">error</span>: <span class="hljs-literal">null</span>
+        });
+    }
+
+    onError(error) {
+        <span class="hljs-comment">// eslint-disable-next-line no-console</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'onError'</span>, error);
+        <span class="hljs-keyword">this</span>.setState({
+            error
+        });
+    }
+
+    retry() {
+        <span class="hljs-comment">// eslint-disable-next-line no-console</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'retry'</span>);
+        <span class="hljs-comment">// We need to track executionNumber so that we can remount the Execute component</span>
+        <span class="hljs-comment">// To showcase error states, here we also decide if the next execution will fail or not</span>
+        <span class="hljs-keyword">this</span>.setState({
+            <span class="hljs-attr">executionNumber</span>: <span class="hljs-keyword">this</span>.state.executionNumber + <span class="hljs-number">1</span>,
+            <span class="hljs-attr">willFail</span>: <span class="hljs-keyword">this</span>.state.executionNumber % <span class="hljs-number">2</span>
+        });
+    }
+
+    executeChildrenFunction(res) {
+        <span class="hljs-built_in">console</span>.log(res);
+        <span class="hljs-keyword">const</span> { result, isLoading, error } = res;
+
+        <span class="hljs-keyword">if</span> (error) {
+            <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Error</span> <span class="hljs-attr">error</span>=<span class="hljs-string">{error}</span> /&gt;</span>;
         }
-      /&gt;
-    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>);
-  }
+        if (isLoading) {
+            return <span class="hljs-tag">&lt;<span class="hljs-name">Loading</span> /&gt;</span>;
+        }
+        return (
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">jsx</span>&gt;</span><span class="undefined">{`
+                    .kpi {
+                        height: 60px;
+                        margin: 10px 0;
+                        font-size: 50px;
+                        line-height: 60px;
+                        white-space: nowrap;
+                        vertical-align: bottom;
+                        font-weight: 700;
+                    }
+                `}</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"kpi s-execute-kpi"</span>&gt;</span>{result.executionResult.executionResult.data[0]}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Full execution response and result as JSON:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pre</span>&gt;</span>{JSON.stringify({ result, isLoading, error }, null, '  ')}<span class="hljs-tag">&lt;/<span class="hljs-name">pre</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        );
+    }
+
+    render() {
+        const { error, isLoading, executionNumber, willFail } = this.state;
+        const afm = {
+            measures: [
+                {
+                    localIdentifier: 'measure',
+                    definition: {
+                        measure: {
+                            item: {
+                                // To showcase the fail state, we send the invalid measure URI
+                                identifier: willFail ? totalSalesIdentifier : null
+                            }
+                        }
+                    }
+                }
+            ]
+        };
+
+        let status = null;
+
+        // This is how we render loading and error states
+        if (isLoading) {
+            status = <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"gd-message progress"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"gd-message-text"</span>&gt;</span>Loading…<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
+        } else if (error) {
+            status = <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"gd-message error"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"gd-message-text"</span>&gt;</span>Oops, simulated error! Retry?<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>;
+        }
+
+        return (
+            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+                {status}
+                <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.retry}</span> <span class="hljs-attr">className</span>=<span class="hljs-string">"button button-secondary s-retry-button"</span>&gt;</span>Retry<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+                    (fails every second attempt)
+                <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+                {/*
+                    We need to render the Execute component even in loading
+                    otherwise the ongoing request is cancelled
+                */}
+                <span class="hljs-tag">&lt;<span class="hljs-name">Execute</span>
+                    <span class="hljs-attr">key</span>=<span class="hljs-string">{executionNumber}</span>
+                    <span class="hljs-attr">afm</span>=<span class="hljs-string">{afm}</span>
+                    <span class="hljs-attr">projectId</span>=<span class="hljs-string">{projectId}</span>
+                    <span class="hljs-attr">onLoadingChanged</span>=<span class="hljs-string">{this.onLoadingChanged}</span>
+                    <span class="hljs-attr">onError</span>=<span class="hljs-string">{this.onError}</span>
+                &gt;</span>{this.executeChildrenFunction}
+                <span class="hljs-tag">&lt;/<span class="hljs-name">Execute</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        );
+    }
 }
+
+export default ExecuteExample;
 </span></code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="result_specification.html">← Result Specification (resultSpec)</a><a class="docs-next button" href="data_layer.html">DataLayer →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#parameters">Parameters</a></li><li><a href="#example">Example</a></li><li><a href="#execution-result">Execution result</a><ul class="toc-headings"><li><a href="#structure">Structure</a></li></ul></li><li><a href="#complex-use-case-example">Complex Use Case Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="text-align:center;"><a href="/gdc-ui-sdk-doc/" class="nav-home"><img src="/gdc-ui-sdk-doc/img/gooddata_white.svg" alt="UI SDK" width="66" height="58"/></a><ul><li><a href="/gdc-ui-sdk-doc/docs/getting_started.html">Docs</a></li><li><a href="/gdc-ui-sdk-doc/docs/examples.html">Examples</a></li><li><a href="/gdc-ui-sdk-doc/docs/trouble_shooting.html">FAQ</a></li></ul></section><section class="copyright">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved</section></footer></div></body></html>

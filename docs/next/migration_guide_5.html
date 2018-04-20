@@ -1,0 +1,115 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Migration guide to React Components v5.x.x · UI SDK</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Migration guide to React Components v5.x.x · UI SDK"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/gdc-ui-sdk-doc/index.html"/><meta property="og:description" content="## [@gooddata/data-layer](https://yarnpkg.com/en/package/@gooddata/data-layer) deprecated"/><link rel="shortcut icon" href="/gdc-ui-sdk-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/gdc-ui-sdk-doc/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/gdc-ui-sdk-doc/"><img class="logo" src="/gdc-ui-sdk-doc/img/gooddata_white.svg"/><h2 class="headerTitle">UI SDK</h2></a><a href="/gdc-ui-sdk-doc/versions.html"><h3>next</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/gdc-ui-sdk-doc/docs/next/getting_started.html" target="_self">Docs</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/next/examples.html" target="_self">Examples</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/next/trouble_shooting.html" target="_self">FAQ</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Migration guide to React Components v5.x.x</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="gooddata-data-layer-https-yarnpkgcom-en-package-gooddata-data-layer-deprecated"></a><a href="#gooddata-data-layer-https-yarnpkgcom-en-package-gooddata-data-layer-deprecated" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://yarnpkg.com/en/package/@gooddata/data-layer">@gooddata/data-layer</a> deprecated</h2>
+<p>This package is deprecated. Functionality was merged into <a href="https://github.com/gooddata/gooddata-js">gooddata-js</a> repository. Package <code>gooddata</code> was renamed to <code>@gooddata/gooddata-js</code>. So use <code>@gooddata/gooddata-js@6.0.0</code> package instead of <code>@gooddata/data-layer</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-usage"></a><a href="#example-usage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example usage</h3>
+<p>Old way:</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { ExecuteAdapter } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/data-layer'</span>;
+
+<span class="hljs-keyword">const</span> adapter = ExecuteAfmAdapter;
+</code></pre>
+<p>New way:</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { DataLayer } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/gooddata-js'</span>;
+
+<span class="hljs-keyword">const</span> adapter = DataLayer.ExecuteAfmAdapter;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="gooddata-react-components-500-https-yarnpkgcom-en-package-gooddata-react-components"></a><a href="#gooddata-react-components-500-https-yarnpkgcom-en-package-gooddata-react-components" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://yarnpkg.com/en/package/@gooddata/react-components">@gooddata/react-components@5.0.0</a></h2>
+<h3><a class="anchor" aria-hidden="true" id="react-1562"></a><a href="#react-1562" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>React 15.6.2</h3>
+<p>Upgrade React from 15.3.2 to 15.6.2</p>
+<pre><code class="hljs css bash">yarn upgrade react@15.6.2
+yarn upgrade react-dom@15.6.2
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="components-with-buckets-interface"></a><a href="#components-with-buckets-interface" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Components with buckets interface</h2>
+<p><a href="http://sdk.gooddata.com/gdc-ui-sdk-doc/docs/afm_react_components.html">AFM React Components</a> will be deprecated in one of the the next versions. We suggest to use components with buckets interface. E.g. <a href="/gdc-ui-sdk-doc/docs/next/line_chart_component.html">Line Chart Component</a></p>
+<p><a href="http://sdk.gooddata.com/gdc-ui-sdk-doc/docs/execute_component.html">Execute Component</a> and <a href="/gdc-ui-sdk-doc/docs/next/react_components.html">KPI and Visualization</a> are without change.</p>
+<h3><a class="anchor" aria-hidden="true" id="example-usage"></a><a href="#example-usage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example usage</h3>
+<p>Old way:</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { AfmComponents } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+ 
+<span class="hljs-keyword">const</span> { BarChart } = AfmComponents;
+ 
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">BarChart</span>
+    <span class="hljs-attr">afm</span>=<span class="hljs-string">{{</span>
+        <span class="hljs-attr">measures:</span> [
+            {
+                <span class="hljs-attr">localIdentifier:</span> '<span class="hljs-attr">CustomMeasureID</span>',
+                <span class="hljs-attr">definition:</span> {
+                    <span class="hljs-attr">measure:</span> {
+                        <span class="hljs-attr">item:</span> {
+                            <span class="hljs-attr">identifier:</span> '<span class="hljs-attr">acKjadJIgZUN</span>'
+                        }
+                    }
+                },
+                <span class="hljs-attr">alias:</span> '# <span class="hljs-attr">of</span> <span class="hljs-attr">Activities</span>'
+            }
+        ],
+        <span class="hljs-attr">attributes:</span> [
+            {
+                <span class="hljs-attr">localIdentifier:</span> '<span class="hljs-attr">a1</span>',
+                <span class="hljs-attr">displayForm:</span> {
+                    <span class="hljs-attr">identifier:</span> '<span class="hljs-attr">label.activity.type</span>'
+                }
+            }
+        ]
+    }}
+    <span class="hljs-attr">projectId</span>=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+    <span class="hljs-attr">resultSpec</span>=<span class="hljs-string">{}</span>
+/&gt;</span>
+</span></code></pre>
+<p>New way:</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { BarChart } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
+
+<span class="hljs-keyword">const</span> numOfActivities = {
+    <span class="hljs-attr">measure</span>: {
+        <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'CustomMeasureID'</span>,
+        <span class="hljs-attr">definition</span>: {
+            <span class="hljs-attr">measureDefinition</span>: {
+                <span class="hljs-attr">item</span>: {
+                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'acKjadJIgZUN'</span>
+                }
+            }
+        },
+        <span class="hljs-attr">alias</span>: <span class="hljs-string">'# of Activities'</span>
+    }
+};
+
+<span class="hljs-keyword">const</span> activityType = {
+    <span class="hljs-attr">visualizationAttribute</span>: {
+        <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'a1'</span>,
+        <span class="hljs-attr">displayForm</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'label.activity.type'</span>
+        }
+    }
+};
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">{{</span> <span class="hljs-attr">height:</span> <span class="hljs-attr">300</span> }}&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">BarChart</span>
+        <span class="hljs-attr">projectId</span>=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+        <span class="hljs-attr">measures</span>=<span class="hljs-string">{[numOfActivities]}</span>
+        <span class="hljs-attr">viewBy</span>=<span class="hljs-string">{activityType}</span>
+    /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</span></code></pre>
+<h3><a class="anchor" aria-hidden="true" id="loadingcomponent-and-errorcomponent-properties"></a><a href="#loadingcomponent-and-errorcomponent-properties" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LoadingComponent and ErrorComponent properties</h3>
+<p><code>@gooddata/react-components@5.0.0</code> now supports <a href="/gdc-ui-sdk-doc/docs/next/loading_component.html">Loading Component</a> and <a href="/gdc-ui-sdk-doc/docs/next/error_component.html">Error Component</a> properties which shows GoodData loading component and GoodData error component by default. If you want disable default components, you must set <code>LoadingComponent={null}</code> and <code>ErrorComponent={null}</code> properties in your components. You probably want disable default GoodData Loading and Error components if you already have implemented your own loading and errors based on <code>onError</code> and <code>onLoadingChanged</code> callbacks.</p>
+<h3><a class="anchor" aria-hidden="true" id="remove-backward-compatible-cataloghelper-code"></a><a href="#remove-backward-compatible-cataloghelper-code" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remove backward compatible CatalogHelper code</h3>
+<p>With <code>@gooddata/react-components@4.1.1</code> you could have used e.g.:</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> { CatalogHelper } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>
+<span class="hljs-keyword">import</span> catalogJson <span class="hljs-keyword">from</span> <span class="hljs-string">'./catalog.json'</span>;
+
+<span class="hljs-keyword">const</span> C = <span class="hljs-keyword">new</span> CatalogHelper(catalogJson);
+
+<span class="hljs-keyword">const</span> measure = C.metric(<span class="hljs-string">'Amount'</span>);
+<span class="hljs-keyword">const</span> measure = C.metricTags(<span class="hljs-string">'Revenue'</span>);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">const</span> measure = C.measure(<span class="hljs-string">'Amount'</span>);
+<span class="hljs-keyword">const</span> measure = C.measureTags(<span class="hljs-string">'Revenue'</span>);
+</code></pre>
+<p>With <code>@gooddata/react-components@5.0.0</code> you must use only</p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">const</span> measure = C.measure(<span class="hljs-string">'Amount'</span>);
+<span class="hljs-keyword">const</span> measure = C.measureTags(<span class="hljs-string">'Revenue'</span>);
+</code></pre>
+<p>You must also upgrade your globally installed <a href="https://yarnpkg.com/en/package/gdc-catalog-export">gdc-catalog-export</a></p>
+<pre><code class="hljs css bash">yarn global upgrade gdc-catalog-export
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#gooddata-data-layer-https-yarnpkgcom-en-package-gooddata-data-layer-deprecated">[@gooddata/data-layer](https://yarnpkg.com/en/package/@gooddata/data-layer) deprecated</a><ul class="toc-headings"><li><a href="#example-usage">Example usage</a></li></ul></li><li><a href="#gooddata-react-components-500-https-yarnpkgcom-en-package-gooddata-react-components">[@gooddata/react-components@5.0.0](https://yarnpkg.com/en/package/@gooddata/react-components)</a><ul class="toc-headings"><li><a href="#react-1562">React 15.6.2</a></li></ul></li><li><a href="#components-with-buckets-interface">Components with buckets interface</a><ul class="toc-headings"><li><a href="#example-usage">Example usage</a></li><li><a href="#loadingcomponent-and-errorcomponent-properties">LoadingComponent and ErrorComponent properties</a></li><li><a href="#remove-backward-compatible-cataloghelper-code">Remove backward compatible CatalogHelper code</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap" style="text-align:center;"><a href="/gdc-ui-sdk-doc/" class="nav-home"><img src="/gdc-ui-sdk-doc/img/gooddata_white.svg" alt="UI SDK" width="66" height="58"/></a><ul><li><a href="/gdc-ui-sdk-doc/docs/getting_started.html">Docs</a></li><li><a href="/gdc-ui-sdk-doc/docs/examples.html">Examples</a></li><li><a href="/gdc-ui-sdk-doc/docs/trouble_shooting.html">FAQ</a></li></ul></section><section class="copyright">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved</section></footer></div></body></html>

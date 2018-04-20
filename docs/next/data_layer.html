@@ -44,7 +44,13 @@ Defining AFMs and (optionally) resultSpec
     ]
 };
 
-<span class="hljs-keyword">const</span> resultSpec = {};
+<span class="hljs-keyword">const</span> resultSpec = {
+    <span class="hljs-attr">dimensions</span>: [
+        {
+            <span class="hljs-attr">itemIdentifiers</span>: [<span class="hljs-string">'measureGroup'</span>]
+        }
+    ]
+};
 
 <span class="hljs-comment">/*
 Initializing the Adapter object

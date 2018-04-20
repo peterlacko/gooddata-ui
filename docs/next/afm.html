@@ -72,8 +72,8 @@
 <p>Only one filter of the <a href="/gdc-ui-sdk-doc/docs/next/afm.html#date-filter"><code>DateFilter</code></a> type is allowed in a measure's filter definition.</p>
 <p>When both a measure filter of the <a href="/gdc-ui-sdk-doc/docs/next/afm.html#date-filter"><code>DateFilter</code></a> type and an AFM global filter of the <a href="/gdc-ui-sdk-doc/docs/next/afm.html#date-filter"><code>DateFilter</code></a>type are set, the measure date filter overrides the AFM global date filter for this measure (global date filters are still applied to other measures that do not have a measure date filter defined).</p>
 <h3><a class="anchor" aria-hidden="true" id="show-as-a-percentage"></a><a href="#show-as-a-percentage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show as a percentage</h3>
-<p>When an AFM is executed on the GoodData platform, the result metric data is by default returned as raw values (numbers).</p>
-<p>If you want the metric data to be displayed as a percentage instead, add a <code>computeRatio</code> property and set it to <code>true</code>.</p>
+<p>When an AFM is executed on the GoodData platform, the result measure data is by default returned as raw values (numbers).</p>
+<p>If you want the measures data to be displayed as a percentage instead, add a <code>computeRatio</code> property and set it to <code>true</code>.</p>
 <p>When <code>computeRatio</code> is not specified, it defaults to <code>false</code>, and values from execution are displayed as numbers.</p>
 <h3><a class="anchor" aria-hidden="true" id="period-over-period"></a><a href="#period-over-period" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Period-over-period</h3>
 <p>To enable period-over-period (PoP), use the <code>PopMeasureDefinition</code> structure instead of <code>SimpleMeasureDefinition</code> and reference the original measure by the <code>measureIdentifier</code> property.</p>
@@ -151,7 +151,7 @@ filters: [
     },
     <span class="hljs-comment">// Type: IExpressionFilter</span>
     {
-        <span class="hljs-attr">value</span>: <span class="hljs-string">'{goodsalesdemo.adf} IN ({goodsalesdemo.adf?1})'</span>
+        <span class="hljs-attr">value</span>: <span class="hljs-string">'{demoproject.adf} IN ({demoproject.adf?1})'</span>
     }
 ]
 ...
@@ -423,7 +423,7 @@ nativeTotals: [
                     <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
                 },
                 <span class="hljs-attr">from</span>: <span class="hljs-string">'2017-07-31'</span>, <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
-                    to: <span class="hljs-string">'2017-08-29'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+                to: <span class="hljs-string">'2017-08-29'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
             }
         },
         <span class="hljs-comment">// Type: IPositiveAttributeFilter</span>
