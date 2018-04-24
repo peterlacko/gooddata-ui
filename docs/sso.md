@@ -5,8 +5,7 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: sso
 ---
 
-When developing your own smart business application, you will need to add authentication cookie to all requests coming
-to GoodData Platform. 
+To develop your own smart business application, you must add an authentication cookie to all requests coming to GoodData Platform.
 
 <!-- INTERNAL GDC NOTE:
     If you need public access, you may use proxy method below. 
@@ -15,30 +14,32 @@ to GoodData Platform.
     (But it is not supported by UI SDK.)  
  -->
 
-## Use GoodData Platform users
-To obtain the cookie you may call `sdk.user.login()` method, which gets the cookie for current user.
+## Use GoodData Platform users - no SSO required
+To obtain the authentication cookie, call the `sdk.user.login()` method that gets a cookie for the current user.
 ```js
 import { factory } from 'gooddata';
 const sdk = factory();
 const loginPromise = sdk.user.login('user@example.com', 'password');
 ```
+Developers must implement their own login page to keep regular GoodData Platform users separate from development.
 
-You may ask GoodData Services to create some testing accounts.  
+## Authenticate users with SSO
+Use ingle sign-on (SSO) method to obtain the authentication cookie.
 
-## Use your user database
-Sophisticated way to obtain the authentication cookie is using single sign-on (SSO) method. 
-GoodData Platform implements SAML protocol, in simple words - 
-you authenticate your users to your application, but also you redirect each user to special SAML URL, which sets the correct cookies.  
+GoodData Platform implements SAML protocol. That way, you authenticate your users to your application while redirecting each user to a special SAML URL that sets correct cookies.
 
-How to setup your server to communicate with GoodData Platform can be found here:
-
+For details about how to setup your server to communicate with GoodData Platform, see:
 https://help.gooddata.com/display/doc/SAML+SSO+with+GoodData
 
-## Make your proxy
-For some use cases you may setup your own proxy server, which will first login with a service user 
-and then add the authentication header to all requests.
+For general information about using SSO on GoodData Platform, see:
+https://help.gooddata.com/display/doc/Single+Sign-On+Overview
+
+## Make your proxy - development only
+If your user case requires it, you can setup your own proxy server. The server will first login with a service user and then add the authentication header to all requests.
+
+> **Careful:** Use the proxy authentication only for development. We do not recommend using this authentication method for production.
 
 > **Careful:** If you are just using the [development proxy](cors.md#on-your-local-dev-machine), 
 you will still need to autenticate by going to `/account.html` or calling the `sdk.user.login()` method. 
-and filling in valid GoodData credentials.  
+and filling in valid GoodData credentials.
 
