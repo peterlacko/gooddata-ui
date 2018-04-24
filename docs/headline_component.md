@@ -1,11 +1,11 @@
 ---
-title: Headline Component
-sidebar_label: Headline Component
+title: Headline
+sidebar_label: Headline
 copyright: (C) 2007-2018 GoodData Corporation
 id: headline_component
 ---
 
-Headline Component is used to show a single number. You can display measures and also attributes.
+The Headline component shows a single number. You can display measures and also attributes.
 
 ![Headline Component](assets/headline.png "Headline Component")
 
@@ -35,10 +35,10 @@ const measure = {
 
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
-| projectId | false | string | Project ID |
+| projectId | false | string | The project ID |
 | primaryMeasure | false | Measure | A measure definition |
 | filters | false | Filter[] | An array of filter definitions |
-| locale | false | string | Location string for translations |
+| locale | false | string | The location string for translations |
 | drillableItems | false | DrillableItem[] | An array of points and attribute values to be drillable
 | ErrorComponent | false | Component | A component to be rendered if this component is in error state |
 | LoadingComponent | false | Component | A component to be rendered if this component is in loading state |
