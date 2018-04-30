@@ -25,13 +25,13 @@ Create a simplenode.jsproject with a package.json descriptor and an entry point 
 
 ### Webpack configuration file
 
-The webpack configuration file [webpack.conf.js](https://github.com/gooddata/ui-sdk-examples/blob/master/vanillajs/create-bundle/webpack.conf.js) provides the following webpack instructions:
+The webpack configuration file [webpack.conf.js](https://github.com/gooddata/ui-sdk-examples/blob/master/vanillajs/webpack.conf.js) provides the following webpack instructions:
 
 * Read the JavaScript entry point file.
 * Expose the exported object as a window variable. The name of the window variable is defined in the library key of the webpack.conf.js file. The sample code uses GDRC (an acronym for "GoodData React Components").
 * Build the bundle from the JavaScript entry point file and minimize the bundle using the Uglify plugin.
 
-The `package.json` npm descriptor [https://github.com/gooddata/ui-sdk-examples/blob/master/vanillajs/create-bundle/package.json](https://github.com/gooddata/ui-sdk-examples/blob/master/vanillajs/create-bundle/package.json) includes:
+The `package.json` npm descriptor [https://github.com/gooddata/ui-sdk-examples/blob/master/vanillajs/package.json](https://github.com/gooddata/ui-sdk-examples/blob/master/vanillajs/package.json) includes:
 
 * Dependencies to be included in the bundle (react and '@gooddata/react-components')
 * Developer dependencies required to build the bundle (`webpack`,`uglifyjs-webpack-plugin` and `babel-runtime`)
@@ -39,7 +39,7 @@ The `package.json` npm descriptor [https://github.com/gooddata/ui-sdk-examples/b
 
 ### Entry Point JavaScript File
 
-The entry point JavaScript file ([vanilla.js](https://github.com/gooddata/ui-sdk-examples/blob/vanillajs/vanillajs/create-bundle/vanilla.js) does the following:
+The entry point JavaScript file ([vanilla.js](https://github.com/gooddata/ui-sdk-examples/blob/vanillajs/vanillajs/create-bundle/vanilla.js)) does the following:
 
 * Imports `react` and `@gooddata/react-components`
 * Exports an object wrapping the GoodData UI SDK React components, helper functions for attaching and detaching React components to/from DOM nodes, and other elements of the GoodData UI SDK
@@ -90,13 +90,13 @@ webpack --config webpack.conf.jscp'./node_modules/@gooddata/react-components/sty
 If you are using `webpack.conf.js` from the `ui-sdk-examples` repository, you can run one of the following commands because `webpack.conf.js` already provides a bundle `npm` script:
 
 ```bash
-npm run bundle
+npm run dist
 ```
 
 or
 
 ```bash
-yarn run bundle
+yarn run dist
 ```
 
 These commands create the `dist` folder with the Javascript bundle named `gooddata_react_components_bundle.js` and the CSS style sheet named `gooddata_react_components_bundle.css`.
@@ -109,7 +109,7 @@ Make the `gooddata_react_components_bundle.js` and `gooddata_react_components_bu
 <link rel="stylesheet" type="text/css" href="gooddata_react_components_bundle.css">
 ```
 
-The sampleindex.htmlfile in the demo folder already references your generated files from `../create-bundle/dist`.
+The sample index.html file in the demo folder already references your generated files from `../create-bundle/dist`.
 
 Once the `gooddata_react_components_bundle.js` file is included in your HTML page, it creates a GoodData React component and the helper functions mentioned inentry point JavaScript file (`render`, `unmountAll`, `unmount`).
 
