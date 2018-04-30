@@ -30,6 +30,7 @@
       "ht_create_visualization_programmatically",
       "afm",
       "result_specification",
+      "table_totals_in_execution_object",
       "execute_component"
     ],
     "Development Tips": [
