@@ -7,6 +7,16 @@ id: ht_create_your_first_visualization
 
 This tutorial will guide you through the process of creating your first smart application using GoodData.UI with the Facebook’s `create-react-app` tool.
 
+# Contents
+* [Step 1. Get create-react-app](#step_1._get_create-react-app)
+* [Step 2. Create your React application](#step_2._create_your_react_application)
+* [Step 3. Add GoodData SDK dependencies](#step_3._add_gooddata_sdk_dependencies)
+* [Step 4. Start the development server](#step_4._start_the_development_server)
+* [Step 5. Establish a session](#step_5._establish_a_session)
+* [Step 6. Add GoodData components](#step_6._add_gooddata_components)
+* [Step 7. Keep your code clean](#step_7._keep_your_code_clean)
+* [Next steps](#next_steps)
+
 After you complete this tutorial, you will be able to display various measures and charts from your GoodData project within the context of your React application.
 
 ## Step 1. Get create-react-app
@@ -141,7 +151,7 @@ For example, see the following component used in this tutorial:
 
 In this component, `projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"` is a hardcoded reference to our project ID, and `measure="atSHqCtAePe4"` is a hardcoded reference to a measure.
 
-With the [gdc-catalog-export](gdc-catalog-export) tool, you can save the list of all measures, attributes and other relevant objects to a JSON file.
+With the [gdc-catalog-export](gdc-catalog-export.md) tool, you can save the list of all measures, attributes and other relevant objects to a JSON file.
 
 To install the tool, run the following command from the command line:
 ```bash
@@ -211,4 +221,4 @@ Here are some suggestions about what you can do after you created your first vis
 * Use your GoodData domain with CORS settings so you do not need to use a local proxy \(this is what you will have to do for the production deployment even if you prefer to use a proxy for local development\). For more information, see [How to Access the GoodData API Directly](ht_access_gd_api_directly.md).
 * Authenticate your users [using Single Sign-on (SSO)](sso.md) rather than sending them to a proxied GoodData login page.
 * Create a visualization in a [custom React application](ht_build_visualization_custom_react.md).
-* Create a visualization in [Angular 1.x](ht_use_react_compinents_in_angular_1.x.md) or [Angular 2+](ht_use_react_components_in_angular_2.x.md).
+* Create a visualization in [Angular 1.x](ht_use_react_components_in_angular_1.x.md) or [Angular 2+](ht_use_react_components_in_angular_2.x.md).
