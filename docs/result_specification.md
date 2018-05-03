@@ -7,6 +7,11 @@ id: result_specification
 
 `ResultSpec` is an object that defines the requested structure of result data. You can define dimensions and sorting.
 
+**Contents**
+* [Dimensions](#dimensions)
+* [Sorting](#sorting)
+* [Examples](#examples)
+
 ## Dimensions
 
 ### Structure
@@ -87,7 +92,7 @@ Only the following limitations are currently supported:
 * Grand totals in the first dimension
   * `total.attributeIdentifier` contains the first `attribute-local-identifier` from `itemIdentifiers`.
 
-If you want to define `nat` (native) total, make sure that it is in sync with the `AFM.nativeTotals` definition (see[Native totals](afm.md#AFM-NativeTotal)).
+If you want to define `nat` (native) total, make sure that it is in sync with the `AFM.nativeTotals` definition (see [Native totals](afm.md#AFM-NativeTotal)).
 
 #### Defining table totals
 

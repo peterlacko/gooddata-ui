@@ -4,6 +4,16 @@ sidebar_label: Chart Config
 copyright: (C) 2007-2018 GoodData Corporation
 id: chart_config
 ---
+
+This article describes your options for chart configuration and the basic usage.
+
+**Contents**
+* [Structure](#structure)
+* [Example of a color array](#example-of-a-color-array)
+* [Change chart colors](#change-chart-colors)
+* [Change legend visibility and position](#change-legend-visibility-and-position)
+* [Customize tooltips and fonts](#customize-tooltips-and-fonts)
+
 ## Structure
 
 ```javascript

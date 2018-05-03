@@ -11,10 +11,10 @@ This article provides components examples and basic usage information to get you
 
 **Contents:**
 
-* [Element height and width](#Element_height_and_width)
-* [Server-side rendering](#eServer-side_rendering)
-* [Object URI vs. object identifier](#Object_URI_vs._object_identifier)
-* [Visualization lifecycle](#Visualization_lifecycle)
+* [Element height and width](#element-height-and-width)
+* [Server-side rendering](#server-side-rendering)
+* [Object URI vs. object identifier](#object-uri-vs-object-identifier)
+* [Visualization lifecycle](#visualization-lifecycle)
 
 ## Element height and width
 

@@ -19,15 +19,15 @@
       "table_component",
       "visualization_component"
     ],
-    "Visual Components Properties" : [
+    "Properties" : [
       "chart_config",
       "drillable_item",
       "error_component",
       "loading_component",
       "on_legend_ready"
     ],
-    "Access Raw Data": [
-      "ht_create_visualization_programmatically",
+    "Custom Visualizations": [
+      "create_new_visualization",
       "afm",
       "result_specification",
       "table_totals_in_execution_object",

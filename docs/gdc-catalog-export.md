@@ -1,6 +1,6 @@
 ---
-title: Get Identifier From the Platform
-sidebar_label: Get Identifier From the Platform
+title: Get Identifiers From the Platform
+sidebar_label: Get Identifiers From the Platform
 copyright: (C) 2007-2018 GoodData Corporation
 id: gdc_catalog_export
 ---
@@ -13,10 +13,10 @@ Using this list, you can create AFMs with human-readable object names instead of
 
 If you [uploaded data to your project from a file](https://help.gooddata.com/display/doc/Add+Data+from+a+File+to+a+Project), the data from the file is added as a separate dataset \(non-production data\), and `gdc-catalog-export` cannot retrieve it. This also includes any measures that were created using the data from that separate dataset.
 
-**Contents:**
-* [Installing gdc-catalog-export](#Installing-gdc-catalog-export)
-* [Using gdc-catalog-export](#Using-gdc-catalog-export)
-* [CatalogHelper utility](#CatalogHelper-utility)
+**Contents**
+* [Installing gdc-catalog-export](#installing-gdc-catalog-export)
+* [Using gdc-catalog-export](#using-gdc-catalog-export)
+* [CatalogHelper utility](#cataloghelper-utility)
 
 ## Installing gdc-catalog-export
 

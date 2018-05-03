@@ -10,11 +10,11 @@ id: afm
 AFM is a combination of attributes, measures and filters that describes a query that you want to execute. In terms of underlying API, it is similar to creating an insight using [Analytical Designer](https://help.gooddata.com/display/doc/Create+an+Insight+with+Analytical+Designer).
 
 **Contents**
-* [Structure](##Structure)
-* [Attribute](##Attribute)
-* [Filter](##tFilter)
-* [Measure](##Measure)
-* [Native total](##Native-total)
+* [Structure](#structure)
+* [Attribute](#attribute)
+* [Filter](#filter)
+* [Measure](#measure)
+* [Native total](#native-total)
 
 
 ## Structure
@@ -319,7 +319,7 @@ Besides `uri` or `identifier`, a measure requires a `localIdentifier` string th
 
 Though you can use either object URIs or object identifiers \(`ObjQualifier = IObjUriQualifier | IObjIdentifierQualifier`\), we recommend that you use the **object identifiers**, which are consistent across your domain regardless of the GoodData project that they live in. That means that an object that is used in any project within your domain, has the _same_ object identifier in _any_ of those projects\).
 
-To get the list of catalog items and date datasets from a GoodData project in the form of a JavaScript object, use [gdc-catalog-export](gdc-catolog-export.md)).
+To get the list of catalog items and date datasets from a GoodData project in the form of a JavaScript object, use [gdc-catalog-export](gdc-catalog-export.md).
 
 ### Aggregation inside a measure
 
@@ -549,7 +549,7 @@ nativeTotals: [
 
 ### Prerequisites
 
-Native total items must be in sync with [result specification \(ResultSpec\)](result_specification.md)and its dimension totals. If they are not in sync, it is treated as a bad execution request.
+Native total items must be in sync with [result specification \(ResultSpec\)](result_specification.md) and its dimension totals. If they are not in sync, it is treated as a bad execution request.
 
 ### Limitations
 
