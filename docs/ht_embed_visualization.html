@@ -1,0 +1,25 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Embed a Visualization · GoodData.UI</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Embed a Visualization · GoodData.UI"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/gdc-ui-sdk-doc/index.html"/><meta property="og:description" content="To embed an existing visualization created in Analytical Designer, use the `Visualization` component."/><link rel="shortcut icon" href="/gdc-ui-sdk-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/gdc-ui-sdk-doc/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/gdc-ui-sdk-doc/"><img class="logo" src="/gdc-ui-sdk-doc/img/gooddata.svg"/><h2 class="headerTitle">GoodData.UI</h2></a><a href="/gdc-ui-sdk-doc/versions.html"><h3>5.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/gdc-ui-sdk-doc/docs/about_gooddataui.html" target="_self">Docs</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/support_options.html" target="_self">Support</a></li><li class=""><a href="https://github.com/gooddata/gooddata-react-components/" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Embed a Visualization</h1></header><article><div><span><p>To embed an existing visualization created in Analytical Designer, use the <code>Visualization</code> component.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><p>Obtain the identifier of the visualization via <a href="/gdc-ui-sdk-doc/docs/gdc_catalog_export.html">gdc-catalog-export</a>.</p></li>
+<li><p>Import the <code>Visualization</code> component from the <code>@gooddata/react-components</code> package into your app:</p></li>
+</ol>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">import</span>{ Visualization } <span class="hljs-keyword">from</span><span class="hljs-string">'@gooddata/react-components'</span>;
+</code></pre>
+<ol start="3">
+<li>Create a <code>Visualization</code> component in your app, and provide it with the project ID and the visualization identifier that you obtained at Step 1:</li>
+</ol>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// This is an example of embedding a visualization from the GoodSales demo project.</span>
+&lt;Visualization
+    projectId=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
+    identifier=<span class="hljs-string">"aby3polcaFxy"</span>
+    config={{
+        <span class="hljs-attr">colors</span>: [<span class="hljs-string">'rgba(195, 49, 73, 1)'</span>, <span class="hljs-string">'rgba(168, 194, 86, 1)'</span>],
+        <span class="hljs-attr">legend</span>: {
+            <span class="hljs-attr">enabled</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">position</span>: <span class="hljs-string">'bottom'</span>
+        }
+    }}
+/&gt;
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright wrapper">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved. Code licensed under an <a href="https://github.com/gooddata/gooddata-react-components/blob/master/LICENSE">BSD License</a>.</section></footer></div></body></html>

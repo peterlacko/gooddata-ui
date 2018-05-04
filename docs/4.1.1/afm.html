@@ -1,0 +1,478 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>AFM · GoodData.UI</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="AFM · GoodData.UI"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/gdc-ui-sdk-doc/index.html"/><meta property="og:description" content="**AFM**\(Attribute - Filter - Measure\) is unified input for the [GoodData DataLayer](/gdc-ui-sdk-doc/docs/4.1.1/data_layer.html)."/><link rel="shortcut icon" href="/gdc-ui-sdk-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/gdc-ui-sdk-doc/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/gdc-ui-sdk-doc/"><img class="logo" src="/gdc-ui-sdk-doc/img/gooddata.svg"/><h2 class="headerTitle">GoodData.UI</h2></a><a href="/gdc-ui-sdk-doc/versions.html"><h3>4.1.1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/gdc-ui-sdk-doc/docs/4.1.1/about_gooddataui.html" target="_self">Docs</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/4.1.1/support_options.html" target="_self">Support</a></li><li class=""><a href="https://github.com/gooddata/gooddata-react-components/" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Reference</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Introduction</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/about_gooddataui.html">Getting Started</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tutorials</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/ht_create_your_first_visualization.html">How to Create Your First Visualization with GoodData UI SDK</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/ht_build_app.html">How to Build an App</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/ht_access_gd_api_directly.html">How to Access the GoodData API Directly</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/ht_configure_webpack_proxy.html">How to Configure a Webpack Proxy</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/ht_set_up_loading_state_for_embedded_insights.html">How to Set Up a Loading State for Embedded Insights</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/ht_use_react_components_with_vanilla_js.html">How to Use React Components with Vanilla JavaScript</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/sso.html">SSO (single sign-on)</a></li></ul></div><div class="navGroup navGroupActive"><h3>React Components</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/react_components.html">React Components</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/afm_react_components.html">AFM React Components</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/chart_config.html">Chart Config</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/drillable_item.html">DrillableItem</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/on_legend_ready.html">OnLegendReady</a></li></ul></div><div class="navGroup navGroupActive"><h3>Reference</h3><ul><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/gdc-ui-sdk-doc/docs/4.1.1/afm.html">AFM</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/result_specification.html">Result Specification</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/execute_component.html">Execute Component</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/data_layer.html">DataLayer</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/execution_rest_api_and_result.html">Execution REST API and Result</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/table_totals_in_execution_object.html">Table Totals in ExecutionObject</a></li></ul></div><div class="navGroup navGroupActive"><h3>Tools</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/gdc_catalog_export.html">gdc-catalog-export</a></li></ul></div><div class="navGroup navGroupActive"><h3>License</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/license.html">License</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/4.1.1/legal_notices.html">Legal Notices</a></li></ul></div></div></section></div><script>
+          var toggler = document.getElementById('navToggler');
+          var nav = document.getElementById('docsNav');
+          toggler.onclick = function() {
+            nav.classList.toggle('docsSliderActive');
+          };
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>AFM</h1></header><article><div><span><p><strong>AFM</strong>(Attribute - Filter - Measure) is unified input for the <a href="/gdc-ui-sdk-doc/docs/4.1.1/data_layer.html">GoodData DataLayer</a>.</p>
+<p>AFM is acombination of attributes, measures and filters that describes a query you want to execute. In terms of underlying API, it is similar to when you are creating an insight using <a href="https://help.gooddata.com/display/doc/Create+an+Insight+with+Analytical+Designer">Analytic Designer</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="structure"></a><a href="#structure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure</h2>
+<pre><code class="hljs css javascript">{
+    <span class="hljs-attr">measures</span>: [], <span class="hljs-comment">// Optional; the default is []</span>
+    attributes: [], <span class="hljs-comment">// Optional; the default is []</span>
+    filters: [], <span class="hljs-comment">// Optional; the default is []</span>
+    nativeTotals: [] <span class="hljs-comment">// Optional; the default is []</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="measure"></a><a href="#measure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Measure</h2>
+<p>Measures inside an AFM are represented by an array of the following objects, each of which represents a single measure:</p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Items of AFM.measures</span>
+<span class="hljs-comment">// Type: IMeasure</span>
+{
+    <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier&gt;'</span>,
+    <span class="hljs-comment">// Type: SimpleMeasureDefinition</span>
+    definition: {
+        <span class="hljs-attr">measure</span>: {
+            <span class="hljs-comment">// Type: ObjQualifier</span>
+            item: {
+                <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;measure-identifier&gt;'</span>    <span class="hljs-comment">// Or uri: '&lt;measure-uri&gt;'</span>
+            },
+            <span class="hljs-attr">aggregation</span>: <span class="hljs-string">'sum'</span>, <span class="hljs-comment">// Optional; By default 'sum'; Possible values: 'sum' | 'count' | 'avg' | 'min' | 'max' | 'median' | 'runsum'</span>
+            filters: [],        <span class="hljs-comment">// Optional; By default []; Type: CompatibilityFilter[]</span>
+            computeRatio: <span class="hljs-literal">true</span>  <span class="hljs-comment">// Optional; By default false</span>
+        }
+    },
+    <span class="hljs-attr">alias</span>: <span class="hljs-string">'Custom measure title'</span>,  <span class="hljs-comment">// Optional; Overrides default measure title</span>
+    format: <span class="hljs-string">'#,##0.00'</span>  <span class="hljs-comment">// Optional; Overrides default measure format</span>
+}
+
+</code></pre>
+<p><code>item</code> either contains a measure URL:</p>
+<pre><code class="hljs css javascript">item: {
+    <span class="hljs-attr">uri</span>: <span class="hljs-string">'&lt;measure-uri&gt;'</span>
+}
+</code></pre>
+<p>...or a measure identifier:</p>
+<pre><code class="hljs css javascript">item: {
+    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;measure-identifier&gt;'</span>
+}
+
+</code></pre>
+<p>Besides <code>uri</code> or <code>identifier</code>, a measure requires a <code>localIdentifier</code> string that uniquely identifies the measure in the context of the current AFM. This is used in dimension definitions, sorting, and any other places where you need to target a measure or an attribute.</p>
+<p>Though you can use either object URIs or object identifiers (<code>ObjQualifier = IObjUriQualifier | IObjIdentifierQualifier</code>), we recommend that you use the <strong>object identifiers</strong>, which are consistent across your domain regardless of the GoodData project they live in. That is, an object used in any project within your domain would have the_same_object identifier in_any_of those projects).</p>
+<p>To get a list of catalog items and date datasets from a GoodData project in form of a JavaScript object, use <a href="gdc-catolog-export.md">gdc-catalog-export</a>).</p>
+<h3><a class="anchor" aria-hidden="true" id="aggregation-inside-a-measure"></a><a href="#aggregation-inside-a-measure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aggregation inside a measure</h3>
+<p>Each measure can specify <code>aggregation</code> of data. Aggregation is represented by a string value that defines the aggregation type.</p>
+<table>
+<thead>
+<tr><th style="text-align:left">Type</th><th style="text-align:left">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:left"><code>'sum'</code></td><td style="text-align:left">Returns a sum of all numbers in the set</td></tr>
+<tr><td style="text-align:left"><code>'count'</code></td><td style="text-align:left">Counts unique values of a selected attribute in a given dataset determined by the second attribute parameter</td></tr>
+<tr><td style="text-align:left"><code>'avg'</code></td><td style="text-align:left">Returns the average value of all numbers in the set; null values are ignored</td></tr>
+<tr><td style="text-align:left"><code>'min'</code></td><td style="text-align:left">Returns the minimum value of all numbers in the set</td></tr>
+<tr><td style="text-align:left"><code>'max'</code></td><td style="text-align:left">Returns the maximum value of all numbers in the set</td></tr>
+<tr><td style="text-align:left"><code>'median'</code></td><td style="text-align:left">Counts the statistical median - an order statistic that gives the &quot;middle&quot; value of a sample. If the &quot;middle&quot; falls between two values, the function returns average of the two middle values. Null values are ignored.</td></tr>
+<tr><td style="text-align:left"><code>'runsum'</code></td><td style="text-align:left">Returns a sum of numbers increased by the sum from the previous value (accumulating a sum incrementally)</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="filters-in-a-measure-definition"></a><a href="#filters-in-a-measure-definition" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filters in a measure definition</h3>
+<p>Each measure can be filtered by attribute filters. Filters are represented by an array of <code>FilterItem</code> objects. Measure attribute filters use the same <code>FilterItem</code> interface as <a href="/gdc-ui-sdk-doc/docs/4.1.1/afm.html">AFM global filters</a>.</p>
+<p>Only one filter of the <a href="/gdc-ui-sdk-doc/docs/4.1.1/afm.html#date-filter"><code>DateFilter</code></a> type is allowed in a measure's filter definition.</p>
+<p>When both a measure filter of the <a href="/gdc-ui-sdk-doc/docs/4.1.1/afm.html#date-filter"><code>DateFilter</code></a> type and an AFM global filter of the <a href="/gdc-ui-sdk-doc/docs/4.1.1/afm.html#date-filter"><code>DateFilter</code></a>type are set, the measure date filter overrides the AFM global date filter for this measure (global date filters are still applied to other measures that do not have a measure date filter defined).</p>
+<h3><a class="anchor" aria-hidden="true" id="show-as-a-percentage"></a><a href="#show-as-a-percentage" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show as a percentage</h3>
+<p>When an AFM is executed on the GoodData platform, the result metric data is by default returned as raw values (numbers).</p>
+<p>If you want the metric data to be displayed as a percentage instead, add a <code>computeRatio</code> property and set it to <code>true</code>.</p>
+<p>When <code>computeRatio</code> is not specified, it defaults to <code>false</code>, and values from execution are displayed as numbers.</p>
+<h3><a class="anchor" aria-hidden="true" id="period-over-period"></a><a href="#period-over-period" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Period-over-period</h3>
+<p>To enable period-over-period (PoP), use the <code>PopMeasureDefinition</code> structure instead of <code>SimpleMeasureDefinition</code> and reference the original measure by the <code>measureIdentifier</code> property.</p>
+<p>For examples, see PoP <a href="https://confluence.intgdc.com/display/VS/AFM#AFM-Period-over-periodwithmeasuredefineddirectlyfromidentifier">with a measure defined directly from the identifier</a> and <a href="https://confluence.intgdc.com/display/VS/AFM#AFM-Period-over-periodwithmeasuredefinedbyreferenceinAFM">with a measure defined by reference in AFM</a>.</p>
+<p><code>PopMeasureDefinition</code> is represented by the following structure:</p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IPopMeasureDefinition</span>
+definition: {
+    <span class="hljs-attr">popMeasure</span>: {
+        <span class="hljs-attr">measureIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier&gt;'</span>,    <span class="hljs-comment">// reference to localIdentifier in afm.measures</span>
+        <span class="hljs-comment">// Type: IObjUriQualifier</span>
+        popAttribute: {
+            <span class="hljs-attr">uri</span>: <span class="hljs-string">'&lt;measure-uri&gt;'</span>    <span class="hljs-comment">// or identifier: '&lt;measure-identifier&gt;'</span>
+        }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="attribute"></a><a href="#attribute" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attribute</h2>
+<p>Each attribute requires localIdentifier and <code>displayForm</code>.</p>
+<ul>
+<li><code>localIdentifier</code> (string) is specified by the attribute's <code>displayForm</code> identifier.</li>
+<li><code>type</code> (string) can be either <code>date</code> or <code>attribute</code>.</li>
+</ul>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IAttribute</span>
+{
+    <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'&lt;attribute-local-identifier&gt;'</span>,
+    <span class="hljs-comment">// Type: ObjQualifier</span>
+    displayForm: {
+        <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span>    <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+    },
+    <span class="hljs-attr">alias</span>: <span class="hljs-string">'My attribute'</span>   <span class="hljs-comment">// Optional; Overrides default attribute title</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="filter"></a><a href="#filter" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Filter</h2>
+<pre><code class="hljs css javascript">...
+<span class="hljs-comment">// Optional; By default []; Type: CompatibilityFilter[]</span>
+filters: [
+    <span class="hljs-comment">// Type: IAbsoluteDateFilter</span>
+    {
+        <span class="hljs-attr">absoluteDateFilter</span>: {
+            <span class="hljs-attr">dataSet</span>: {
+                <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+            },
+            <span class="hljs-attr">from</span>: <span class="hljs-string">'1985-04-10'</span>, <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+            to: <span class="hljs-string">'2017-11-30'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+        }
+    },
+    <span class="hljs-comment">// Type: IRelativeDateFilter</span>
+    {
+        <span class="hljs-attr">relativeDateFilter</span>: {
+            <span class="hljs-attr">dataSet</span>: {
+                <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+            },
+            <span class="hljs-attr">granularity</span>: <span class="hljs-string">'GDC.time.date'</span>, <span class="hljs-comment">// Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'</span>
+            <span class="hljs-keyword">from</span>: <span class="hljs-number">-1</span>, <span class="hljs-comment">// Supported values: +-INT</span>
+            to: <span class="hljs-number">1</span> <span class="hljs-comment">// Supported values: +-INT</span>
+        }
+    },
+    <span class="hljs-comment">// Type: IPositiveAttributeFilter</span>
+    {
+        <span class="hljs-attr">positiveAttributeFilter</span>: {
+            <span class="hljs-attr">displayForm</span>: {
+                <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+            },
+            <span class="hljs-attr">in</span>: [<span class="hljs-string">'&lt;attribute-element-uri-1&gt;'</span>, <span class="hljs-string">'&lt;attribute-element-uri-2&gt;'</span>] <span class="hljs-comment">// Attribute elements currently support only uri</span>
+        }
+    },
+    <span class="hljs-comment">// Type: INegativeAttributeFilter</span>
+    {
+        <span class="hljs-attr">negativeAttributeFilter</span>: {
+            <span class="hljs-attr">displayForm</span>: {
+                <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+            },
+            <span class="hljs-attr">notIn</span>: [<span class="hljs-string">'&lt;attribute-element-uri-1&gt;'</span>, <span class="hljs-string">'&lt;attribute-element-uri-2&gt;'</span>] <span class="hljs-comment">// Attribute elements currently support only uri</span>
+        }
+    },
+    <span class="hljs-comment">// Type: IExpressionFilter</span>
+    {
+        <span class="hljs-attr">value</span>: <span class="hljs-string">'{goodsalesdemo.adf} IN ({goodsalesdemo.adf?1})'</span>
+    }
+]
+...
+</code></pre>
+<p>Both global filters and measure filters can use <code>in</code> or <code>notIn</code> and are always interpreted as an intersection of all individual filters (<code>f1 AND f2 AND f3...)</code>.</p>
+<p>All attributes, <code>popAttribute</code>'s and filters are defined via the <code>displayForm</code> identifier.</p>
+<h3><a class="anchor" aria-hidden="true" id="datefilter"></a><a href="#datefilter" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DateFilter</h3>
+<p>A date filter limits data processing to the selected date intervals.</p>
+<p>Date filters can be of the following types:</p>
+<ul>
+<li><strong>Absolute date filter:</strong> you set an interval based on two exact dates</li>
+<li><strong>Relative date filter:</strong> you set an interval that is relative to the current date (for example, last week)</li>
+</ul>
+<pre><code class="hljs css javascript">...
+<span class="hljs-comment">// Optional; By default []; Type: CompatibilityFilter[]</span>
+filters: [
+    <span class="hljs-comment">// Type: IAbsoluteDateFilter</span>
+    {
+        <span class="hljs-attr">absoluteDateFilter</span>: {
+            <span class="hljs-attr">dataSet</span>: {
+                <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+            },
+            <span class="hljs-attr">from</span>: <span class="hljs-string">'2017-07-31'</span>, <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+            to: <span class="hljs-string">'2017-08-29'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+        }
+    }
+]
+...
+</code></pre>
+<p><strong>Absolute date filter</strong> An absolute date filter specifes a time interval within two dates: start date and end date (in this exact order). For example, 2017-07-31 - 2017-08-29.</p>
+<p><strong>Format:</strong></p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">from</span>: <span class="hljs-string">'YYYY-MM-DD'</span>,
+<span class="hljs-attr">to</span>: <span class="hljs-string">'YYYY-MM-DD'</span>,
+<span class="hljs-comment">// e.g.</span>
+<span class="hljs-keyword">from</span>: <span class="hljs-string">'2017-07-31'</span>,
+<span class="hljs-attr">to</span>: <span class="hljs-string">'2017-08-29'</span>,
+</code></pre>
+<p><strong>Example:</strong></p>
+<p>Interval between 2017, July 31, and 2017, August 29, inclusive:</p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IAbsoluteDateFilter</span>
+{
+    <span class="hljs-attr">absoluteDateFilter</span>: {
+        <span class="hljs-attr">dataSet</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+        },
+        <span class="hljs-attr">from</span>: <span class="hljs-string">'2017-07-31'</span>, <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+        to: <span class="hljs-string">'2017-08-29'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+    }
+}
+</code></pre>
+<p><strong>Relative date filter</strong></p>
+<p>A relative filter specifies a time interval that is relative to the current date. For example, last week, next month, and so on.</p>
+<p><strong>Format:</strong></p>
+<pre><code class="hljs css javascript"><span class="hljs-keyword">from</span>: number,
+<span class="hljs-attr">to</span>: number,
+<span class="hljs-comment">// e.g.</span>
+<span class="hljs-keyword">from</span>: <span class="hljs-number">-7</span>,
+<span class="hljs-attr">to</span>: <span class="hljs-number">7</span>,
+</code></pre>
+<ul>
+<li><code>0</code> for the current day, week, month, quarter, or year (depending on the chosen granularity)</li>
+<li><code>-1</code> for the previous period</li>
+<li><code>-</code> <em><code>n</code></em> for the _n_th previous period</li>
+</ul>
+<p><strong>Granularity:</strong></p>
+<ul>
+<li><code>'GDC.time.date'</code> (day granularity)</li>
+<li><code>'GDC.time.week'</code> (week granularity)</li>
+<li><code>'GDC.time.month'</code> (month granularity)</li>
+<li><code>'GDC.time.quarter'</code> (quarter granularity)</li>
+<li><code>'GDC.time.year'</code> (year granularity)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Last 7 days (yesterday and 6 days before):</p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IRelativeDateFilter</span>
+{
+    <span class="hljs-attr">relativeDateFilter</span>: {
+        <span class="hljs-attr">dataSet</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+        },
+        <span class="hljs-attr">granularity</span>: <span class="hljs-string">'GDC.time.date'</span>,   <span class="hljs-comment">// Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'</span>
+        <span class="hljs-keyword">from</span>: <span class="hljs-number">-7</span>,   <span class="hljs-comment">// positive or negative whole numbers</span>
+        to: <span class="hljs-number">-1</span>  <span class="hljs-comment">// positive or negative whole numbers</span>
+    }
+}
+</code></pre>
+<p>Last 12 months including the current month:</p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IRelativeDateFilter</span>
+{
+    <span class="hljs-attr">relativeDateFilter</span>: {
+        <span class="hljs-attr">dataSet</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+        },
+        <span class="hljs-attr">granularity</span>: <span class="hljs-string">'GDC.time.month'</span>,  <span class="hljs-comment">// Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'</span>
+        <span class="hljs-keyword">from</span>: <span class="hljs-number">-11</span>,  <span class="hljs-comment">// positive or negative whole numbers</span>
+        to: <span class="hljs-number">0</span>   <span class="hljs-comment">// positive or negative whole numbers</span>
+    }
+}
+</code></pre>
+<p>Last quarter only:</p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IRelativeDateFilter</span>
+{
+    <span class="hljs-attr">relativeDateFilter</span>: {
+        <span class="hljs-attr">dataSet</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+        },
+        <span class="hljs-attr">granularity</span>: <span class="hljs-string">'GDC.time.quarter'</span>,    <span class="hljs-comment">// Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'</span>
+        <span class="hljs-keyword">from</span>: <span class="hljs-number">-1</span>,   <span class="hljs-comment">// positive or negative whole numbers</span>
+        to: <span class="hljs-number">-1</span>  <span class="hljs-comment">// positive or negative whole numbers</span>
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="attributefilter"></a><a href="#attributefilter" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AttributeFilter</h3>
+<p>Attribute filters can be of the following types:</p>
+<ul>
+<li><strong>Positive</strong> <strong>attribute filters</strong> list only those items whose attribute elements' URIs are included in the <code>in</code> property array.</li>
+<li><strong>Negative attribute filters</strong> lists only those items whose attribute elements' URIs are <em>not</em> included in the  <code>notIn</code> property array.</li>
+</ul>
+<p>Currently, attribute elements only support URIs, not identifiers.</p>
+<p><strong>PositiveAttributeFilter</strong></p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IPositiveAttributeFilter</span>
+{
+    <span class="hljs-attr">positiveAttributeFilter</span>: {
+        <span class="hljs-attr">displayForm</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+        },
+        <span class="hljs-attr">in</span>: [<span class="hljs-string">'&lt;attribute-element-uri-1&gt;'</span>, <span class="hljs-string">'&lt;attribute-element-uri-2&gt;'</span>] <span class="hljs-comment">// Attribute elements currently support only uri</span>
+    }
+},
+</code></pre>
+<p><strong>NegativeAttributeFilter</strong></p>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IPositiveAttributeFilter</span>
+{
+    <span class="hljs-attr">negativeAttributeFilter</span>: {
+        <span class="hljs-attr">displayForm</span>: {
+            <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+        },
+        <span class="hljs-attr">notIn</span>: [<span class="hljs-string">'&lt;attribute-element-uri-1&gt;'</span>, <span class="hljs-string">'&lt;attribute-element-uri-2&gt;'</span>] <span class="hljs-comment">// Attribute elements currently support only uri</span>
+    }
+},
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="native-total"></a><a href="#native-total" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Native Total</h2>
+<p>Native totals in the AFM structure represent a definition of the data needed for computing correct results.</p>
+<h3><a class="anchor" aria-hidden="true" id="definition"></a><a href="#definition" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Definition</h3>
+<pre><code class="hljs css javascript">...
+nativeTotals: [
+    {
+        <span class="hljs-attr">measureIdentifier</span>: string       <span class="hljs-comment">// local measure identifier on which total is defined</span>
+        attributeIdentifiers: string[]  <span class="hljs-comment">// subset of local attribute identifiers in AFM defining total placement</span>
+    },
+    ...
+]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="prerequisites"></a><a href="#prerequisites" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequisites</h3>
+<p>Native total items must be in sync with <a href="/gdc-ui-sdk-doc/docs/4.1.1/result_specification.html">result specification (ResultSpec)</a>and its dimension totals. If they are not in sync, it is treated as a bad execution request.</p>
+<h3><a class="anchor" aria-hidden="true" id="limitations"></a><a href="#limitations" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Limitations</h3>
+<p>Native total are curretly supported only for:</p>
+<ul>
+<li>Table visualizations</li>
+<li>Grand native totals
+<ul>
+<li><code>nativeTotal.attributeIdentifiers</code> is an empty array.</li>
+</ul></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="defining-native-totals"></a><a href="#defining-native-totals" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Defining native totals</h3>
+<p>See <a href="/gdc-ui-sdk-doc/docs/4.1.1/table_totals_in_execution_object.html">Table Totals in ExecutionObject</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
+<pre><code class="hljs css javascript">...
+nativeTotals: [
+    {
+        <span class="hljs-attr">measureIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier-1&gt;'</span>,
+        <span class="hljs-attr">attributeIdentifiers</span>: [] <span class="hljs-comment">// only Grand totals are currently supported so the array should be empty</span>
+    },
+    ...
+]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h2>
+<h3><a class="anchor" aria-hidden="true" id="simple-measure"></a><a href="#simple-measure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple measure</h3>
+<pre><code class="hljs css javascript">{
+    <span class="hljs-attr">measures</span>: [
+        <span class="hljs-comment">// Type: IMeasure</span>
+        {
+            <span class="hljs-attr">definition</span>: {
+                <span class="hljs-attr">measure</span>: {
+                    <span class="hljs-attr">item</span>: {
+                        <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;measure-identifier&gt;'</span>    <span class="hljs-comment">// Or uri: '&lt;measure-uri&gt;'</span>
+                    }
+                }
+            },
+            <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier&gt;'</span>
+        }
+    ]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="complex-measure"></a><a href="#complex-measure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complex measure</h3>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IAfm</span>
+{
+    <span class="hljs-attr">measures</span>: [
+        <span class="hljs-comment">// Type: IMeasure</span>
+        {
+            <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier&gt;'</span>,
+            <span class="hljs-comment">// Type: MeasureDefinition</span>
+            definition: {
+                <span class="hljs-attr">measure</span>: {
+                    <span class="hljs-comment">// Type: ObjQualifier</span>
+                    item: {
+                        <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;measure-identifier&gt;'</span>    <span class="hljs-comment">// Or uri: '&lt;measure-uri&gt;'</span>
+                    },
+                    <span class="hljs-attr">aggregation</span>: <span class="hljs-string">'count'</span>,   <span class="hljs-comment">// Optional; By default 'sum'; Possible values: 'sum' | 'count' | 'avg' | 'min' | 'max' | 'median' | 'runsum'</span>
+                    <span class="hljs-comment">// Optional; By default []; Type: CompatibilityFilter[]</span>
+                    filters: [
+                        <span class="hljs-comment">// Type: IAbsoluteDateFilter</span>
+                        {
+                            <span class="hljs-attr">absoluteDateFilter</span>: {
+                                <span class="hljs-attr">dataSet</span>: {
+                                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+                                },
+                                <span class="hljs-attr">from</span>: <span class="hljs-string">'2017-07-31'</span>, <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+                                to: <span class="hljs-string">'2017-08-29'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+                            }
+                        },
+                        <span class="hljs-comment">// Type: IPositiveAttributeFilter</span>
+                        {
+                            <span class="hljs-attr">positiveAttributeFilter</span>: {
+                                <span class="hljs-attr">displayForm</span>: {
+                                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+                                },
+                                <span class="hljs-attr">in</span>: [<span class="hljs-string">'&lt;attribute-element-uri-1&gt;'</span>, <span class="hljs-string">'&lt;attribute-element-uri-2&gt;'</span>] <span class="hljs-comment">// Attribute elements currently support only uri</span>
+                            }
+                        },
+                    ],
+                    <span class="hljs-attr">computeRatio</span>: <span class="hljs-literal">true</span>      <span class="hljs-comment">// Optional; By default false</span>
+                }
+            },
+            <span class="hljs-attr">alias</span>: <span class="hljs-string">'Custom measure title'</span>,  <span class="hljs-comment">// Optional; Overrides default measure title</span>
+            format: <span class="hljs-string">'#,##0.00'</span>  <span class="hljs-comment">// Optional; Overrides default measure format</span>
+        }
+    ]
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="measure-with-global-filters"></a><a href="#measure-with-global-filters" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Measure with global filters</h3>
+<pre><code class="hljs css javascript"><span class="hljs-comment">// Type: IAfm</span>
+{
+    <span class="hljs-attr">measures</span>: [
+        <span class="hljs-comment">// Type: IMeasure</span>
+        {
+            <span class="hljs-attr">localIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier&gt;'</span>,
+            <span class="hljs-comment">// Type: MeasureDefinition</span>
+            definition: {
+                <span class="hljs-attr">measure</span>: {
+                    <span class="hljs-comment">// Type: ObjQualifier</span>
+                    item: {
+                        <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;measure-identifier&gt;'</span>    <span class="hljs-comment">// Or uri: '&lt;measure-uri&gt;'</span>
+                    },
+                    <span class="hljs-attr">aggregation</span>: <span class="hljs-string">'count'</span>,   <span class="hljs-comment">// Optional; By default 'sum'; Possible values: 'sum' | 'count' | 'avg' | 'min' | 'max' | 'median' | 'runsum'</span>
+                    computeRatio: <span class="hljs-literal">true</span>      <span class="hljs-comment">// Optional; By default false</span>
+                }
+            },
+            <span class="hljs-attr">alias</span>: <span class="hljs-string">'Custom measure title'</span>,  <span class="hljs-comment">// Optional; Overrides default measure title</span>
+            format: <span class="hljs-string">'#,##0.00'</span>  <span class="hljs-comment">// Optional; Overrides default measure format</span>
+        }
+    ],
+    <span class="hljs-comment">// Optional; By default []; Type: CompatibilityFilter[]</span>
+    filters: [
+        <span class="hljs-comment">// Type: IAbsoluteDateFilter</span>
+        {
+            <span class="hljs-attr">absoluteDateFilter</span>: {
+                    <span class="hljs-attr">dataSet</span>: {
+                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;date-dataset-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;date-dataset-uri&gt;'</span>
+                },
+                <span class="hljs-attr">from</span>: <span class="hljs-string">'2017-07-31'</span>, <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+                    to: <span class="hljs-string">'2017-08-29'</span> <span class="hljs-comment">// Supported string format 'YYYY-MM-DD'</span>
+            }
+        },
+        <span class="hljs-comment">// Type: IPositiveAttributeFilter</span>
+ 
+        {
+            <span class="hljs-attr">positiveAttributeFilter</span>: {
+                <span class="hljs-attr">displayForm</span>: {
+                    <span class="hljs-attr">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+                },
+                <span class="hljs-attr">in</span>: [<span class="hljs-string">'&lt;attribute-element-uri-1&gt;'</span>, <span class="hljs-string">'&lt;attribute-element-uri-2&gt;'</span>] <span class="hljs-comment">// Attribute elements currently support only uri</span>
+            }
+        }
+    ]
+ 
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="period-over-period-with-measure-defined-by-reference-in-afm"></a><a href="#period-over-period-with-measure-defined-by-reference-in-afm" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Period-over-period with measure defined by reference in AFM</h3>
+<pre><code class="hljs css javasctript">{
+    <span class="hljs-attribute">measures</span>: [
+        {
+            <span class="hljs-attribute">localIdentifier</span>: <span class="hljs-string">'&lt;pop-measure-local-identifier&gt;'</span>,
+            <span class="hljs-attribute">definition</span>: {
+                <span class="hljs-attribute">popMeasure</span>: {
+                    <span class="hljs-attribute">measureIdentifier</span>: <span class="hljs-string">'amountMeasure'</span>,
+                    <span class="hljs-attribute">popAttribute</span>: {
+                        <span class="hljs-attribute">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+                    }
+                }
+            }
+        },
+        {
+            <span class="hljs-attribute">localIdentifier</span>: <span class="hljs-string">'&lt;measure-local-identifier&gt;'</span>,
+            <span class="hljs-attribute">definition</span>: {
+                <span class="hljs-attribute">measure</span>: {
+                    <span class="hljs-attribute">item</span>: {
+                        <span class="hljs-attribute">identifier</span>: <span class="hljs-string">'&lt;measure-identifier&gt;'</span>    <span class="hljs-comment">// Or uri: '&lt;measure-uri&gt;'</span>
+                    }
+                }
+            }
+        }
+    ],
+    <span class="hljs-attribute">attributes</span>: [
+        {
+            <span class="hljs-attribute">displayForm</span>: {
+                <span class="hljs-attribute">identifier</span>: <span class="hljs-string">'&lt;attribute-displayForm-identifier&gt;'</span> <span class="hljs-comment">// Or uri: '&lt;attribute-displayForm-uri&gt;'</span>
+            },
+            <span class="hljs-attribute">localIdentifier</span>: <span class="hljs-string">'&lt;attribute-local-identifier&gt;'</span>
+        }
+    ]
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="on_legend_ready.html">← OnLegendReady</a><a class="docs-next button" href="result_specification.html">Specify Result Data (resultSpec) →</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#structure">Structure</a></li><li><a href="#measure">Measure</a><ul class="toc-headings"><li><a href="#aggregation-inside-a-measure">Aggregation inside a measure</a></li><li><a href="#filters-in-a-measure-definition">Filters in a measure definition</a></li><li><a href="#show-as-a-percentage">Show as a percentage</a></li><li><a href="#period-over-period">Period-over-period</a></li></ul></li><li><a href="#attribute">Attribute</a></li><li><a href="#filter">Filter</a><ul class="toc-headings"><li><a href="#datefilter">DateFilter</a></li><li><a href="#attributefilter">AttributeFilter</a></li></ul></li><li><a href="#native-total">Native Total</a><ul class="toc-headings"><li><a href="#definition">Definition</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#limitations">Limitations</a></li><li><a href="#defining-native-totals">Defining native totals</a></li><li><a href="#example">Example</a></li></ul></li><li><a href="#examples">Examples</a><ul class="toc-headings"><li><a href="#simple-measure">Simple measure</a></li><li><a href="#complex-measure">Complex measure</a></li><li><a href="#measure-with-global-filters">Measure with global filters</a></li><li><a href="#period-over-period-with-measure-defined-by-reference-in-afm">Period-over-period with measure defined by reference in AFM</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright wrapper">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved. Code licensed under an <a href="https://github.com/gooddata/gooddata-react-components/blob/master/LICENSE">BSD License</a>.</section></footer></div></body></html>

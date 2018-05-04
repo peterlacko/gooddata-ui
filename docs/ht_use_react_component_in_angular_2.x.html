@@ -1,28 +1,54 @@
-<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>How to Use React Components in Angular 2+ · GoodData.UI</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="How to Use React Components in Angular 2+ · GoodData.UI"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/gdc-ui-sdk-doc/index.html"/><meta property="og:description" content="The supported version of TypeScript is 2.3+."/><link rel="shortcut icon" href="/gdc-ui-sdk-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/gdc-ui-sdk-doc/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/gdc-ui-sdk-doc/"><img class="logo" src="/gdc-ui-sdk-doc/img/gooddata.svg"/><h2 class="headerTitle">GoodData.UI</h2></a><a href="/gdc-ui-sdk-doc/versions.html"><h3>4.1.1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/gdc-ui-sdk-doc/docs/about_gooddataui.html" target="_self">Docs</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/support_options.html" target="_self">Support</a></li><li class=""><a href="https://github.com/gooddata/gooddata-react-components/" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>FAQ</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>FAQ</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/trouble_shooting.html">Troubleshooting</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/ht_use_react_component_in_angular_1.x.html">How to Use React Components in Angular 1.x</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/gdc-ui-sdk-doc/docs/ht_use_react_component_in_angular_2.x.html">How to Use React Components in Angular 2+</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/glossary.html">Glossary</a></li></ul></div></div></section></div><script>
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Use Angular 2+ · GoodData.UI</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="Use Angular 2+ · GoodData.UI"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/gdc-ui-sdk-doc/index.html"/><meta property="og:description" content="To be able to use the GoodData.UI Visual Components in your Angular 2+ environment, wrap each component into an Angular component, and then render the React component using `ReactDom.render` inside."/><link rel="shortcut icon" href="/gdc-ui-sdk-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/gdc-ui-sdk-doc/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/gdc-ui-sdk-doc/"><img class="logo" src="/gdc-ui-sdk-doc/img/gooddata.svg"/><h2 class="headerTitle">GoodData.UI</h2></a><a href="/gdc-ui-sdk-doc/versions.html"><h3>5.0.0</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/gdc-ui-sdk-doc/docs/about_gooddataui.html" target="_self">Docs</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/support_options.html" target="_self">Support</a></li><li class=""><a href="https://github.com/gooddata/gooddata-react-components/" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Development Tips</span></h2></div><div class="navGroups"><div class="navGroup navGroupActive"><h3>Getting Started</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/about_gooddataui.html">About GoodData.UI</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/platform_intro.html">Platform Introduction</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/installation.html">Installation</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/examples.html">Examples</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/ht_create_your_first_visualization.html">Create Your First Visualization</a></li></ul></div><div class="navGroup navGroupActive"><h3>Visual Components</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/start_with_visual_components.html">How to Use Visual Components</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/area_chart_component.html">Area Chart</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/bar_chart_component.html">Bar Chart</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/column_chart_component.html">Column Chart</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/headline_component.html">Headline</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/kpi_component.html">KPI</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/line_chart_component.html">Line Chart</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/pie_chart_component.html">Pie Chart</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/table_component.html">Table</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/visualization_component.html">Visualization</a></li></ul></div><div class="navGroup navGroupActive"><h3>Properties</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/chart_config.html">Chart Config</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/drillable_item.html">DrillableItem</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/error_component.html">ErrorComponent</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/loading_component.html">LoadingComponent</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/on_legend_ready.html">OnLegendReady</a></li></ul></div><div class="navGroup navGroupActive"><h3>Custom Visualizations</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/create_new_visualization.html">Create New Visualization</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/afm.html">Set Up an AFM Query</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/result_specification.html">Specify Result Data</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/table_totals_in_execution_object.html">Specify Table Totals</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/execute_component.html">Execute API Call</a></li></ul></div><div class="navGroup navGroupActive"><h3>Development Tips</h3><ul><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/gdc_catalog_export.html">Get Identifiers From the Platform</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/sso.html">Set Up Authentication and Single Sign-On</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/cors.html">Prevent Cross-Origin Issues</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/data_layer.html">Access Low Level API</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/ht_render_visualization_from_different_domain.html">Access Multiple Domains and Projects</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/ht_use_react_components_with_vanilla_js.html">Use Vanilla JavaScript</a></li><li class="navListItem"><a class="navItem" href="/gdc-ui-sdk-doc/docs/ht_use_react_component_in_angular_1.x.html">Use Angular 1.x</a></li><li class="navListItem navListItemActive"><a class="navItem navItemActive" href="/gdc-ui-sdk-doc/docs/ht_use_react_component_in_angular_2.x.html">Use Angular 2+</a></li></ul></div></div></section></div><script>
           var toggler = document.getElementById('navToggler');
           var nav = document.getElementById('docsNav');
           toggler.onclick = function() {
             nav.classList.toggle('docsSliderActive');
           };
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>How to Use React Components in Angular 2+</h1></header><article><div><span><p>The supported version of TypeScript is 2.3+.</p>
-<p>The supported version of React is 15.3.2.</p>
-<p>Server-side rendering is <em>not</em> supported.</p>
-<p>To be able to use the GoodData <a href="react_components.md">React Components</a> in your Angular 2+ environment, wrap each component into an Angular component, and then render the React component using <code>ReactDom.render</code> inside.</p>
-<p><strong>Steps:</strong></p>
-<ol>
-<li>Install dependencies using either <code>npm</code> or <code>yarn</code>. Your app must be able to render React components from <code>@gooddata/react-components</code> using a unique ID (<code>uuid</code>), and also has to be able to issue an <code>invariant</code> exception if the DOM node is not available.</li>
-</ol>
-<pre><code class="hljs css bash">npm install --save uuid react react-dom invariant @gooddata/react-components
-npm install --save-dev @types/react
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>Use Angular 2+</h1></header><article><div><span><p>To be able to use the GoodData.UI Visual Components in your Angular 2+ environment, wrap each component into an Angular component, and then render the React component using <code>ReactDom.render</code> inside.</p>
+<h2><a class="anchor" aria-hidden="true" id="1-install-dependencies"></a><a href="#1-install-dependencies" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Install dependencies</h2>
+<!-- 
+    For GDC developer:
+    - Install ng cli using `npm install -g @angular/cli` or `yarn global add @angular/cli` and create angular app with `ng new my-sba-app`.
+    - Add proxy.conf.json:
+        ```
+        {
+          "/gdc": {
+            "changeOrigin": true,
+            "cookieDomainRewrite": "localhost",
+            "secure": false,
+            "target": "https://secure.gooddata.com/"
+          },
+          "/account.html": {
+            "changeOrigin": true,
+            "secure": false,
+            "target": "https://secure.gooddata.com/"
+          },
+          "/packages": {
+            "changeOrigin": true,
+            "secure": false,
+            "target": "https://secure.gooddata.com/"
+          }
+        }
+        ```
+    - generate SSL cert: openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
+    - run devserver: ng serve --proxy-config proxy.conf.json --ssl 1 --ssl-key domain.key --ssl-cert domain.crt
+    - open https://localhost:4200/account.html
+    - add KpiComponent to app.module.ts section NgModule.declarations
+ -->
+<p>Install latest dependencies using either <code>npm</code> or <code>yarn</code>. Your app must be able to render React components from <code>@gooddata/react-components</code> using a unique ID (<code>uuid</code>), and you also must be able to issue an <code>invariant</code> exception if the DOM node is not available.</p>
+<pre><code class="hljs css bash">npm install --save uuid invariant react@15.6.2 react-dom@15.6.2 @gooddata/react-components
+npm install --save-dev @types/react @types/react-intl
 </code></pre>
 <p>or</p>
-<pre><code class="hljs css bash">yarn add uuid react react-dom invariant @gooddata/react-components
-yarn add @types/react --dev
+<pre><code class="hljs css bash">yarn add uuid invariant react@15.6.2 react-dom@15.6.2 @gooddata/react-components
+yarn add @types/react @types/react-intl --dev
 </code></pre>
-<ol start="2">
-<li>Import the required component and dependencies.
-The component wrapper must be able to render React components imported from <code>@gooddata/react-components</code>. You can import any supported components from the package, and then either put them together using multiple <code>React.createElement</code> functions, or make an abstract wrapper component that accepts a React component reference as a parameter. The following examples are using a single KPI component:</li>
-</ol>
+<h2><a class="anchor" aria-hidden="true" id="2-declare-the-angular-wrapper-component"></a><a href="#2-declare-the-angular-wrapper-component" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Declare the Angular wrapper component</h2>
+<p>Angular wrapper component renders a React component and re-renders it on property change.</p>
+<p>The component wrapper must be able to render React components imported from <code>@gooddata/react-components</code>.
+You can import any supported components from the package, and then either put them together using multiple <code>React.createElement</code> functions, or make an abstract wrapper component that accepts a React component reference as a parameter.</p>
+<p>The following examples are using a single KPI component.</p>
+<p><strong>kpi.component.ts</strong>:</p>
 <pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>;
 <span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> uuid <span class="hljs-keyword">from</span> <span class="hljs-string">'uuid'</span>;
@@ -30,100 +56,98 @@ The component wrapper must be able to render React components imported from <cod
 
 <span class="hljs-keyword">import</span> { Component, Input, OnInit, OnDestroy, OnChanges, AfterViewInit } <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> { Kpi } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
-</code></pre>
-<ol start="3">
-<li>Declare the prop interface. The interface should be a subset of the React prop interface.</li>
-</ol>
-<pre><code class="hljs css javascript">interface KpiProps {
-    <span class="hljs-attr">measure</span>: string;
-    projectId: string;
-    format?: string;
-    filters?: any[];
-    onLoadingChanged?: (any);
-    onError?: (any);
+
+interface KpiProps {
+  <span class="hljs-attr">measure</span>: string;
+  projectId: string;
+  format?: string;
+  filters?: any[];
+  onLoadingChanged?: (any);
+  onError?: (any);
 }
-</code></pre>
-<ol start="4">
-<li><p>Declare the Angular wrapper component.</p>
-<p>This is the component that you can use in your Angular app. This component renders a React component and re-renders it on property change.</p>
-<p>When this article was last updated, there was an <a href="https://github.com/angular/angular/issues/14252">outstanding issue in Angular 4</a>: <code>ngOnDestroy</code> is called <em>after</em> a DOM node has already been removed. Not calling <code>ReactDOM.unmountComponentAtNode(this.getRootDomNode())</code> results in memory leaks.</p>
-<p>Verify whether the issue is present in your version of Angular. if not, uncomment the commented out line in <code>ngOnDestroy</code>.</p></li>
-</ol>
-<pre><code class="hljs css javascript">@Component({
-    <span class="hljs-attr">selector</span>: <span class="hljs-string">'app-kpi'</span>,
-    <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;span [id]="rootDomID"&gt;&lt;/span&gt;'</span>
+
+@Component({
+  <span class="hljs-attr">selector</span>: <span class="hljs-string">'app-kpi'</span>,
+  <span class="hljs-attr">template</span>: <span class="hljs-string">'&lt;span [id]="rootDomID"&gt;&lt;/span&gt;'</span>
 })
 
 <span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KpiComponent</span> <span class="hljs-title">implements</span> <span class="hljs-title">OnInit</span>, <span class="hljs-title">OnDestroy</span>, <span class="hljs-title">OnChanges</span>, <span class="hljs-title">AfterViewInit</span> </span>{
-    @Input() measure: string;
-    @Input() projectId: string;
-    @Input() filters: any[];
-    @Input() format: string;
-    @Input() onLoadingChanged?: (any);
-    @Input() onError?: (any);
- 
- 
-    private rootDomID: string;
-     
-    protected getRootDomNode() {
-        <span class="hljs-keyword">const</span> node = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-keyword">this</span>.rootDomID);
-        invariant(node, <span class="hljs-string">`Node '<span class="hljs-subst">${<span class="hljs-keyword">this</span>.rootDomID}</span> not found!`</span>);
-        <span class="hljs-keyword">return</span> node;
+  @Input() measure: string;
+  @Input() projectId: string;
+  @Input() filters: any[];
+  @Input() format: string;
+  @Input() onLoadingChanged?: (any);
+  @Input() onError?: (any);
+
+  private rootDomID: string;
+
+  protected getRootDomNode() {
+    <span class="hljs-keyword">const</span> node = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-keyword">this</span>.rootDomID);
+    invariant(node, <span class="hljs-string">`Node '<span class="hljs-subst">${<span class="hljs-keyword">this</span>.rootDomID}</span> not found!`</span>);
+    <span class="hljs-keyword">return</span> node;
+  }
+
+  protected getProps(): KpiProps {
+    <span class="hljs-keyword">const</span> {
+      projectId,
+      measure,
+      format,
+      filters,
+      onLoadingChanged,
+      onError
+    } = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">return</span> {
+      projectId,
+      measure,
+      format,
+      filters,
+      onLoadingChanged,
+      onError
+    };
+  }
+
+  private isMounted(): boolean {
+    <span class="hljs-keyword">return</span> !!<span class="hljs-keyword">this</span>.rootDomID;
+  }
+
+  protected render() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isMounted()) {
+      ReactDOM.render(React.createElement(Kpi, <span class="hljs-keyword">this</span>.getProps()), <span class="hljs-keyword">this</span>.getRootDomNode());
     }
- 
-    protected getProps(): KpiProps {
-        <span class="hljs-keyword">const</span> {
-            projectId,
-            measure,
-            format,
-            filters,
-            onLoadingChanged,
-            onError
-        } = <span class="hljs-keyword">this</span>;
-        <span class="hljs-keyword">return</span> {
-            projectId,
-            measure,
-            format,
-            filters,
-            onLoadingChanged,
-            onError
-        };
-    }
- 
-    private isMounted(): boolean {
-        <span class="hljs-keyword">return</span> !!<span class="hljs-keyword">this</span>.rootDomID;
-    }
- 
-    protected render() {
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isMounted()) {
-            ReactDOM.render(React.createElement(Kpi, <span class="hljs-keyword">this</span>.getProps()), <span class="hljs-keyword">this</span>.getRootDomNode());
-        }
-    }
- 
-    ngOnInit() {
-        <span class="hljs-keyword">this</span>.rootDomID = uuid.v1();
-    }
- 
-    ngOnChanges() {
-        <span class="hljs-keyword">this</span>.render();
-    }
- 
-    ngAfterViewInit() {
-        <span class="hljs-keyword">this</span>.render();
-    }
- 
-    ngOnDestroy() {
-        <span class="hljs-comment">// Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved</span>
-        <span class="hljs-comment">// ReactDOM.unmountComponentAtNode(this.getRootDomNode())</span>
-    }
+  }
+
+  ngOnInit() {
+    <span class="hljs-keyword">this</span>.rootDomID = uuid.v1();
+  }
+
+  ngOnChanges() {
+    <span class="hljs-keyword">this</span>.render();
+  }
+
+  ngAfterViewInit() {
+    <span class="hljs-keyword">this</span>.render();
+  }
+
+  ngOnDestroy() {
+    <span class="hljs-comment">// Uncomment if Angular 4 issue that ngOnDestroy is called AFTER DOM node removal is resolved</span>
+    <span class="hljs-comment">// ReactDOM.unmountComponentAtNode(this.getRootDomNode())</span>
+  }
 }
 </code></pre>
-<p>You are now ready to use the GoodData React Components in your Angular app.</p>
-<p>You can use wrapped components across your app. You can pass the component props to it and even update them using data-binding.</p>
+<p>When this article was last updated, there was an <a href="https://github.com/angular/angular/issues/14252">outstanding issue in Angular 4</a>. <code>ngOnDestroy</code> is called <em>after</em> a DOM node has already been removed. Not calling <code>ReactDOM.unmountComponentAtNode(this.getRootDomNode())</code> results in memory leaks.</p>
+<p>Verify whether the issue is present in your version of Angular. If not, uncomment the commented out line in <code>ngOnDestroy</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-use-the-component"></a><a href="#3-use-the-component" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Use the component</h2>
+<p>You are now ready to use the GoodData React components in your Angular app.</p>
+<p>You can use wrapped components across your app, pass the component props to it, and even update them using data-binding.</p>
 <pre><code class="hljs css javascript">&lt;app-kpi
     projectId=<span class="hljs-string">"la84vcyhrq8jwbu4wpipw66q2sqeb923"</span>
     measure=<span class="hljs-string">"atSHqCtAePe4"</span>&gt;
 <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">app-kpi</span>&gt;</span>
 </span></code></pre>
-<p>For more information on including React components in Angular, see <a href="https://www.packtpub.com/books/content/integrating-angular-2-react">https://www.packtpub.com/books/content/integrating-angular-2-react</a>.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="ht_use_react_component_in_angular_1.x.html">← GoodData.UI and Angular 1.x</a><a class="docs-next button" href="glossary.html">Glossary →</a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="copyright wrapper">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved. Code licensed under an <a href="https://github.com/gooddata/gooddata-react-components/blob/master/LICENSE">BSD License</a>.</section></footer></div></body></html>
+<p>If you want to handle loading and error content yourself, and you do not want to use the default LoadingComponent and ErrorComponent, pass null explicitly:</p>
+<ul>
+<li><code>LoadingComponent={null}</code></li>
+<li><code>ErrorComponent={null}</code></li>
+</ul>
+<p>For more information about including React components in Angular, see <a href="https://www.packtpub.com/books/content/integrating-angular-2-react">https://www.packtpub.com/books/content/integrating-angular-2-react</a>.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="ht_use_react_component_in_angular_1.x.html">← Use Angular 1.x</a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-install-dependencies">1. Install dependencies</a></li><li><a href="#2-declare-the-angular-wrapper-component">2. Declare the Angular wrapper component</a></li><li><a href="#3-use-the-component">3. Use the component</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright wrapper">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved. Code licensed under an <a href="https://github.com/gooddata/gooddata-react-components/blob/master/LICENSE">BSD License</a>.</section></footer></div></body></html>

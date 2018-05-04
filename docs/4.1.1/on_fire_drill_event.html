@@ -1,0 +1,44 @@
+<html lang="en"><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>OnFireDrillEvent · GoodData.UI</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta property="og:title" content="OnFireDrillEvent · GoodData.UI"/><meta property="og:type" content="website"/><meta property="og:url" content="https://gooddata.github.io/gdc-ui-sdk-doc/index.html"/><meta property="og:description" content="The `onFiredDrillEvent` parameter allows you to catch drilling events from visualizations on non-embedded KPI dashboards and to respond to them using the function that you have chosen to use and implemented."/><link rel="shortcut icon" href="/gdc-ui-sdk-doc/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/gdc-ui-sdk-doc/css/main.css"/></head><body class="sideNavVisible doc separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/gdc-ui-sdk-doc/"><img class="logo" src="/gdc-ui-sdk-doc/img/gooddata.svg"/><h2 class="headerTitle">GoodData.UI</h2></a><a href="/gdc-ui-sdk-doc/versions.html"><h3>4.1.1</h3></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/gdc-ui-sdk-doc/docs/4.1.1/about_gooddataui.html" target="_self">Docs</a></li><li class=""><a href="/gdc-ui-sdk-doc/docs/4.1.1/support_options.html" target="_self">Support</a></li><li class=""><a href="https://github.com/gooddata/gooddata-react-components/" target="_blank">GitHub</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1>OnFireDrillEvent</h1></header><article><div><span><p>The <code>onFiredDrillEvent</code> parameter allows you to catch drilling events from visualizations on non-embedded KPI dashboards and to respond to them using the function that you have chosen to use and implemented.</p>
+<p>When a user clicks a <a href="https://confluence.intgdc.com/display/VS/DrillableItem">drillable item</a> in a visualization on a non-embedded KPI dashboard, a default drill event is generated. This event has a format of <code>{ drillContext, executionContext }</code> and is sent to the function that you have chosen.</p>
+<ul>
+<li>If you want the default drilling event not to be generated, the function must return <code>false</code>. In this case, only what you have implemented in the function body is performed.</li>
+<li>When the function returns anything else but <code>false</code>, whatever you have implemented in the function body is performed, and then the default drilling event is also generated.</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="structure"></a><a href="#structure" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structure</h2>
+<pre><code class="hljs css javascript">&lt;Visualization
+   ....
+   onFiredDrillEvent={({ drillContext, executionContext }) =&gt; {
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'chart clicked!'</span>);
+      <span class="hljs-keyword">var</span> projectId = <span class="hljs-string">'&lt;project-id&gt;'</span>;
+      <span class="hljs-keyword">var</span> attributeIdentifier = executionContext.measures[<span class="hljs-number">0</span>].definition.measure.item.identifier;
+ 
+      gooddata.md.getUrisFromIdentifiers(projectId, [ attributeIdentifier ]).then(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> {
+         <span class="hljs-comment">// converting the attribute identifier into the attribute URI</span>
+         <span class="hljs-keyword">var</span> attributeUri = result[<span class="hljs-number">0</span>].uri;
+ 
+         gooddata.md.getObjectDetails(attributeUri).then(<span class="hljs-function"><span class="hljs-params">attribute</span> =&gt;</span> {
+            <span class="hljs-comment">// attribute metadata requested based on the attribute URI</span>
+            <span class="hljs-keyword">var</span> attributeDisplayFormUri = attribute.attribute.content.displayForms[<span class="hljs-number">0</span>].meta.uri;
+            <span class="hljs-keyword">var</span> attributeDisplayFormId = attributeDisplayFormUri.split(<span class="hljs-string">'/'</span>).slice(<span class="hljs-number">-1</span>)[<span class="hljs-number">0</span>]; <span class="hljs-comment">// attribute's displayForm identifier</span>
+ 
+            gooddata.md.getValidElements(projectId, attributeDisplayFormId).then(<span class="hljs-function"><span class="hljs-params">validElements</span> =&gt;</span> {
+               <span class="hljs-comment">// elements of the attribute's displayForm</span>
+               <span class="hljs-keyword">const</span> items = validElements.validElements.items.map(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.element);
+               <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'data retrieved!'</span>, items);
+               <span class="hljs-comment">// see the console in your browser dev tools</span>
+            });
+         });
+      });
+   }}
+/&gt;
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link" ><svg aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h2>
+<pre><code class="hljs css javascript">&lt;Visualization
+   projectId=<span class="hljs-string">"&lt;project-id&gt;"</span>
+   identifier=<span class="hljs-string">"&lt;visualization-identifier&gt;"</span>
+   config={&lt;chart-config&gt;}
+   onFiredDrillEvent={(data) =&gt; { alert(data.executionContext); }
+   drillableItems={[{ <span class="hljs-attr">identifier</span>: <span class="hljs-string">'drillable-Identifier1'</span> }, { <span class="hljs-attr">uri</span>: <span class="hljs-string">'drillable-Uri2'</span> }]}
+/&gt;
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#structure">Structure</a></li><li><a href="#example">Example</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="copyright wrapper">Copyright © 2007–2018 GoodData Corporation. All Rights Reserved. Code licensed under an <a href="https://github.com/gooddata/gooddata-react-components/blob/master/LICENSE">BSD License</a>.</section></footer></div></body></html>
