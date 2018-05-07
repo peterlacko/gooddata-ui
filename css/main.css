@@ -1935,7 +1935,7 @@ h4 {
 
 body,
 .mainContainer {
-  color: #000;
+  color: #464e56;
   font-size: 16px;
 }
 
@@ -2003,7 +2003,10 @@ strong {
   }
 }
 
-.wrapper {
+.wrapper,
+.separateOnPageNav.doc .wrapper,
+.separateOnPageNav .headerWrapper.wrapper {
+  width: 100%;
   max-width: 1440px;
 }
 
@@ -2114,6 +2117,7 @@ table tbody tr:nth-of-type(odd) {
 }
 .fixedHeaderContainer header a .logo {
   opacity: 0.9;
+  margin-top: -4px;
 }
 .fixedHeaderContainer header a:hover .logo {
   opacity: 1;
@@ -2135,9 +2139,6 @@ table tbody tr:nth-of-type(odd) {
 .navigationSlider {
   position: relative;
   flex: 1 1 auto;
-}
-.navigationSlider .slidingNav ul {
-  justify-content: center;
 }
 @media only screen and (max-width: 735px) {
   .navigationSlider .slidingNav ul {
@@ -2207,10 +2208,16 @@ table tbody tr:nth-of-type(odd) {
 }
 .navigationSlider .slidingNav ul li a:focus,
 .navigationSlider .slidingNav ul li a:hover, .navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
-  border-bottom-color: #14b2e2;
   color: rgba(0, 0, 0, 0.9);
   background: transparent;
   transition: all 100ms ease-in;
+}
+.navigationSlider .slidingNav ul li a:focus,
+.navigationSlider .slidingNav ul li a:hover {
+  border-bottom-color: #464e56;
+}
+.navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+  border-bottom-color: #14b2e2;
 }
 @media only screen and (min-width: 736px) {
   .navigationSlider,
@@ -2347,6 +2354,75 @@ nav.toc .toggleNav .navGroup.navGroupActive ul li a:hover::before, nav.toc .togg
   width: 100%;
   border-bottom-color: #14b2e2;
 }
+nav.toc .toggleNav .navToggle::before {
+  content: "+";
+  width: 20px;
+  height: 20px;
+  border: none;
+  color: #94a1ad;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 20px;
+  transform: none;
+}
+.docsSliderActive nav.toc .toggleNav .navToggle::before {
+  content: "-";
+}
+nav.toc .toggleNav .navToggle::before, .docsSliderActive nav.toc .toggleNav .navToggle::before {
+  margin-top: -11px;
+}
+nav.toc .toggleNav .navToggle::after,
+nav.toc .toggleNav .navToggle i {
+  display: none;
+}
+
+@media only screen and (min-width: 1025px) {
+  .onPageNav {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 110px;
+    flex: 0 0 240px;
+    overflow-y: auto;
+    max-height: calc(100vh - 110px);
+  }
+  .onPageNav > ul {
+    padding: 10px 0 2px 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .onPageNav a {
+    color: #464e56;
+  }
+  .onPageNav ul li {
+    padding-bottom: 12px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .onPageNav ul ul {
+    padding: 8px 0 0 20px;
+  }
+  .onPageNav ul ul li {
+    padding-bottom: 8px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .doc.separateOnPageNav.sideNavVisible .navPusher .mainContainer {
+    flex: 1 auto;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0 40px 50px;
+  }
+  .doc.separateOnPageNav .docsNavContainer {
+    flex: 0 0 240px;
+    margin: 40px 0 0;
+  }
+  .doc.separateOnPageNav nav.toc:last-child {
+    width: auto;
+    padding-bottom: 0;
+  }
+}
 
 .navSearchWrapper::before, .navSearchWrapper::after {
   display: none;
@@ -2460,6 +2536,33 @@ a {
 a:hover, a:focus, a:active {
   color: #464e56;
   text-decoration: underline;
+}
+
+.button-more-charts {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  padding: 6px 15px;
+  border: 1px solid #b0beca;
+  border-radius: 100px;
+  color: #6c7581;
+  font-size: 14px;
+  line-height: 22px;
+}
+.button-more-charts::before {
+  content: "+";
+  position: relative;
+  display: inline-block;
+  margin-top: -1px;
+  margin-right: 7px;
+  color: #97A1AE;
+  font-size: 20px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.button-more-charts:hover, .button-more-charts:focus, .button-more-charts:active {
+  border-color: #94a1ad;
+  text-decoration: none;
 }
 
 footer .copyright {
@@ -2843,6 +2946,9 @@ footer .copyright a:hover, footer .copyright a:active, footer .copyright a:focus
 .featuresText {
   text-align: left;
 }
+.featuresText .buttonWrapper {
+  display: inline-block;
+}
 
 .featuresLink {
   display: inline-block;
@@ -2928,7 +3034,7 @@ footer .copyright a:hover, footer .copyright a:active, footer .copyright a:focus
 
 .charting-lib-logo {
   display: inline-block;
-  margin: 0.5rem 2.5rem 0.5rem 0;
+  margin: 0.5rem 1.5rem 0.5rem 0;
   vertical-align: middle;
 }
 
