@@ -5,13 +5,13 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: sso
 ---
 
-To develop your own smart business application, you must add an authentication cookie to all requests coming to the GoodData platform.
+To develop your own analytical application, you must add an authentication cookie to all requests coming to the GoodData platform.
 
 <!-- INTERNAL GDC NOTE:
     If you need public access, you may use proxy method below. 
     GoodData Platform doesn't support public access, but there is 
     a possibility to supply access token via URI. 
-    (But it is not supported by UI SDK.)  
+    (But it is not supported by GoodData.UI.)  
  -->
 
 ## Use GoodData platform users - no SSO required

@@ -74,7 +74,7 @@ const ProjectTitle = props => (
 );
 
 const ProjectDescription = props => (
-  <p className="projectDescription">Powerfull JavaScript library <br className="noMobile" />for&nbsp;building analytics applications</p>
+  <p className="projectDescription">Powerful JavaScript library <br className="noMobile" />for&nbsp;building analytical applications</p>
 )
 
 const PromoSection = props => (
@@ -277,7 +277,7 @@ const Features = props => (
           <ExampleImage src="./img/homepage/example_2.png" alt="Example 2" />
         ]}
         linkTitle="View custom visualization tutorial"
-        linkUrl={docUrl('ht_create_your_first_visualization.html')}
+        linkUrl={docUrl('create_new_visualization.html')}
         textPosition="right"
         background="white"
       >
@@ -303,8 +303,8 @@ const Features = props => (
             image: './img/homepage/embed.png'
           }]}
         </FeaturesBlockGallery>}
-        linkTitle="Get your access now"
-        linkUrl=""
+        linkTitle="View live examples"
+        linkUrl="https://gooddata-examples.herokuapp.com/"
         textPosition="center"
         background="gray"
       />
@@ -331,7 +331,7 @@ const FeatureCalloutBlock = props => (
 
 const FeatureCallout = props => (
   <section className="productShowcaseSection">
-    <h2>Code your first app</h2>
+    <h2>Code your first application</h2>
     <div className="productShowcase wrapper">
       <div className="productShowcaseInner">
         <FeatureCalloutBlock

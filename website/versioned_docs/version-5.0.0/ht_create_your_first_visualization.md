@@ -1,12 +1,12 @@
 ---
-title: Create Your First Visualization with GoodData.UI
+title: Create Your First Visualization
 sidebar_label: Create Your First Visualization
 copyright: (C) 2007-2018 GoodData Corporation
 id: version-5.0.0-ht_create_your_first_visualization
 original_id: ht_create_your_first_visualization
 ---
 
-This tutorial will guide you through the process of creating your first smart application using GoodData.UI with the Facebook’s `create-react-app` tool.
+This tutorial will guide you through the process of creating your first analytical application using GoodData.UI with the Facebook’s `create-react-app` tool.
 
 After you complete this tutorial, you will be able to display various measures and charts from your GoodData project within the context of your React application.
 
@@ -29,7 +29,7 @@ This command installs the `create-react-app` tool that will help you create a fu
 
 2. Change your current working directory to `my-first-sba` (for example, by running `cd my-first-sba` on Mac or Linux).
 
-3. **GoodData UI SDK requires React 15.6.2**. However, the current version of `create-react-app` installs React 16. Downgrade your version of React to 15.6.2 by running the following command:
+3. **GoodData.UI requires React 15.6.2**. However, the current version of `create-react-app` installs React 16. Downgrade your version of React to 15.6.2 by running the following command:
     ```bash
     yarn install
     yarn upgrade react@15.6.2 react-dom@15.6.2
@@ -85,11 +85,11 @@ Now you can start adding your first GoodData component:
     ```
 4. Add simple KPI number by appending the following lines in the `render()` method:
     ```javascript
-    // Use the project ID and measure ID from your project.
     <Kpi
       projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
       measure="atSHqCtAePe4" />
     ```
+    > Use project ID and measure ID from your project or use [live examples](https://gooddata-examples.herokuapp.com/).
 
 **Save the changes.** The content of your `App.js` file should now look something like the following example:
 
@@ -130,7 +130,7 @@ Notice the KPI number that you have added.
 
 
 ## Step 7 - Keep your code clean
-The GoodData UI SDK provides a tool named [gdc-catalog-export](gdc-catalog-export.md) that can help you keep the list of object identifiers organized in a Javascript file within your application.
+GoodData.UI provides a tool named [gdc-catalog-export](gdc-catalog-export.md) that can help you keep the list of object identifiers organized in a Javascript file within your application.
 
 For example, see the following component used in this tutorial:
 

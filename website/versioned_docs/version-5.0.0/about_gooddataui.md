@@ -6,7 +6,7 @@ copyright: (C) 2007-2018 GoodData Corporation
 original_id: about_gooddataui
 ---
 
-GoodData.UI is a React-based JavaScript library for building responsive analytics applications.
+GoodData.UI is a React-based JavaScript library for building responsive analytical applications.
 
 With GoodData.UI, you can:
 * Display insights or existing visualizations from the GoodData platform using [visual components](start_with_visual_components.md).
@@ -19,7 +19,7 @@ GoodData.UI supports:
 * React 15.6.2, [Angular 1.X](ht_use_react_components_in_angular_1.x.md), [Angular 2+](ht_use_react_components_in_angular_2.x.md)
 * TypeScript 2.3+, ES6, ES5
 
-Server-side rendering is _not_ supported.
+[Server-side rendering](https://github.com/reactjs/redux/blob/master/docs/recipes/ServerRendering.md) is _not_ supported.
 
 ## GoodData platform account
 
