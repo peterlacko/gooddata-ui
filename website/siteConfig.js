@@ -54,7 +54,7 @@ const siteConfig = {
     new Date().getFullYear() +
     ' GoodData',
   organizationName: 'gooddata',
-  projectName: 'gdc-ui-sdk-doc',
+  projectName: 'gooddata-ui',
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks
     theme: 'default',
@@ -62,6 +62,7 @@ const siteConfig = {
   scripts: ['https://buttons.github.io/buttons.js'],
   // You may provide arbitrary config keys to be used as needed by your template.
   repoUrl: 'https://github.com/gooddata/gooddata-react-components',
+  gaTrackingId: 'UA-3766725-19',
   /* On page navigation for the current documentation page */
   // onPageNav: 'separate',
   /* algolia: {
