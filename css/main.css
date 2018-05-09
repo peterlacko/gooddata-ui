@@ -2102,7 +2102,7 @@ table tbody tr:nth-of-type(odd) {
 }
 .fixedHeaderContainer header img,
 .fixedHeaderContainer .logo {
-  width: 141px;
+  width: 143px;
   height: 35px;
 }
 .fixedHeaderContainer header {
@@ -2383,7 +2383,7 @@ nav.toc .toggleNav .navToggle i {
     position: -webkit-sticky;
     position: sticky;
     top: 110px;
-    flex: 0 0 240px;
+    flex: 0 0 290px;
     overflow-y: auto;
     max-height: calc(100vh - 110px);
   }
@@ -2415,7 +2415,7 @@ nav.toc .toggleNav .navToggle i {
     padding: 0 40px 50px;
   }
   .doc.separateOnPageNav .docsNavContainer {
-    flex: 0 0 240px;
+    flex: 0 0 290px;
     margin: 40px 0 0;
   }
   .doc.separateOnPageNav nav.toc:last-child {
@@ -2605,7 +2605,7 @@ footer .copyright a:hover, footer .copyright a:active, footer .copyright a:focus
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  transform: translate3d(0, -15%, 0);
+  transform: translate3d(0, -10.5%, 0);
   transition: transform 1ms;
 }
 
