@@ -2031,11 +2031,15 @@ blockquote p {
 }
 
 table {
+  display: block;
+  max-width: 100%;
+  overflow: auto;
   border: none;
   background-color: transparent;
 }
 table tr th,
 table tr td {
+  min-width: 100px;
   padding: 0.3rem;
   border: none;
   font-family: avenir, "Helvetica Neue", arial, sans-serif;
@@ -2091,6 +2095,23 @@ table tbody tr:nth-of-type(odd) {
   .versionsContainer {
     margin-right: 260px;
     margin-left: 326px;
+  }
+}
+
+@media only screen and (min-width: 736px) {
+  .mainContainer .post:first-child,
+.mainContainer .posts:first-child,
+.mainContainer .lonePost:first-child,
+.mainContainer .wrapper .post:first-child,
+.mainContainer .wrapper .posts:first-child,
+.mainContainer .wrapper .lonePost:first-child,
+.blogContainer .post:first-child,
+.blogContainer .posts:first-child,
+.blogContainer .lonePost:first-child,
+.blogContainer .wrapper .post:first-child,
+.blogContainer .wrapper .posts:first-child,
+.blogContainer .wrapper .lonePost:first-child {
+    padding-top: 0;
   }
 }
 
@@ -2222,6 +2243,14 @@ table tbody tr:nth-of-type(odd) {
 .navigationSlider .slidingNav ul li.siteNavItemActive a, .navigationSlider .slidingNav ul li.siteNavGroupActive a {
   border-bottom-color: #14b2e2;
 }
+@media only screen and (max-width: 735px) {
+  .navigationSlider .slidingNav {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  }
+  .sideNavVisible .navigationSlider .slidingNav {
+    box-shadow: none;
+  }
+}
 @media only screen and (min-width: 736px) {
   .navigationSlider,
 .navigationSlider nav.slidingNav,
@@ -2281,6 +2310,7 @@ body,
 }
 @media only screen and (min-width: 736px) {
   .docMainWrapper.wrapper {
+    padding-top: 40px;
     padding-left: 0;
   }
 }
@@ -2294,6 +2324,7 @@ body,
 @media only screen and (min-width: 736px) {
   .doc.separateOnPageNav .docsNavContainer {
     flex: 0 0 290px;
+    margin-top: 0;
     margin-right: 1rem;
   }
 }
@@ -2309,6 +2340,9 @@ body,
 
 nav.toc {
   width: auto;
+}
+nav.toc:last-child {
+  padding-bottom: 0;
 }
 nav.toc .toggleNav {
   background: transparent;
@@ -2357,26 +2391,60 @@ nav.toc .toggleNav .navGroup.navGroupActive ul li a:hover::before, nav.toc .togg
   width: 100%;
   border-bottom-color: #14b2e2;
 }
-nav.toc .toggleNav .navToggle::before {
-  content: "+";
+nav.toc .toggleNav .navToggle {
   width: 20px;
   height: 20px;
+}
+nav.toc .toggleNav .navToggle::before, nav.toc .toggleNav .navToggle::after,
+nav.toc .toggleNav .navToggle i, .docsSliderActive nav.toc .toggleNav .navToggle::before, .docsSliderActive nav.toc .toggleNav .navToggle::after,
+.docsSliderActive nav.toc .toggleNav .navToggle i {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 10px;
+  right: 0;
+  left: 0;
+  opacity: 1;
   border: none;
-  color: #94a1ad;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 20px;
-  transform: none;
+  border-bottom: 2px solid #404040;
+  transform: rotate(0);
+  transition: all 0.4s;
+}
+nav.toc .toggleNav .navToggle::before {
+  margin-top: -6px;
+}
+nav.toc .toggleNav .navToggle::after {
+  margin-top: 6px;
+}
+nav.toc .toggleNav .navToggle i::before, nav.toc .toggleNav .navToggle i::after {
+  display: none;
+}
+.docsSliderActive nav.toc .toggleNav .navToggle::before, .docsSliderActive nav.toc .toggleNav .navToggle::after {
+  margin-top: 0;
 }
 .docsSliderActive nav.toc .toggleNav .navToggle::before {
-  content: "-";
+  transform: rotate(45deg);
 }
-nav.toc .toggleNav .navToggle::before, .docsSliderActive nav.toc .toggleNav .navToggle::before {
-  margin-top: -11px;
+.docsSliderActive nav.toc .toggleNav .navToggle::after {
+  transform: rotate(-45deg);
 }
-nav.toc .toggleNav .navToggle::after,
-nav.toc .toggleNav .navToggle i {
+.docsSliderActive nav.toc .toggleNav .navToggle i {
+  opacity: 0;
+}
+@media only screen and (max-width: 735px) {
+  nav.toc section .navGroups {
+    padding-top: 64px;
+  }
+}
+
+.docsNavContainer nav.toc .navBreadcrumb {
+  height: 50px;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  background-color: #fdfdfd;
+}
+.navBreadcrumb h2 i {
   display: none;
 }
 
@@ -2385,10 +2453,11 @@ nav.toc .toggleNav .navToggle i {
     display: block;
     position: -webkit-sticky;
     position: sticky;
-    top: 110px;
+    top: 104px;
     flex: 0 0 290px;
     overflow-y: auto;
-    max-height: calc(100vh - 110px);
+    max-height: calc(100vh - 104px);
+    padding-top: 1.25rem;
   }
   .onPageNav > ul {
     padding: 10px 0 2px 15px;
@@ -2419,12 +2488,15 @@ nav.toc .toggleNav .navToggle i {
   }
   .doc.separateOnPageNav .docsNavContainer {
     flex: 0 0 290px;
-    margin: 40px 0 0;
+    margin: 0;
   }
   .doc.separateOnPageNav nav.toc:last-child {
     width: auto;
-    padding-bottom: 0;
   }
+}
+
+.toggleNavOpen {
+  overflow: hidden;
 }
 
 .navSearchWrapper::before, .navSearchWrapper::after {
@@ -2653,6 +2725,11 @@ footer .copyright a:hover, footer .copyright a:active, footer .copyright a:focus
 .homeContainer .homeWrapper {
   position: relative;
   padding-bottom: 369px;
+}
+@media only screen and (max-width: 735px) {
+  .homeContainer .homeWrapper {
+    padding-bottom: 40%;
+  }
 }
 
 .promoSection {
