@@ -58,7 +58,7 @@ const attribute = {
     <AreaChart
         projectId={projectId}
         measures={measures}
-        trendBy={attribute}
+        viewBy={attribute}
     />
 </div>
 ```
@@ -69,8 +69,8 @@ const attribute = {
 | :--- | :--- | :--- | :--- |
 | projectId | false | string | The project ID |
 | measures | false | Measure[] | An array of measure definitions |
-| trendBy | false | Attribute[] | An array of attribute definitions |
-| segmentBy | false | Attribute[] | An array of attribute definitions |
+| viewBy | false | Attribute[] | An array of attribute definitions |
+| stackBy | false | Attribute[] | An array of attribute definitions |
 | filters | false | Filter[] | An array of filter definitions |
 | config | false | {} | The chart configuration object |
 | locale | false | string | The location string for translations |
