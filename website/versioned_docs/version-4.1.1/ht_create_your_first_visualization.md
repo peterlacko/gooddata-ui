@@ -37,36 +37,36 @@ This command installs the `create-react-app` tool that will help you create a fu
 1. Run the following command from the command line:
 
 ```bash
-create-react-app my-first-sba
+create-react-app my-first-app
 ```
 
-   This command creates a directory named `my-first-sba` with a functional skeleton of a React application. You can see the command output that looks something like the following:
+   This command creates a directory named `my-first-app` with a functional skeleton of a React application. You can see the command output that looks something like the following:
 
 ```bash
-Success! Created my-first-sba at /Users/user-name/local/src/ui-sdk/my-first-sba
+Success! Created my-first-app at /Users/user-name/local/src/ui-sdk/my-first-app
 Inside that directory, you can run several commands:
- 
+
    yarn start
      Starts the development server.
- 
+
    yarn build
      Bundles the app into static files for production.
- 
+
    yarn test
      Starts the test runner.
- 
+
    yarn eject
      Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!
- 
+
 We suggest that you begin by typing:
- 
-  cd my-first-sba
+
+  cd my-first-app
   yarn start
- 
+
 Happy hacking!
 ```
 
-2. Change your current working directory to `my-first-sba` \(for example, by running `cd my-first-sba` on Mac or Linux\).
+2. Change your current working directory to `my-first-app` \(for example, by running `cd my-first-app` on Mac or Linux\).
 
 3. As the current version of `create-react-app` installs React 16 while the GoodData UI SDK requires React 15.3.2, downgrade your version of React to 15.3.2 by running the following command:
 
@@ -119,7 +119,7 @@ Your `package.json` should now look something like this \(the version numbers ma
 
 ```javascript
 {
-   "name": "my-first-sba",
+   "name": "my-first-app",
    "version": "0.1.0",
    "private": true,
    "proxy": {
@@ -180,7 +180,7 @@ For the purpose of this tutorial, you are asked to establish a client session by
 
 In your production environment, your end users may be authenticated using single sign-on. This case will be covered in a different tutorial.
 
-## Step 7. Add GoodData components 
+## Step 7. Add GoodData components
 
 Open [https://localhost:3000/](https://localhost:3000/) in your browser.
 
@@ -218,7 +218,7 @@ Save the changes. The content of your `App.js` file should now look something l
 import React, { Component } from 'react';
 import { Kpi } from '@gooddata/react-components';
 import '@gooddata/react-components/styles/css/main.css';
- 
+
 import logo from './logo.svg';
 import './App.css';
 class App extends Component {
@@ -239,7 +239,7 @@ class App extends Component {
       );
    }
 }
- 
+
 export default App;
 ```
 
@@ -302,14 +302,14 @@ $ gdc-catalog-export--project-idla84vcyhrq8jwbu4wpipw66q2sqeb923 --username <you
 import React, { Component } from 'react';
 import { Kpi } from '@gooddata/react-components';
 import '@gooddata/react-components/styles/css/main.css';
- 
+
 import logo from './logo.svg';
 import './App.css';
- 
+
 import { CatalogHelper } from '@gooddata/react-components';
 import catalogJson from './catalog.json';
 const C = new CatalogHelper(catalogJson);
- 
+
 class App extends Component {
    render() {
       return (
@@ -328,7 +328,7 @@ class App extends Component {
       );
    }
 }
- 
+
 export default App;
 ```
 

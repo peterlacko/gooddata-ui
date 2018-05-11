@@ -8,7 +8,7 @@ original_id: cors
 
 This article will show you how to prevent cross-origin issues (CORS) that would occur in the following scenario.
 
-Your application runs on your local dev machine [https://localhost:3000](https://localhost:3000/) or on your production domain, but you need it to call the GoodData APIs from [https://secure.gooddata.com/gdc/](https://secure.gooddata.com/gdc/). 
+Your application runs on your local dev machine [https://localhost:3000](https://localhost:3000/) or on your production domain, but you need it to call the GoodData APIs from [https://secure.gooddata.com/gdc/](https://secure.gooddata.com/gdc/).
 
 Modern browsers do not permit this because of the security measure known as the [same-origin-policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy).
 
@@ -45,21 +45,27 @@ To set up a proxy, add the following section to the root level of your `package.
 
 ```javascript
 "proxy": {
-   "/gdc": {
-      "changeOrigin": true,
-      "cookieDomainRewrite": "localhost",
-      "secure": false,
-      "target": "https://secure.gooddata.com/"
-   },
-   "/*.html": {
-      "changeOrigin": true,
-      "secure": false,
-      "target": "https://secure.gooddata.com/"
-   }
+  "/gdc": {
+    "changeOrigin": true,
+    "cookieDomainRewrite": "localhost",
+    "secure": false,
+    "target": "https://secure.gooddata.com/".
+    "headers": {
+      "host": "secure.gooddata.com",
+      "origin": null
+    }
+  },
+  "/*.html": {
+    "changeOrigin": true,
+    "secure": false,
+    "target": "https://secure.gooddata.com/"
+  }
 },
 ```
 
 The `/gdc` prefix refers to the GoodData APIs as they are hosted under [https://secure.gooddata.com/gdc](https://secure.gooddata.com/gdc). The `"secure: false"` section allows you to set up a proxy against your localhost server that may use a self-signed certificate.
+
+If you want to connect to the [live examples](https://gooddata-examples.herokuapp.com) set all the target properties to ```https://developer.na.gooddata.com```. The ```projectId``` of the demo project is ```xms7ga4tf3g3nzucd8380o2bev8oeknp```.
 
 In addition, proxying the `/*.html` pages allows you to easily establish a user session by logging in using the GoodData login page \(account.html\) and possibly invoke other GoodData actions that you may need during the development.
 
@@ -67,33 +73,37 @@ Your `package.json` should now look something like this \(the version numbers ma
 
 ```javascript
 {
-   "name": "my-first-sba",
-   "version": "0.1.0",
-   "private": true,
-   "proxy": {
-      "/gdc": {
-         "changeOrigin": true,
-         "cookieDomainRewrite": "localhost",
-         "secure": false,
-         "target": "https://secure.gooddata.com/"
-      },
-      "/*.html": {
-         "changeOrigin": true,
-         "secure": false,
-         "target": "https://secure.gooddata.com/"
+  "name": "my-first-app",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/gdc": {
+      "changeOrigin": true,
+      "cookieDomainRewrite": "localhost",
+      "secure": false,
+      "target": "https://secure.gooddata.com/",
+      "headers": {
+        "host": "secure.gooddata.com",
+        "origin": null
       }
-   },
-   "dependencies": {
-      "@gooddata/react-components": "^3.0.1",
-      "react": "15.3.2",
-      "react-dom": "15.3.2",
-      "react-scripts": "1.0.10"
-   },
-   "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test --env=jsdom",
-      "eject": "react-scripts eject"
-   }
+    },
+    "/*.html": {
+      "changeOrigin": true,
+      "secure": false,
+      "target": "https://secure.gooddata.com/"
+    }
+  },
+  "dependencies": {
+    "@gooddata/react-components": "^3.0.1",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
+    "react-scripts": "1.0.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
 ```
