@@ -46,8 +46,8 @@ const measure = {
 
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
-| projectId | false | string | The project ID |
-| primaryMeasure | false | Measure | A measure definition |
+| projectId | true | string | The project ID |
+| primaryMeasure | true | Measure | A measure definition |
 | filters | false | Filter[] | An array of filter definitions |
 | locale | false | string | The location string for translations |
 | drillableItems | false | DrillableItem[] | An array of points and attribute values to be drillable
