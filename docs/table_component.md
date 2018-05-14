@@ -66,8 +66,8 @@ const attributes = [
 
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
-| projectId | false | string | The project ID |
-| measures | false | Measure[] | An array of measure definitions |
+| projectId | true | string | The project ID |
+| measures | true | Measure[] | An array of measure definitions |
 | attributes | false | Attribute[] | An array of attribute definitions |
 | totals | false | Total[] | An array of total definitions |
 | filters | false | Filter[] | An array of filter definitions |

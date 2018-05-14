@@ -64,8 +64,8 @@ const attribute = {
 
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
-| projectId | false | string | The project ID |
-| measures | false | Measure[] | An array of measure definitions |
+| projectId | true | string | The project ID |
+| measures | true | Measure[] | An array of measure definitions |
 | trendBy | false | Attribute[] | An array of attribute definitions |
 | segmentBy | false | Attribute[] | An array of attribute definitions |
 | filters | false | Filter[] | An array of filter definitions |

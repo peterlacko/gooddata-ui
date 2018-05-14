@@ -65,8 +65,8 @@ const month = {
 
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
-| projectId | false | string | The project ID |
-| measures | false | Measure[] | An array of measure definitions |
+| projectId | true | string | The project ID |
+| measures | true | Measure[] | An array of measure definitions |
 | viewBy | false | Attribute[] | An array of attribute definitions |
 | stackBy | false | Attribute[] | An array of attribute definitions |
 | filters | false | Filter[] | An array of filter definitions |
