@@ -69,6 +69,7 @@ const attribute = {
 | trendBy | false | Attribute[] | An array of attribute definitions |
 | segmentBy | false | Attribute[] | An array of attribute definitions |
 | filters | false | Filter[] | An array of filter definitions |
+| sortBy | false | SortItem[] | An array of sort definitions. See the `sorts` prop in the code sample in [Result specification](result_specification.md#sorting). |
 | config | false | {} | The chart configuration object |
 | locale | false | string | The location string for translations |
 | drillableItems | false | DrillableItem[] | An array of points and attribute values to be drillable
