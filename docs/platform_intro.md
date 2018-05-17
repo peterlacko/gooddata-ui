@@ -5,9 +5,13 @@ sidebar_label: Platform Introduction
 copyright: (C) 2007-2018 GoodData Corporation
 ---
 
-The **GoodData platform** is a complete analytics platform. This end-to-end solution for business intelligence delivers ETL (Extract Transform Load), data warehousing, and insight modeling in a single, unified platform.
+The **GoodData platform** is a full-fledged analytics platform. This end-to-end solution for business intelligence delivers ETL (Extract Transform Load), data warehousing, and insight modeling in a single, unified platform.
 
-GoodData users access analytics through the **GoodData Portal**, an intuitive and secure web interface purpose-built for querying and displaying analytics reporting. After a GoodData user logs in to the GoodData Portal, they can create insights and build dashboards.
+GoodData **users** access analytics through the web-based **GoodData Portal** where they can create insights and build dashboards.
+
+As a **developer**, you can use our comprehensive set of open REST APIs and SDKs to customize GoodData tools and build insights that suit your customers’ specific needs.
+
+## Key concepts
 
 An **insight** is a chart or table of measures designed to surface analytics into the GoodData Portal for stakeholders to review. An insight contains one or more aggregation functions applied to numerical facts or **measures**, optionally segmented by one or more **attributes** and filtered out by **filters**.
 
