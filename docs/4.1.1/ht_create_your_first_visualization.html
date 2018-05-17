@@ -24,33 +24,33 @@
 <ol>
 <li>Run the following command from the command line:</li>
 </ol>
-<pre><code class="hljs css bash">create-react-app my-first-sba
+<pre><code class="hljs css bash">create-react-app my-first-app
 </code></pre>
-<p>This command creates a directory named <code>my-first-sba</code> with a functional skeleton of a React application. You can see the command output that looks something like the following:</p>
-<pre><code class="hljs css bash">Success! Created my-first-sba at /Users/user-name/<span class="hljs-built_in">local</span>/src/ui-sdk/my-first-sba
+<p>This command creates a directory named <code>my-first-app</code> with a functional skeleton of a React application. You can see the command output that looks something like the following:</p>
+<pre><code class="hljs css bash">Success! Created my-first-app at /Users/user-name/<span class="hljs-built_in">local</span>/src/ui-sdk/my-first-app
 Inside that directory, you can run several commands:
- 
+
    yarn start
      Starts the development server.
- 
+
    yarn build
      Bundles the app into static files <span class="hljs-keyword">for</span> production.
- 
+
    yarn <span class="hljs-built_in">test</span>
      Starts the <span class="hljs-built_in">test</span> runner.
- 
+
    yarn eject
      Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you <span class="hljs-keyword">do</span> this, you can’t go back!
- 
+
 We suggest that you begin by typing:
- 
-  <span class="hljs-built_in">cd</span> my-first-sba
+
+  <span class="hljs-built_in">cd</span> my-first-app
   yarn start
- 
+
 Happy hacking!
 </code></pre>
 <ol start="2">
-<li><p>Change your current working directory to <code>my-first-sba</code> (for example, by running <code>cd my-first-sba</code> on Mac or Linux).</p></li>
+<li><p>Change your current working directory to <code>my-first-app</code> (for example, by running <code>cd my-first-app</code> on Mac or Linux).</p></li>
 <li><p>As the current version of <code>create-react-app</code> installs React 16 while the GoodData UI SDK requires React 15.3.2, downgrade your version of React to 15.3.2 by running the following command:</p></li>
 </ol>
 <pre><code class="hljs css bash">yarn install
@@ -84,7 +84,7 @@ yarn upgrade react@15.3.2 react-dom@15.3.2
 <p>In addition, proxying the <code>/*.html</code> pages allows you to easily establish a user session by logging in using the GoodData login page (account.html) and possibly invoke other GoodData actions that you may need during the development.</p>
 <p>Your <code>package.json</code> should now look something like this (the version numbers may differ):</p>
 <pre><code class="hljs css javascript">{
-   <span class="hljs-string">"name"</span>: <span class="hljs-string">"my-first-sba"</span>,
+   <span class="hljs-string">"name"</span>: <span class="hljs-string">"my-first-app"</span>,
    <span class="hljs-string">"version"</span>: <span class="hljs-string">"0.1.0"</span>,
    <span class="hljs-string">"private"</span>: <span class="hljs-literal">true</span>,
    <span class="hljs-string">"proxy"</span>: {
@@ -160,7 +160,7 @@ measure=<span class="hljs-string">"atSHqCtAePe4"</span> /&gt;
 <pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Kpi } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
- 
+
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">'./logo.svg'</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">'./App.css'</span>;
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
@@ -181,7 +181,7 @@ measure=<span class="hljs-string">"atSHqCtAePe4"</span> /&gt;
       );
    }
 }
- 
+
 export default App;
 </code></pre>
 <p>Go back to your browser window. The default page now looks like the following:</p>
@@ -225,14 +225,14 @@ You can now reference the measure using its human-readable alias (<code>Avg Deal
 <pre><code class="hljs css javascript"><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>;
 <span class="hljs-keyword">import</span> { Kpi } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">'@gooddata/react-components/styles/css/main.css'</span>;
- 
+
 <span class="hljs-keyword">import</span> logo <span class="hljs-keyword">from</span> <span class="hljs-string">'./logo.svg'</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">'./App.css'</span>;
- 
+
 <span class="hljs-keyword">import</span> { CatalogHelper } <span class="hljs-keyword">from</span> <span class="hljs-string">'@gooddata/react-components'</span>;
 <span class="hljs-keyword">import</span> catalogJson <span class="hljs-keyword">from</span> <span class="hljs-string">'./catalog.json'</span>;
 <span class="hljs-keyword">const</span> C = <span class="hljs-keyword">new</span> CatalogHelper(catalogJson);
- 
+
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">App</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
    render() {
       <span class="hljs-keyword">return</span> (
@@ -251,7 +251,7 @@ You can now reference the measure using its human-readable alias (<code>Avg Deal
       );
    }
 }
- 
+
 export default App;
 </code></pre>
 <p>Notice that the code in the <code>App.js</code> file still includes the hardcoded reference to the project (<code>la84vcyhrq8jwbu4wpipw66q2sqeb923</code> at line 17). In your real application, you may prefer to pass the project ID via URL or hash parameter, or it may be retrieved from your server-side APIs (if you are integrating GoodData into an existing application). It depends on your application's architecture.</p>
