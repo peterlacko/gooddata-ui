@@ -74,10 +74,10 @@ Your `package.json` should now look something like this \(the version numbers ma
     }
   },
   "dependencies": {
-    "@gooddata/react-components": "^3.0.1",
-    "react": "15.3.2",
-    "react-dom": "15.3.2",
-    "react-scripts": "1.0.10"
+    "@gooddata/react-components": "^5.0.1",
+    "react": "15.6.2",
+    "react-dom": "15.6.2",
+    "react-scripts": "1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
