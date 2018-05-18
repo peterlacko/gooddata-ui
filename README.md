@@ -1,21 +1,26 @@
 # GoodData.UI documentation
 
+GoodData.UI is a React-based JavaScript library for building responsive analytical applications around the GoodData platform. It comes with its product documentation and several other resources. 
 
-- Live documentation: http://sdk.gooddata.com/gooddata-ui/
-- Live Examples: https://gooddata-examples.herokuapp.com
+## Live resources
+
+Use the following resources to learn how to use GoodData.UI:
+
+- [Documentation](http://sdk.gooddata.com/gooddata-ui/)
+- [Live examples](https://gooddata-examples.herokuapp.com)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/gooddata)
 - GoodData.UI repositories:
   - [ReactComponents](https://github.com/gooddata/gooddata-react-components)
   - [GoodData JS](https://github.com/gooddata/gooddata-js)
+  - [GoodData.UI NPMs](https://www.npmjs.com/package/@gooddata/react-components)
 
+## Offline access to documentation
 
-
-### Launch documentation locally
+To launch documentation locally:
 
 ```bash
 cd website
 yarn install
 yarn start
 open http://localhost:3000/
-# be sure to select 'next' version in version switcher
 ```
