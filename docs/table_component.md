@@ -5,7 +5,7 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: table_component
 ---
 
-Table shows data in columns and rows. Unlike charts, tables can display only attribute values without any measures. Also, tables have higher limits for the number of datapoints to display.
+Table shows data in columns and rows. In tables, you can choose to display only attributes (without any measures). Also, tables have higher limits for the number of datapoints to display.
 
 ![Table Component](assets/table.png "Table Component")
 
