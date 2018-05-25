@@ -12,6 +12,7 @@
       "area_chart_component",
       "bar_chart_component",
       "column_chart_component",
+      "donut_chart_component",
       "headline_component",
       "kpi_component",
       "line_chart_component",
