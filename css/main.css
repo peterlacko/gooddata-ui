@@ -2167,6 +2167,9 @@ table tbody tr:nth-of-type(odd) {
   position: relative;
   flex: 1 1 auto;
 }
+.navigationSlider .slidingNav {
+  padding: 0 20px;
+}
 @media only screen and (max-width: 735px) {
   .navigationSlider .slidingNav ul {
     justify-content: space-evenly;
