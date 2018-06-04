@@ -2,11 +2,11 @@
 
 GoodData.UI is a powerful JavaScript library for building analytical applications on top of the GoodData platform. The best way to start working with Gooddata.UI is to visit [sdk.gooddata.com/gooddata-ui](https://sdk.gooddata.com/gooddata-ui/).
 
-This repository contains the source code of the [documentation](https://sdk.gooddata.com/gooddata-ui/). 
+This repository contains the source code of the [documentation](https://sdk.gooddata.com/gooddata-ui/docs/about_gooddataui.html). 
 
 ## Learn more
 
-- [Read the online documentation.](https://sdk.gooddata.com/gooddata-ui/)
+- [Read the online documentation.](https://sdk.gooddata.com/gooddata-ui/docs/about_gooddataui.html)
 - [Check out the live examples](https://gooddata-examples.herokuapp.com/) with extensive code documentation.
 - Use GoodData [npm package](https://github.com/gooddata/gooddata-react-components).
 - Check out the GoodData.UI source code at [react-components repository](https://github.com/gooddata/gooddata-react-components).
