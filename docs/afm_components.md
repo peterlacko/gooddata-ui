@@ -11,7 +11,7 @@ If your use case require data sorting, use the following AFM components.
 
 The AFM components use [AFM](afm.md) property instead of specific properties such as `measures` or `viewBy` that are used in Visual Components.
 
-> **Warning!** AFM components are legacy elements from the previous GoodData.UI version and will be eventually deprecated.
+> **Warning!** AFM components are legacy elements from the previous GoodData.UI version and will be deprecated. Charts added after release 5.1.0 do not support AFM.
 
 ## Charts
 
@@ -29,9 +29,9 @@ The AFM components use [AFM](afm.md) property instead of specific properties suc
 ```javascript
 import '@gooddata/react-components/styles/css/main.css';
 import { AfmComponents } from '@gooddata/react-components';
- 
+
 const { BarChart } = AfmComponents; // replace BarChart with ColumnChart, LineChart, or PieChart whenever needed
- 
+
 <BarChart
     afm={<afm>}
     projectId="<project-id>"
@@ -45,9 +45,9 @@ const { BarChart } = AfmComponents; // replace BarChart with ColumnChart, LineCh
 ```javascript
 import '@gooddata/react-components/styles/css/main.css';
 import { AfmComponents } from '@gooddata/react-components';
- 
+
 const { BarChart } = AfmComponents;
- 
+
 <BarChart
     afm={{
         measures: [
@@ -92,9 +92,9 @@ const { BarChart } = AfmComponents;
 ```javascript
 import '@gooddata/react-components/styles/css/main.css';
 import { AfmComponents } from '@gooddata/react-components';
- 
+
 const { Table } = AfmComponents;
- 
+
 <Table
     afm={<afm>}
     projectId="<project-id>"
@@ -107,9 +107,9 @@ const { Table } = AfmComponents;
 ```javascript
 import '@gooddata/react-components/styles/css/main.css';
 import { AfmComponents } from '@gooddata/react-components';
- 
+
 const { Table } = AfmComponents;
- 
+
 <Table
     afm={{
         measures: [
