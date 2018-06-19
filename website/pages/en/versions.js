@@ -52,7 +52,7 @@ class Versions extends React.Component {
     if (majorVersion && majorVersion >= 5) {
       return (
         <td>
-          <a href={`https://github.com/gooddata/gooddata-react-components/blob/release/CHANGELOG.md#${versionNumber}`}>Changelog</a>
+          <a href={`https://github.com/gooddata/gooddata-react-components/blob/master/CHANGELOG.md#${versionNumber}`}>Changelog</a>
         </td>
       );
     }
