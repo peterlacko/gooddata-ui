@@ -34,6 +34,7 @@
     "Custom Visualizations": [
       "version-5.1.0-create_new_visualization",
       "version-5.1.0-create_custom_attribute_filter",
+      "version-5.1.0-filter_visual_components",
       "version-5.1.0-afm",
       "version-5.1.0-result_specification",
       "version-5.1.0-table_totals_in_execution_object",

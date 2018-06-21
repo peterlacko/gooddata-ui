@@ -59,6 +59,10 @@ import { Visualization } from '@gooddata/react-components';
 </div>
 ```
 
+## Filters
+
+For more information, see [Filter Visual Components](filter_visual_components.md).
+
 ## Properties
 
 | Name | Required? | Type | Description |

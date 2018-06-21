@@ -12,7 +12,7 @@ Visualization is a generic component that renders a chart according to the provi
 ```javascript
 import '@gooddata/react-components/styles/css/main.css';
 import { Visualization } from '@gooddata/react-components';
- 
+
 <div style={{ height: 400, width: 600 }}>
     <Visualization
         projectId="<project-id>"
@@ -42,7 +42,7 @@ import { Visualization } from '@gooddata/react-components';
 ```javascript
 import '@gooddata/react-components/styles/css/main.css';
 import { Visualization } from '@gooddata/react-components';
- 
+
 <div style={{ height: 400, width: 600 }}>
     <Visualization
         identifier="aoJqpe5Ib4mO"
@@ -57,6 +57,10 @@ import { Visualization } from '@gooddata/react-components';
     />
 </div>
 ```
+
+## Filters
+
+For more information, see [Filter Visual Components](filter_visual_components.md).
 
 ## Properties
 

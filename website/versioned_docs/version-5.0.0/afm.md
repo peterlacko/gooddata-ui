@@ -42,223 +42,20 @@ Each attribute requires `localIdentifier` and `displayForm`.
 
 ## Filter
 
-```javascript
-...
-// Optional; By default []; Type: CompatibilityFilter[]
-filters: [
-    // Type: IAbsoluteDateFilter
-    {
-        absoluteDateFilter: {
-            dataSet: {
-                identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-            },
-            from: '1985-04-10', // Supported string format 'YYYY-MM-DD'
-            to: '2017-11-30' // Supported string format 'YYYY-MM-DD'
-        }
-    },
-    // Type: IRelativeDateFilter
-    {
-        relativeDateFilter: {
-            dataSet: {
-                identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-            },
-            granularity: 'GDC.time.date', // Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'
-            from: -1, // Supported values: +-INT
-            to: 1 // Supported values: +-INT
-        }
-    },
-    // Type: IPositiveAttributeFilter
-    {
-        positiveAttributeFilter: {
-            displayForm: {
-                identifier: '<attribute-displayForm-identifier>' // Or uri: '<attribute-displayForm-uri>'
-            },
-            in: ['<attribute-element-uri-1>', '<attribute-element-uri-2>'] // Attribute elements currently support only uri
-        }
-    },
-    // Type: INegativeAttributeFilter
-    {
-        negativeAttributeFilter: {
-            displayForm: {
-                identifier: '<attribute-displayForm-identifier>' // Or uri: '<attribute-displayForm-uri>'
-            },
-            notIn: ['<attribute-element-uri-1>', '<attribute-element-uri-2>'] // Attribute elements currently support only uri
-        }
-    }
-]
-...
-```
+You can limit the execution by providing a `filters` prop to your AFM. It is an array of filters. Both global filters and measure filters are always interpreted as an intersection of all individual filters \(`f1 AND f2 AND f3...)`.
 
-Both global filters and measure filters can use `in` or `notIn` and are always interpreted as an intersection of all individual filters \(`f1 AND f2 AND f3...)`.
+The structure of individual filters is identical to the `filters` prop that is used to filter visual components. For more information, see [Filter Visual Components](filter_visual_components.md).
+
+```javascript
+const afm = {
+    ...
+    // Optional; By default [];
+    filters: [ filter1, filter2, ... ]
+    ...
+}
+```
 
 All attributes, `popAttribute`s and filters are defined using the `displayForm` identifier.
-
-### DateFilter
-
-A date filter limits data processing to the selected date intervals.
-
-Types of date filters:
-
-* **Absolute date filter:** you set an interval based on two specific dates
-* **Relative date filter:** you set an interval that is relative to the current date \(for example, last week\)
-
-```javascript
-...
-// Optional; By default []; Type: CompatibilityFilter[]
-filters: [
-    // Type: IAbsoluteDateFilter
-    {
-        absoluteDateFilter: {
-            dataSet: {
-                identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-            },
-            from: '2017-07-31', // Supported string format 'YYYY-MM-DD'
-            to: '2017-08-29' // Supported string format 'YYYY-MM-DD'
-        }
-    }
-]
-...
-```
-
-An **absolute date filter** specifes a time interval within two dates: start date and end date \(in this exact order\). For example, 2017-07-31 - 2017-08-29.
-
-**Absolute date filter format:**
-
-```javascript
-from: 'YYYY-MM-DD',
-to: 'YYYY-MM-DD',
-// e.g.
-from: '2017-07-31',
-to: '2017-08-29',
-```
-
-**Absolute date filter example:**
-
-Interval between 2017, July 31, and 2017, August 29, inclusive:
-
-```javascript
-// Type: IAbsoluteDateFilter
-{
-    absoluteDateFilter: {
-        dataSet: {
-            identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-        },
-        from: '2017-07-31', // Supported string format 'YYYY-MM-DD'
-        to: '2017-08-29' // Supported string format 'YYYY-MM-DD'
-    }
-}
-```
-
-A **relative date filter** specifies a time interval that is relative to the current date. For example, last week, next month, and so on.
-
-**Relative date filter format:**
-
-```javascript
-from: number,
-to: number,
-// e.g.
-from: -7,
-to: 7,
-```
-
-* `0` for the current day, week, month, quarter, or year \(depending on the chosen granularity\)
-* `-1` for the previous period
-* `-` _`n`_ for the _n_th previous period
-
-**Relative date filter granularity:**
-
-* `'GDC.time.date'` \(day granularity\)
-* `'GDC.time.week'` \(week granularity\)
-* `'GDC.time.month'` \(month granularity\)
-* `'GDC.time.quarter'` \(quarter granularity\)
-* `'GDC.time.year'` \(year granularity\)
-
-**Relative date filter example:**
-
-Last 7 days \(yesterday and 6 days before\):
-
-```javascript
-// Type: IRelativeDateFilter
-{
-    relativeDateFilter: {
-        dataSet: {
-            identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-        },
-        granularity: 'GDC.time.date',   // Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'
-        from: -7,   // positive or negative whole numbers
-        to: -1  // positive or negative whole numbers
-    }
-}
-```
-
-Last 12 months including the current month:
-
-```javascript
-// Type: IRelativeDateFilter
-{
-    relativeDateFilter: {
-        dataSet: {
-            identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-        },
-        granularity: 'GDC.time.month',  // Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'
-        from: -11,  // positive or negative whole numbers
-        to: 0   // positive or negative whole numbers
-    }
-}
-```
-
-Last quarter only:
-
-```javascript
-// Type: IRelativeDateFilter
-{
-    relativeDateFilter: {
-        dataSet: {
-            identifier: '<date-dataset-identifier>' // Or uri: '<date-dataset-uri>'
-        },
-        granularity: 'GDC.time.quarter',    // Supported values: 'GDC.time.date' | 'GDC.time.week' | 'GDC.time.month' | 'GDC.time.quarter' | 'GDC.time.year'
-        from: -1,   // positive or negative whole numbers
-        to: -1  // positive or negative whole numbers
-    }
-}
-```
-
-### AttributeFilter
-
-Types of attribute filters:
-
-* **Positive attribute filters** list only those items whose attribute elements' URIs are included in the `in` property array.
-* **Negative attribute filters** lists only those items whose attribute elements' URIs are _not_ included in the  `notIn` property array.
-
-Currently, attribute elements only support URIs, not identifiers.
-
-**PositiveAttributeFilter**
-
-```javascript
-// Type: IPositiveAttributeFilter
-{
-    positiveAttributeFilter: {
-        displayForm: {
-            identifier: '<attribute-displayForm-identifier>' // Or uri: '<attribute-displayForm-uri>'
-        },
-        in: ['<attribute-element-uri-1>', '<attribute-element-uri-2>'] // Attribute elements currently support only uri
-    }
-},
-```
-
-**NegativeAttributeFilter**
-
-```javascript
-// Type: IPositiveAttributeFilter
-{
-    negativeAttributeFilter: {
-        displayForm: {
-            identifier: '<attribute-displayForm-identifier>' // Or uri: '<attribute-displayForm-uri>'
-        },
-        notIn: ['<attribute-element-uri-1>', '<attribute-element-uri-2>'] // Attribute elements currently support only uri
-    }
-},
-```
 
 ## Measure
 
@@ -430,7 +227,7 @@ definition: {
 }
 ```
 
-#### Measure with global filters 
+#### Measure with global filters
 
 ```javascript
 // Type: IAfm
@@ -467,7 +264,7 @@ definition: {
             }
         },
         // Type: IPositiveAttributeFilter
- 
+
         {
             positiveAttributeFilter: {
                 displayForm: {
@@ -477,11 +274,11 @@ definition: {
             }
         }
     ]
- 
+
 }
 ```
 
-#### Period-over-period with measure defined by reference in AFM 
+#### Period-over-period with measure defined by reference in AFM
 
 ```javasctript
 {
