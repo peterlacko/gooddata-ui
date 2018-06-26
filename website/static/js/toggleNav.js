@@ -1,7 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     var navToggler = document.getElementById('navToggler');
 
-    navToggler.addEventListener('click', function() {
-        document.body.classList.toggle('toggleNavOpen');
-    });
+    if(navToggler) {
+    	var bodyClasses = document.body.classList;
+		var NAV_OPEN = "toggleNavOpen";
+
+    	navToggler.addEventListener('click', function() {
+    		if(bodyClasses.contains(NAV_OPEN)) {
+    			bodyClasses.remove(NAV_OPEN);
+    		}
+    		else {
+    			bodyClasses.add(NAV_OPEN);
+    		}
+	    });
+    }
 });
