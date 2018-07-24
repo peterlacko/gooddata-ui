@@ -67,12 +67,13 @@ const month = {
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
 | measures | true | Measure[] | An array of measure definitions |
-| viewBy | false | Attribute[] | An array of attribute definitions |
-| stackBy | false | Attribute[] | An array of attribute definitions |
+| viewBy | false | Attribute | An attribute definition |
+| stackBy | false | Attribute | An attribute definition |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
-| sortBy | false | SortItem[] | An array of sort definitions. See the `sorts` prop in the code sample in [Result specification](result_specification.md#sorting). |
-| locale | false | string | The location string for translations |
-| drillableItems | false | DrillableItem[] | An array of points and attribute values to be drillable. See [DrillableItems](drillable_item.md).|
+| sortBy | false | [SortItem[]](result_specification.md#sorting) | An array of sort definitions |
+| config | false | [ChartConfig](chart_config.md) | The chart configuration object |
+| locale | false | string | The localization of the chart. Defaults to `en-US`. For other languages, see the [full list of available localizations](https://github.com/gooddata/gooddata-react-components/tree/master/src/translations). |
+| drillableItems | false | [DrillableItem[]](drillable_item.md) | An array of points and attribute values to be drillable. |
 | ErrorComponent | false | Component | A component to be rendered if this component is in error state. See [ErrorComponent](error_component.md).|
 | LoadingComponent | false | Component | A component to be rendered if this component is in loading state. See [LoadingComponent](loading_component.md).|
 | onError | false | Function | A callback when component updates its error state |

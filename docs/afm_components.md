@@ -5,24 +5,20 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: afm_components
 ---
 
-In their current form, the Visual Components listed in this section, do not support data sorting (for example, by attribute or measure).
+> **Warning!** The AFM components are legacy elements from the previous GoodData.UI version and will be deprecated. Charts added after GoodData.UI Version 5.1.0 do not support the AFM components.
 
-If your use case require data sorting, use the following AFM components.
-
-The AFM components use [AFM](afm.md) property instead of specific properties such as `measures` or `viewBy` that are used in Visual Components.
-
-> **Warning!** AFM components are legacy elements from the previous GoodData.UI version and will be deprecated. Charts added after release 5.1.0 do not support AFM.
+The AFM components use the [AFM](afm.md) property instead of specific properties such as `measures` or `viewBy` that are used in the visual components.
 
 ## Charts
 
 ### Parameters
 
-| Name | Required? | Type |
-| :--- | :--- | :--- |
-| afm | true | [AFM](afm.md) |
-| projectId | true | string |
-| resultSpec  | false | [Result Specification \(resultSpec\)](result_specification.md) |
-| config  | false | [ChartConfig](chart_config.md) |
+| Name | Required? | Type | Description |
+| :--- | :--- | :--- | :--- |
+| afm | true | [AFM](afm.md) | A combination of attributes, measures, and filters |
+| projectId | true | string | The project ID |
+| resultSpec  | false | [ResultSpec](result_specification.md) | The structure of the result data |
+| config  | false | [ChartConfig](chart_config.md) | The chart configuration object |
 
 ### Structure
 
@@ -81,11 +77,11 @@ const { BarChart } = AfmComponents;
 
 ### Parameters
 
-| Name | Required? | Type |
-| :--- | :--- | :--- |
-| afm | true | [AFM](afm.md) |
-| projectId | true | string |
-| resultSpec  | false | [Result Specification \(resultSpec\)](result_specification.md) |
+| Name | Required? | Type | Description |
+| :--- | :--- | :--- | :--- |
+| afm | true | [AFM](afm.md) | A combination of attributes, measures, and filters |
+| projectId | true | string | The project ID |
+| resultSpec  | false | [ResultSpec](result_specification.md) | The structure of the result data |
 
 ### Structure
 
