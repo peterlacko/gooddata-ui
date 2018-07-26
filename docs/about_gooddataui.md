@@ -15,6 +15,7 @@ With GoodData.UI, you can:
 GoodData.UI is compatible with:
 * React 15.6.2, [Angular 1.X](ht_use_react_components_in_angular_1.x.md), [Angular 2+](ht_use_react_components_in_angular_2.x.md)
 * TypeScript 2.3+, ES6, ES5
+* Node 8.9.4
 * [Officially supported browsers](https://help.gooddata.com/display/doc/System+Requirements+and+Supported+Browsers)
 
 **Note:** [Server-side rendering](https://github.com/reactjs/redux/blob/master/docs/recipes/ServerRendering.md) is *not* supported.

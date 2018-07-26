@@ -16,6 +16,8 @@ yarn global add create-react-app
 ```
 This command installs the `create-react-app` tool that will help you create a functional skeleton of a React application. The current version of `create-react-app` installs React 16.
 
+**NOTE:** The supported version of Node is 8.9.4. Using a different version may result in errors.
+
 ## Step 2. Create your React application
 1. Run the following command from the command line:
     ```bash
