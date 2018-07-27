@@ -82,59 +82,77 @@ To find the identifier or URI of a measure or attribute, use either of the follo
 #### Object URI vs. object identifier
 Although you can use either object URIs or object identifiers with all visual components, we recommend that you use the **object identifiers**, which are consistent across your domain regardless of the GoodData project they live in. That is, an object used in any project within your domain would have the **same** object identifier in **any** of those projects. 
 
-#### Type definition
-You can find the TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.0.0/src/VisualizationObject.ts#L86-L102).
+#### Measure definition
+You can find full TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L29).
 
 ```ts
 IMeasure = {
   measure: {
     localIdentifier: string 
           // An arbitrary identifier, which is later used in sorting and filtering
-    definition: IMeasureDefinition | IPoPMeasureDefinition 
-          // Specifies simple measure or period-over-period measure, see below
-    alias: string // Optional. Alternative measure name to be displayed 
-    format: string // Optional. Rules for number formating, if empty measure default is used 
+    definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition
+          // The definition of the measure, see below
+    alias: string // Optional; an alternative measure name to be displayed 
+    format: string // Optional; rules for number formatting; if empty, the default formatting is used
   }
 }
 
+// Simple measure - basic master measure
 IMeasureDefinition = {
     measureDefinition: {
         item: { uri / identifier: string } 
-            // uri or identifier of specific measure from your project 
+            // URI or identifier of a specific measure from your project
         aggregation: string 
-            // Optional. Operation on the measure - one of sum, count, avg, min, max, median, runsum 
+            // Optional; possible values: sum, count, avg, min, max, median, runsum 
         filters: VisualizationObjectFilter[] 
-            // Optional. Array of attribute or date filters (more at page Filter Visual Components)
+            // Optional; an array of attribute filters or date filters (for more information, see Filter Visual Components)
         computeRatio: boolean 
-            // Optional. Return value as ratios from whole, useful for showing percents.
+            // Optional; returns values as ratios; useful for showing percents
     }
 }
 
-// references another measure, but shows its values shifted back by one year (aka "period over period")
+// Same period year ago - the derived measure with values shifted back by one year
 IPoPMeasureDefinition = {
     popMeasureDefinition: {
         measureIdentifier: Identifier // localIdentifier of the referenced measure
         popAttribute: { uri / identifier: string } 
-            // uri or identifier of attribute which is used for slicing (not the displayForm)
+            // URI or identifier of the attribute which is used for slicing (not the displayForm)
     }
 }
+
+// Previous period - the derived measure with values shifted back by a number of periods
+IPreviousPeriodMeasureDefinition = {
+    previousPeriodMeasure: {
+        measureIdentifier: Identifier // localIdentifier of the referenced measure
+        dateDataSets:[{
+            dataSet : { uri / identifier: string } 
+                // URI or identifier of the date data set, which is used to determine the period length by matching it to a global date filter with the same date data set URI or identifier
+            periodsAgo : number // the number of periods to the past
+       }]
+   }
+}
 ```
+
+For more information about the derived measures, see [Time Over Time Comparison](time_over_time_comparison.md).
+
+#### Attribute definition
+You can find full TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L23).
 
 ```ts
 IVisualizationAttribute = {
     visualizationAttribute: {
         localIdentifier: Identifier // An arbitrary identifier, which is later used in sorting and filtering
-        displayForm: { uri / identifier: string } // The attribute`s display form 
-        alias: string // Optional. Alternative attribute name to be displayed
+        displayForm: { uri / identifier: string } // The attribute`s display form
+        alias: string // Optional; an alternative attribute name to be displayed
     }
 }
 ```
 
 ## Visualization lifecycle
 
-Visualization lifecycle is a series events that take place between mounting and rendering a visualization. During this time, a new datasource is created based on the saved visualization identifier or URI. Once its execution is resolved, the result is rendered.
+Visualization lifecycle is a series of events that take place between mounting and rendering a visualization. During this time, a new datasource is created based on the saved visualization identifier or URI. Once its execution is resolved, the result is rendered.
 
-Ad hoc insights, rendered using components like pie chart or table, follow the same lifecycle.
+Ad hoc insights rendered using components like pie chart or table follow the same lifecycle.
 
 The following component props can be used as lifecycle callbacks:
 
@@ -144,7 +162,7 @@ The following component props can be used as lifecycle callbacks:
 | onError | A function that is called when an error state changes | ```{ status: string, ...}``` |
 | onLegendReady  | A function that is called when a chart legend is rendered | ```{ legendItems: [...] }``` |
 
-### Visualization Rendered Successfully
+### Visualization rendered successfully
 
 If a visualization is successfully rendered, the following events occur:
 
@@ -155,7 +173,7 @@ If a visualization is successfully rendered, the following events occur:
 5. The visualization is rendered.
 6. onLegendReady callback is called with a parameter ```{ legendItems: [...] }```.
 
-### Visualization Failed to Render
+### Visualization failed to render
 
 If an error is encountered during rendering a visualization (for example, too much data to display), the following events occur:
 
@@ -174,7 +192,7 @@ If an error is encountered during rendering a visualization (for example, too mu
 ```
 6. The visualization is rerendered using an ```ErrorComponent```.
 
-### Flow Chart
+### Flow chart
 
 ![Visualization lifecycle chart](assets/visualization_lifecycle.png "Visualization lifecycle chart")
 <!-- https://drive.google.com/open?id=1sNjUcs9s0SOn68lIvVtIE3-edw6EMiY_ -->
