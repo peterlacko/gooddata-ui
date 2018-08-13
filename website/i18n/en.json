@@ -52,6 +52,8 @@
     "Glossary": "Glossary",
     "headline_component": "Headline",
     "Headline": "Headline",
+    "heatmap_component": "Heatmap",
+    "Heatmap": "Heatmap",
     "ht_build_visualization_custom_react": "Build a Visualization Using a Custom React Application",
     "Build a Visualization Using a Custom React Application": "Build a Visualization Using a Custom React Application",
     "ht_configure_webpack_proxy": "Configure a Webpack Proxy",
