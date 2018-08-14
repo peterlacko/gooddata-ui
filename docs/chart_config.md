@@ -61,7 +61,7 @@ To change the legend position, adjust the `config.legend.position` property \(`'
 ```javascript
 import { Visualization } from '@gooddata/react-components';
  
-// This is an example of embedding a visualization from the GoodSales demo project with custom legend position.
+// This is an example of embedding a visualization from the GoodSales demo project with a custom legend position.
 <Visualization
     projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
     identifier="aby3polcaFxy"
@@ -74,18 +74,16 @@ import { Visualization } from '@gooddata/react-components';
 />
 ```
 
-## Change separator for number format
+## Change a separator in the number format
 
-To change the thousand separator, adjust the `config.separators.thousand` property.
+To change the thousands separator, adjust the `config.separators.thousand` property.
 
 To change the decimal separator, adjust the `config.separators.decimal` property.
-
-This configuration also apply for [Table](table_component.md)
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
  
-// This is an example of embedding a visualization from the GoodSales demo project with custom separator for number format.
+// This is an example of embedding a visualization from the GoodSales demo project with a custom separator in the number format.
 <Visualization
     projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
     identifier="aby3polcaFxy"
