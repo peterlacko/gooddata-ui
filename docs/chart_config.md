@@ -11,11 +11,15 @@ This article describes your options for chart configuration and the basic usage.
 
 ```javascript
 {
-    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']; // array of strings
+    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'], // array of strings
     legend: {
-        enabled: true; // boolean
-        position: 'bottom'; // 'top' | 'left' | 'right' | 'bottom'
-    };
+        enabled: true, // boolean
+        position: 'bottom', // 'top' | 'left' | 'right' | 'bottom'
+    },
+    separators: {
+        thousand: ',',
+        decimal: '.'
+    }
 }
 ```
 
@@ -57,7 +61,7 @@ To change the legend position, adjust the `config.legend.position` property \(`'
 ```javascript
 import { Visualization } from '@gooddata/react-components';
  
-// This is an example of embedding a visualization from the GoodSales demo project with custom colors and palette options.
+// This is an example of embedding a visualization from the GoodSales demo project with custom legend position.
 <Visualization
     projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
     identifier="aby3polcaFxy"
@@ -65,6 +69,30 @@ import { Visualization } from '@gooddata/react-components';
         legend: {
             enabled: true,
             position: 'bottom' // 'left', 'right', 'top'
+        }
+    }}
+/>
+```
+
+## Change separator for number format
+
+To change the thousand separator, adjust the `config.separators.thousand` property.
+
+To change the decimal separator, adjust the `config.separators.decimal` property.
+
+This configuration also apply for [Table](table_component.md)
+
+```javascript
+import { Visualization } from '@gooddata/react-components';
+ 
+// This is an example of embedding a visualization from the GoodSales demo project with custom separator for number format.
+<Visualization
+    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
+    identifier="aby3polcaFxy"
+    config={{
+        separators: {
+            thousand: ',',
+            decimal: '.'
         }
     }}
 />
