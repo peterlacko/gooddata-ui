@@ -15,6 +15,7 @@
       "column_chart_component",
       "donut_chart_component",
       "headline_component",
+      "heatmap_component",
       "kpi_component",
       "line_chart_component",
       "pie_chart_component",
