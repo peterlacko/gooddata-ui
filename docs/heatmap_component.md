@@ -16,7 +16,7 @@ import { Heatmap } from '@gooddata/react-components';
 
 <Heatmap
     projectId={<project-id>}
-    measures={<measures>}
+    measure={<measure>}
     trendBy={<attribute>}
     segmentBy={<attribute>}
     config={<chart-config>}
@@ -66,7 +66,7 @@ const locationState = {
 <div style={{ height: 300 }} className="s-heat-map">
     <Heatmap
         projectId={projectId}
-        measures={[totalSales]}
+        measure={totalSales}
         trendBy={locationState}
         segmentBy={menuCategory}
         onLoadingChanged={this.onLoadingChanged}
@@ -80,7 +80,7 @@ const locationState = {
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
-| measures | true | Measure[] | An array of measure definitions|
+| measure | true | Measure | A measure definition |
 | trendBy | false | Attribute | An attribute definition |
 | segmentBy | false | Attribute | An attribute definition |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
