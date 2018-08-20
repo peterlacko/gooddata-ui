@@ -2,7 +2,8 @@
 title: Set Up Authentication and Single Sign-On
 sidebar_label: Set Up Authentication and Single Sign-On
 copyright: (C) 2007-2018 GoodData Corporation
-id: sso
+id: version-5.2.0-sso
+original_id: sso
 ---
 
 Depending on whether SSO is implemented on your site, you can use one of the following to authenticate your users:
