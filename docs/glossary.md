@@ -38,7 +38,7 @@ See [AFM](afm.md).
 
 ## I
 
-**identifier** -- see **resource identifier**.
+**identifier** -- see [resource identifier](glossary.md#r).
 
 ## K
 
