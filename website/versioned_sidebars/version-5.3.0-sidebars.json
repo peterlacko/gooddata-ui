@@ -1,0 +1,66 @@
+{
+  "version-5.3.0-Docs": {
+    "Getting Started": [
+      "version-5.3.0-about_gooddataui",
+      "version-5.3.0-platform_intro",
+      "version-5.3.0-installation",
+      "version-5.3.0-examples",
+      "version-5.3.0-ht_create_your_first_visualization"
+    ],
+    "Visual Components": [
+      "version-5.3.0-start_with_visual_components",
+      "version-5.3.0-area_chart_component",
+      "version-5.3.0-bar_chart_component",
+      "version-5.3.0-bubble_chart_component",
+      "version-5.3.0-column_chart_component",
+      "version-5.3.0-donut_chart_component",
+      "version-5.3.0-headline_component",
+      "version-5.3.0-heatmap_component",
+      "version-5.3.0-kpi_component",
+      "version-5.3.0-line_chart_component",
+      "version-5.3.0-pie_chart_component",
+      "version-5.3.0-scatter_plot_component",
+      "version-5.3.0-table_component",
+      "version-5.3.0-treemap_component",
+      "version-5.3.0-visualization_component",
+      "version-5.3.0-afm_components",
+      "version-5.3.0-attribute_filter_component"
+    ],
+    "Properties": [
+      "version-5.3.0-chart_config",
+      "version-5.3.0-drillable_item",
+      "version-5.3.0-error_component",
+      "version-5.3.0-loading_component",
+      "version-5.3.0-on_legend_ready",
+      "version-5.3.0-on_fire_drill_event"
+    ],
+    "Custom Visualizations": [
+      "version-5.3.0-create_new_visualization",
+      "version-5.3.0-afm",
+      "version-5.3.0-result_specification",
+      "version-5.3.0-table_totals_in_execution_object",
+      "version-5.3.0-execute_component",
+      "version-5.3.0-execution_rest_api_and_result"
+    ],
+    "Development Tips": [
+      "version-5.3.0-gdc_catalog_export",
+      "version-5.3.0-sso",
+      "version-5.3.0-cors",
+      "version-5.3.0-data_layer",
+      "version-5.3.0-time_over_time_comparison",
+      "version-5.3.0-filter_visual_components",
+      "version-5.3.0-create_custom_attribute_filter",
+      "version-5.3.0-ht_render_visualization_from_different_domain",
+      "version-5.3.0-ht_use_react_components_with_vanilla_js",
+      "version-5.3.0-ht_use_react_component_in_angular_1.x",
+      "version-5.3.0-ht_use_react_component_in_angular_2.x"
+    ]
+  },
+  "version-5.3.0-Support": {
+    "Support": [
+      "version-5.3.0-support_options",
+      "version-5.3.0-trouble_shooting",
+      "version-5.3.0-glossary"
+    ]
+  }
+}
