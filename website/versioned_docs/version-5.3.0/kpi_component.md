@@ -2,7 +2,8 @@
 title: KPI
 sidebar_label: KPI
 copyright: (C) 2007-2018 GoodData Corporation
-id: kpi_component
+id: version-5.3.0-kpi_component
+original_id: kpi_component
 ---
 
 KPI \(Key Performance Indicator\) renders a measure calculated by the GoodData platform.
