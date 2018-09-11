@@ -4,7 +4,6 @@
       "about_gooddataui",
       "platform_intro",
       "installation",
-      "examples",
       "ht_create_your_first_visualization"
     ],
     "Visual Components": [
@@ -58,9 +57,7 @@
   },
   "Support": {
     "Support": [
-      "support_options",
-      "trouble_shooting",
-      "glossary"
+      "support_options"
     ]
   }
 }
