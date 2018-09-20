@@ -5,7 +5,7 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: pivot_table_component
 ---
 
-Pivot Table shows data in columns and rows. Compared to standard [Table component](table_component.md), measures can be split into columns by attributes set by the ```columns``` prop. In pivot tables, you can choose to display only attributes (without any measures). Also, tables have higher limits for the number of datapoints to display.
+Pivot table shows data in columns and rows. In contrast to the standard [table](table_component.md), a pivot table allows you to break measures into columns by setting attributes in the ```columns``` prop. In pivot tables, you can choose to display only attributes (without any measures). Also, pivot tables have higher limits for the number of datapoints to display than charts.
 
 ![Pivot Table Component](assets/pivot_table.png "Pivot Table Component")
 
@@ -22,7 +22,9 @@ import { PivotTable } from '@gooddata/react-components';
 />
 ```
 
-## Standard Table Example
+## Examples
+
+### Standard table
 
 ```jsx
 const measures = [
@@ -62,7 +64,7 @@ const rows = [
 </div>
 ```
 
-## Pivot Table Example
+### Pivot table
 
 ```jsx
 const measures = [
@@ -115,9 +117,9 @@ const rows = [
 
 ## Sorting
 
-We support [sorting](result_specification.md#sorting) of rows and attribute columns. Measures are always listed in the same order they were defined in the ```measures``` prop.
+You can [sort](result_specification.md#sorting) rows and attribute columns. Measures are always listed in the same order they were defined in the ```measures``` prop.
 
-### Sorting by Measure Example
+### Example: Sorting by measure
 
 ```jsx
 // ...using Pivot Table Example
@@ -156,7 +158,18 @@ const sortBy = [
 
 ## Totals
 
-Defining aggregation with the ```totals``` prop adds one or more fixed rows below the table with aggregated measure data. Supported aggregation functions are: sum, count, average, minimum, maximum, median and running sum.
+Defining aggregation with the ```totals``` prop adds one or more fixed rows below the table with aggregated measure data.
+
+Supported aggregation functions:
+* sum
+* count
+* average
+* minimum
+* maximum
+* median
+* running sum
+
+For information about the aggregation functions, see [Aggregate Table Data](https://help.gooddata.com/display/doc/Aggregate+Table+Data).
 
 ```jsx
     // ...using Pivot Table Example
@@ -183,9 +196,9 @@ Defining aggregation with the ```totals``` prop adds one or more fixed rows belo
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
-| measures | false | Measure[] | An array of measure definitions (either measures, rows or columns must be provided for the table to render properly) |
-| rows | false | Attribute[] | An array of attribute definitions that splits measure data into rows (either measures, rows or columns must be provided for the table to render properly) |
-| columns | false | Attribute[] | An array of attribute definitions that splits measure data into columns (either measures, rows or columns must be provided for the table to render properly) |
+| measures | false | Measure[] | An array of measure definitions (either measures, or rows, or columns must be provided for the pivot table to render properly) |
+| rows | false | Attribute[] | An array of attribute definitions that breaks measure data into rows (either measures, or rows, or columns must be provided for the pivot table to render properly) |
+| columns | false | Attribute[] | An array of attribute definitions that breaks measure data into columns (either measures, or rows, or columns must be provided for the pivot table to render properly) |
 | totals | false | Total[] | An array of total definitions |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
 | config | false | [ChartConfig](chart_config.md) | The configuration object |
