@@ -62,7 +62,7 @@ An **absolute date filter** shows data that falls within a defined time range.
         },
         from: '<YYYY-MM-DD>',
         to: '<YYYY-MM-DD>'
-    };
+    }
 }
 ```
 

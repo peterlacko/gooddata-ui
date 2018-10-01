@@ -1,6 +1,6 @@
 ---
-title: Create Your First Visualization
-sidebar_label: Create Your First Visualization
+title: Create Your First Application
+sidebar_label: Create Your First Application
 copyright: (C) 2007-2018 GoodData Corporation
 id: ht_create_your_first_visualization
 ---
