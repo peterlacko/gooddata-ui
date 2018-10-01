@@ -150,4 +150,4 @@ identifier="<some-identifier>"
 />
 ```
 
-**NOTE:** If you followed the instructions from the tutorial [How to Create Your First Visualization with GoodData UI SDK](ht_create_your_first_visualization.md), you can now remove the proxy-related code from the `package.json` file because it is not needed anymore.
+**NOTE:** If you followed the instructions from the tutorial [How to Create Your First Application with GoodData UI SDK](ht_create_your_first_visualization.md), you can now remove the proxy-related code from the `package.json` file because it is not needed anymore.
