@@ -23,6 +23,32 @@ import { Heatmap } from '@gooddata/react-components';
     …
 />
 ```
+The following example shows the supported `config` structure with sample values. To see descriptions of individual options, see [ChartConfig section](chart_config.md).
+```javascript
+{
+    xaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto'
+    },
+    yaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto'
+    },
+    legend: {
+        enabled: true,
+        position: 'top'
+    },
+    dataLabels: {
+        visible: 'auto'
+    },
+    separators: {
+        thousand: ',',
+        decimal: '.'
+    }
+}
+```
 
 ## Example
 
