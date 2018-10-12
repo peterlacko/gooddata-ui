@@ -68,8 +68,8 @@ const attribute = {
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
 | measures | true | Measure[] | An array of measure definitions |
-| viewBy | false | Attribute[] | An array of attribute definitions |
-| stackBy | false | Attribute[] | An array of attribute definitions |
+| viewBy | false | Attribute | Attribute definition |
+| stackBy | false | Attribute | Attribute definition |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
 | sortBy | false | [SortItem[]](result_specification.md#sorting) | An array of sort definitions |
 | config | false | [ChartConfig](chart_config.md) | The chart configuration object |
