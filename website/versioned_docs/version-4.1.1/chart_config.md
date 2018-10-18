@@ -20,12 +20,12 @@ original_id: chart_config
 ## Example of a Color Array
 
 ```javascript
-['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']
+['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
 
 ```
 
 If there are fewer colors than data points, then the colors are repeated. For example, for the two colors and three data points, here is how colors will be used:
 
 ```javascript
-['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)', 'rgba(195, 49, 73, 1)']
+['rgb(195, 49, 73)', 'rgb(168, 194, 86)', 'rgb(195, 49, 73)']
 ```

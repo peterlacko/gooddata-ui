@@ -12,7 +12,7 @@ This article describes your options for chart configuration and the basic usage.
 
 ```javascript
 {
-    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']; // array of strings
+    colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']; // array of strings
     legend: {
         enabled: true; // boolean
         position: 'bottom'; // 'top' | 'left' | 'right' | 'bottom'
@@ -23,14 +23,14 @@ This article describes your options for chart configuration and the basic usage.
 ## Example of a color array
 
 ```javascript
-['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']
+['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
 
 ```
 
 If there are fewer colors than data points, then the colors are repeated. For example, for the two colors and three data points, here is how colors will be used:
 
 ```javascript
-['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)', 'rgba(195, 49, 73, 1)']
+['rgb(195, 49, 73)', 'rgb(168, 194, 86)', 'rgb(195, 49, 73)']
 ```
 ## Change chart colors
 
@@ -44,7 +44,7 @@ import { Visualization } from '@gooddata/react-components';
     projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
     identifier="aby3polcaFxy"
     config={{
-        colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']
+        colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
     }}
 />
 ```

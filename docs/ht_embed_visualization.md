@@ -25,7 +25,7 @@ import{ Visualization } from'@gooddata/react-components';
     projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
     identifier="aby3polcaFxy"
     config={{
-        colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'],
+        colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)'],
         legend: {
             enabled: true,
             position: 'bottom'

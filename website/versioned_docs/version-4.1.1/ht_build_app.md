@@ -81,7 +81,7 @@ import { Visualization } from '@gooddata/react-components';
         projectId="k26dtejorcqlqf11crn6imbeevp2q4kg"
         identifier="aepRx0i8haM7"
         config={{
-            colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']
+            colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
         }}
     />
 </div>
@@ -102,7 +102,7 @@ import { Visualization } from '@gooddata/react-components';
         projectId="k26dtejorcqlqf11crn6imbeevp2q4kg"
         identifier="aepRx0i8haM7"
         config={{
-            colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'],
+            colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)'],
             legend: {
                 enabled: true,
                 position: 'bottom' // 'left', 'right', 'top'
