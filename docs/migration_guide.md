@@ -1,203 +1,110 @@
 ---
-title: Migration guide to React Components v5.x.x
-sidebar_label: Migration guide to v5.x.x
+title: Migration guide to React Components v6.x.x
+sidebar_label: Migration guide to v6.x.x
 copyright: (C) 2007-2018 GoodData Corporation
-id: migration_guide_5
+id: migration_guide_6
 ---
 
-## @gooddata/data-layer deprecated
-The package [@gooddata/data-layer](https://yarnpkg.com/en/package/@gooddata/data-layer) is deprecated. Functionality was merged into [gooddata-js](https://github.com/gooddata/gooddata-js) repository. Package `gooddata` was renamed to `@gooddata/gooddata-js`. So use `@gooddata/gooddata-js@6.0.0` package instead of `@gooddata/data-layer`.
+## Heatmap props were renamed
+Names of props on the Heatmap with bucket interface were changed to better express their semantics. We advise you to change the props names in your application.
 
 ### Example usage
 Old way:
 ```javascript
-import { ExecuteAdapter } from '@gooddata/data-layer';
-
-const adapter = ExecuteAfmAdapter;
-```
-New way:
-```javascript
-import { DataLayer } from '@gooddata/gooddata-js';
-
-const adapter = DataLayer.ExecuteAfmAdapter;
-```
-
-## Using custom domains as a backend
-With the upgrade of `gooddata` to `@gooddata/gooddata-js@6.0.0` there is a new way of instantiating GoodData JS SDK and setting it up to use custom domain instead of the default 
-`secure.gooddata.com`. To use the SDK with different domain, new instance of the SDK must be crated.
-
-### Example
-Old way:
-```javascript
-import { config } from 'gooddata';
-config.setCustomDomain('https://analytics.yourcompany.com'); // Deprecated
-```
-
-New way:
-```javascript
-import { factory as sdkFactory } from '@gooddata/gooddata-js';
-const sdk = sdkFactory({ domain: 'https://analytics.yourcompany.com' });
-```
-
-## @gooddata/react-components@5.0.0
-See package here: [@gooddata/react-components@5.0.0](https://yarnpkg.com/en/package/@gooddata/react-components)
-
-### React 15.6.2
-Upgrade React from 15.3.2 to 15.6.2
-```bash
-yarn upgrade react@15.6.2
-yarn upgrade react-dom@15.6.2
-```
-
-## Components with buckets interface
-[AFM React Components](http://sdk.gooddata.com/gdc-ui-sdk-doc/docs/afm_react_components.html) will be deprecated in one of the the next versions. We suggest to use components with buckets interface. E.g. [Line Chart Component](line_chart_component.md)
-
-[Execute Component](http://sdk.gooddata.com/gdc-ui-sdk-doc/docs/execute_component.html) and [KPI and Visualization](react_components.md) are without change.
-
-### Example usage
-Old way:
-```javascript
-import { AfmComponents } from '@gooddata/react-components';
-
-const { BarChart } = AfmComponents;
-
-<BarChart
-    afm={{
-        measures: [
-            {
-                localIdentifier: 'CustomMeasureID',
-                definition: {
-                    measure: {
-                        item: {
-                            identifier: 'acKjadJIgZUN'
-                        }
-                    }
-                },
-                alias: '# of Activities'
-            }
-        ],
-        attributes: [
-            {
-                localIdentifier: 'a1',
-                displayForm: {
-                    identifier: 'label.activity.type'
-                }
-            }
-        ]
-    }}
+<Heatmap
     projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-    resultSpec={}
+    measure={MEASURE_1}
+    segmentBy={ATTRIBUTE_1}
+    trendBy={ATTRIBUTE_2}
+    onError={onErrorHandler}
+    LoadingComponent={null}
+    ErrorComponent={null}
 />
 ```
 New way:
 ```javascript
-import { BarChart } from '@gooddata/react-components';
+<Heatmap
+    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
+    measure={MEASURE_1}
+    columns={ATTRIBUTE_1}
+    rows={ATTRIBUTE_2}
+    onError={onErrorHandler}
+    LoadingComponent={null}
+    ErrorComponent={null}
+/>
+```
 
-const numOfActivities = {
-    measure: {
-        localIdentifier: 'CustomMeasureID',
-        definition: {
-            measureDefinition: {
-                item: {
-                    identifier: 'acKjadJIgZUN'
-                }
-            }
-        },
-        alias: '# of Activities'
-    }
-};
+## Type definitions of the Area chart "stack by"/"view by" props were changed
+We fixed the type for Area chart bucket props from an array to a single item.
 
-const activityType = {
-    visualizationAttribute: {
-        localIdentifier: 'a1',
-        displayForm: {
-            identifier: 'label.activity.type'
+### Example usage
+Old way:
+```javascript
+const attributes = [
+    {
+        visualizationAttribute: {
+            displayForm: {
+                identifier: monthDateIdentifier
+            },
+            localIdentifier: 'month'
         }
     }
+];
+
+<AreaChart
+    projectId={projectId}
+    measures={measures}
+    viewBy={attributes}
+    onLoadingChanged={this.onLoadingChanged}
+    onError={this.onError}
+/>
+
+```
+New way:
+```javascript
+const viewBy = {
+    visualizationAttribute: {
+        displayForm: {
+            identifier: monthDateIdentifier
+        },
+        localIdentifier: 'month'
+    }
 };
 
-<div style={{ height: 300 }}>
-    <BarChart
-        projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-        measures={[numOfActivities]}
-        viewBy={activityType}
-    />
-</div>
+
+<AreaChart
+    projectId={projectId}
+    measures={measures}
+    viewBy={viewBy}
+    onLoadingChanged={this.onLoadingChanged}
+    onError={this.onError}
+/>
 ```
 
+## rgba color definition deprecated
+We removed support for the alpha channel definition as we do not want to support transparency of chart colors. To keep your custom colors working, remove the definition of the alpha channel.
 
-### LoadingComponent and ErrorComponent properties
-`@gooddata/react-components@5.0.0` now supports [Loading Component](loading_component.md) and [Error Component](error_component.md) properties which shows GoodData loading component and GoodData error component by default. If you want disable default components, you must set `LoadingComponent={null}` and `ErrorComponent={null}` properties in your components. You probably want disable default GoodData Loading and Error components if you already have implemented your own loading and errors based on `onError` and `onLoadingChanged` callbacks.
-
-### Remove backward compatible CatalogHelper code
-With `@gooddata/react-components@4.1.1` you could have used e.g.:
+### Example usage
+Old way:
 ```javascript
-import { CatalogHelper } from '@gooddata/react-components'
-import catalogJson from './catalog.json';
-
-const C = new CatalogHelper(catalogJson);
-
-const measure = C.metric('Amount');
-const measure = C.metricTags('Revenue');
-
-// or
-
-const measure = C.measure('Amount');
-const measure = C.measureTags('Revenue');
+<Visualization
+    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
+    identifier="aby3polcaFxy"
+    config={{
+        colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)']
+    }}
+/>
 ```
-
-With `@gooddata/react-components@5.0.0` you must use only
+New way:
 ```javascript
-const measure = C.measure('Amount');
-const measure = C.measureTags('Revenue');
+<Visualization
+    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
+    identifier="aby3polcaFxy"
+    config={{
+        colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
+    }}
+/>
 ```
 
-You must also upgrade your globally installed [gdc-catalog-export](https://yarnpkg.com/en/package/gdc-catalog-export)
-```bash
-yarn global upgrade gdc-catalog-export
-```
-
-### Structure of execution result in Execute Component
-Execution result passed down to [Execute Component](execute_component.md) is now provided without unnecessary wrappers.
-
-Props passed to Execute child function before with `@gooddata/react-components@4.1.1`
-```javascript
-{
-  "result": {
-    "executionResponse": {
-      "executionResponse": { // this is removed
-        "dimensions": [...],
-        "links": {...}
-      }
-    },
-    "executionResult": {
-      "executionResult": { // this is removed
-        "data": [...],
-        "paging": {...},
-        "headerItems": [...]
-      }
-    }
-  },
-  "isLoading": false,
-  "error": null
-}
-```
-
-Props passed to Execute child function now with `@gooddata/react-components@5.0.0`
-```javascript
-{
-  "result": {
-    "executionResponse": {
-      "dimensions": [...],
-      "links": {...}
-    },
-    "executionResult": {
-      "data": [...],
-      "paging": {...},
-      "headerItems": [...]
-    }
-  },
-  "isLoading": false,
-  "error": null
-}
-```
+## React 16 support
+We updated Gooddata.UI to React 16. We advise you to update your application as well to avoid package duplicity and potential issues. Update also all your packages with React dependency, such as "react-dom", "react-router", etc.
