@@ -17,8 +17,8 @@ import { Heatmap } from '@gooddata/react-components';
 <Heatmap
     projectId={<project-id>}
     measure={<measure>}
-    trendBy={<attribute>}
-    segmentBy={<attribute>}
+    rows={<attribute>}
+    columns={<attribute>}
     config={<chart-config>}
     …
 />
@@ -67,8 +67,8 @@ const locationState = {
     <Heatmap
         projectId={projectId}
         measure={totalSales}
-        trendBy={locationState}
-        segmentBy={menuCategory}
+        rows={locationState}
+        columns={menuCategory}
         onLoadingChanged={this.onLoadingChanged}
         onError={this.onError}
     />
@@ -81,8 +81,8 @@ const locationState = {
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
 | measure | true | Measure | A measure definition |
-| trendBy | false | Attribute | An attribute definition |
-| segmentBy | false | Attribute | An attribute definition |
+| rows | false | Attribute | An attribute definition |
+| columns | false | Attribute | An attribute definition |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
 | config | false | [ChartConfig](chart_config.md) | The chart configuration object |
 | locale | false | string | The localization of the chart. Defaults to `en-US`. For other languages, see the [full list of available localizations](https://github.com/gooddata/gooddata-react-components/tree/master/src/translations). |
