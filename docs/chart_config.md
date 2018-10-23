@@ -63,6 +63,7 @@ If there are fewer colors than data points, then the colors are repeated. For ex
 ```
 
 To change colors in a chart, provide a `config` for each component where you want to change colors, or create a wrapped components with a `config` baked in.
+**NOTE:** Heatmaps use only the first color from the provided colors as the base color, and generate the other colors themselves.
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
