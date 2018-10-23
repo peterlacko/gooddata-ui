@@ -13,7 +13,7 @@ Using the Webpack dev server with a proxy does the following:
 
 * Redirects all your /gdc traffic to the domain set by the `--env.gdc` parameter \(defaults to `https://secure.gooddata.com/` \).
 * Redirects all /\*.html requests to the GoodData server. You need this to be able to log in to the platform at [https://secure.gooddata.com/account.html](https://secure.gooddata.com/account.html).
- 
+
 The other redirects handle files on the /account.html page \(such as styles and images\). Make sure those proxy rules are not in conflict with your application routes.
 
 Servers other than secure.gooddata.com may need signed certificates and may still refuse to connect. In that case, prepend your `package.json` script with the `NODE_TLS_REJECT_UNAUTHORIZED=0` node variable as follows:
@@ -38,7 +38,7 @@ Add the following to your `package.json` file:
 
 ```javascript
 module.exports = function({ gdc = "https://secure.gooddata.com/" }) {
- 
+
   return {
     ...
     devServer: {

@@ -18,7 +18,7 @@ yarn global add create-react-app
 ```
 This command installs the `create-react-app` tool that will help you create a functional skeleton of a React application. The current version of `create-react-app` installs React 16.
 
-**NOTE:** The supported version of Node is 8.9.4. Using a different version may result in errors.
+**NOTE:** The supported versions of Node are ^8.10.0 or >=9.10.0. Using a different version may result in errors.
 
 ## Step 2. Create your React application
 1. Run the following command from the command line:
@@ -31,12 +31,6 @@ This command installs the `create-react-app` tool that will help you create a fu
     ```
 
 2. Change your current working directory to `my-first-app` (for example, by running `cd my-first-app` on Mac or Linux).
-
-3. Downgrade your version of React to 15.6.2. This is because GoodData.UI requires React 15.6.2 and the current version of `create-react-app` installs React 16. To downgrade, run the following command:
-    ```bash
-    yarn install
-    yarn upgrade react@15.6.2 react-dom@15.6.2
-    ```
 
 ## Step 3. Add GoodData SDK dependencies
 Run the following command from the command line:
@@ -52,37 +46,6 @@ This command adds the latest `@gooddata/react-components` to the list of your pr
 > **Careful:** Only use the proxy authentication for development. Do not use this authentication method for production.
 
 > **Careful:** If you are only using the [development proxy](cors.md#on-your-local-dev-machine), you will still need to autenticate users by going to `/account.html` or by calling the `sdk.user.login()` method, and filling in valid GoodData credentials.
-
-To set up a proxy, add the following section to the root level of your `package.json` \(this works with any application started using `react-scripts start`\):
-
-```javascript
-"proxy": {
-  "/gdc": {
-    "changeOrigin": true,
-    "cookieDomainRewrite": "localhost",
-    "secure": false,
-    "target": "https://secure.gooddata.com/",
-    "headers": {
-      "host": "secure.gooddata.com",
-      "origin": null
-    }
-  },
-  "/*.html": {
-    "changeOrigin": true,
-    "secure": false,
-    "target": "https://secure.gooddata.com/"
-  }
-},
-```
-
-* If you are on Windows and using Microsoft Edge or Internet Explorer:
-    Set `cookieDomainRewrite` to the IP address on which your local web server runs, for example:
-    ```javascript
-    "cookieDomainRewrite": "127.0.0.1"
-    ```
-    You can get your IP address from the console output after the server started.
-
-> Switch `target` and `host` to ``https://developer.na.gooddata.com`` when using the [live examples](https://gooddata-examples.herokuapp.com/).
 
 Start the server by running the following command:
 

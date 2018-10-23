@@ -20,72 +20,47 @@ You have to overcome the CORS restriction before you can develop or deploy your 
 
 You can set up a proxy to bypass the CORS restriction on a local dev machine, because making a cross-origin request from a trusted application is safe. The proxy will make the GoodData API accessible under the same hostname and port as your web application, that is, [https://localhost:3000/gdc/](https://localhost:3000/gdc/).
 
-To set up a proxy, add the following section to the root level of your `package.json` \(this works with any application started using `react-scripts start`\):
+To set up a proxy, in your project's `/src` directory, create the `setupProxy.js` file with the following content.
 
 ```javascript
-"proxy": {
-  "/gdc": {
-    "changeOrigin": true,
-    "cookieDomainRewrite": "localhost",
-    "secure": false,
-    "target": "https://secure.gooddata.com/",
-    "headers": {
-      "host": "secure.gooddata.com",
-      "origin": null
-    }
-  },
-  "/*.html": {
-    "changeOrigin": true,
-    "secure": false,
-    "target": "https://secure.gooddata.com/"
-  }
-},
+const proxy = require('http-proxy-middleware');
+
+module.exports = function (app) \{
+     app.use(proxy("/gdc", \{
+         "changeOrigin": true,
+         "cookieDomainRewrite": "localhost",
+         "secure": false,
+         "target": "https://secure.gooddata.com",
+         "headers": \{
+             "host": "secure.gooddata.com",
+             "origin": null
+         }
+     }));
+     app.use(proxy("/*.html", \{
+         "changeOrigin": true,
+         "secure": false,
+         "target": "https://secure.gooddata.com"
+     }));
+     app.use(proxy("/packages/*.{js,css}", \{
+         "changeOrigin": true,
+         "secure": false,
+         "target": "https://secure.gooddata.com"
+     }));
+ };
 ```
+
+* If you are using Microsoft Edge or Microsoft Explorer browsers on a Windows machine, Set `cookieDomainRewrite` to the IP address on which your local web server runs
+    For example:
+    ```javascript
+    "cookieDomainRewrite": "127.0.0.1"
+    ```
+    You can get your IP address from the console output after the server started.
 
 The `/gdc` prefix refers to the GoodData APIs as they are hosted under [https://secure.gooddata.com/gdc](https://secure.gooddata.com/gdc). The `"secure: false"` section allows you to set up a proxy against your localhost server that may use a self-signed certificate.
 
 If you want to connect to the [live examples](https://gooddata-examples.herokuapp.com), set all the target properties to ```https://developer.na.gooddata.com```. The ```projectId``` of the demo project is ```xms7ga4tf3g3nzucd8380o2bev8oeknp```.
 
 In addition, proxying the `/*.html` pages allows you to easily establish a user session by logging in using the GoodData login page \(account.html\) and possibly invoke other GoodData actions that you may need during the development.
-
-Your `package.json` should now look something like this \(the version numbers may differ\):
-
-```javascript
-{
-  "name": "my-first-app",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": {
-    "/gdc": {
-      "changeOrigin": true,
-      "cookieDomainRewrite": "localhost",
-      "secure": false,
-      "target": "https://secure.gooddata.com/",
-      "headers": {
-        "host": "secure.gooddata.com",
-        "origin": null
-      }
-    },
-    "/*.html": {
-      "changeOrigin": true,
-      "secure": false,
-      "target": "https://secure.gooddata.com/"
-    }
-  },
-  "dependencies": {
-    "@gooddata/react-components": "^5.0.1",
-    "react": "15.6.2",
-    "react-dom": "15.6.2",
-    "react-scripts": "1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
-}
-```
 
 ## Enable CORS
 
@@ -150,4 +125,4 @@ identifier="<some-identifier>"
 />
 ```
 
-**NOTE:** If you followed the instructions from the tutorial [How to Create Your First Application with GoodData UI SDK](ht_create_your_first_visualization.md), you can now remove the proxy-related code from the `package.json` file because it is not needed anymore.
+**NOTE:** If you followed the instructions from the tutorial [How to Create Your First Application with GoodData UI SDK](ht_create_your_first_visualization.md), you can now remove the `setupProxy.js` file because it is not required anymore.
