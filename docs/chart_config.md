@@ -12,10 +12,30 @@ This article describes your options for chart configuration and the basic usage.
 ```javascript
 {
     colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)'], // array of strings
+    xaxis: {
+        visible: true, // boolean
+        labelsEnabled: true, // boolean
+        rotation: 'auto', // 'auto' or numeral string
+        min: '10', // numeral string
+        max: '20' // numeral string
+    },
+    yaxis: {
+        visible: true, // boolean
+        labelsEnabled: true, // boolean
+        rotation: 'auto', // string
+        min: '30', // numeral string
+        max: '40' // numeral string
+    },
     legend: {
         enabled: true, // boolean
         position: 'bottom', // 'top' | 'left' | 'right' | 'bottom'
     },
+    dataLabels: {
+        visible: 'auto' // 'auto' | true | false
+    },
+    grid: {
+        enabled: true // boolean
+    }
     separators: {
         thousand: ',',
         decimal: '.'
@@ -23,8 +43,9 @@ This article describes your options for chart configuration and the basic usage.
 }
 ```
 
-## Example of a color array
+## Color configuration
 
+Color array example
 ```javascript
 ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
 
@@ -40,17 +61,16 @@ If there are fewer colors than data points, then the colors are repeated. For ex
 ```javascript
 ['rgb(195, 49, 73)', 'rgb(168, 194, 86)', 'rgb(195, 49, 73)']
 ```
-## Change chart colors
 
 To change colors in a chart, provide a `config` for each component where you want to change colors, or create a wrapped components with a `config` baked in.
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
- 
-// This is an example of embedding a visualization from the GoodSales demo project with custom colors and palette options.
+
+// Example of embedding a visualization with custom colors and palette options.
 <Visualization
-    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-    identifier="aby3polcaFxy"
+    projectId=<project-id>
+    identifier=<visualization-id>
     config={{
         colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
     }}
@@ -65,11 +85,11 @@ To change the legend position, adjust the `config.legend.position` property \(`'
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
- 
-// This is an example of embedding a visualization from the GoodSales demo project with a custom legend position.
+
+// Example of embedding a visualization with a custom legend position.
 <Visualization
-    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-    identifier="aby3polcaFxy"
+    projectId=<project-id>
+    identifier=<visualization-id>
     config={{
         legend: {
             enabled: true,
@@ -87,15 +107,65 @@ To change the decimal separator, adjust the `config.separators.decimal` property
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
- 
-// This is an example of embedding a visualization from the GoodSales demo project with a custom separator in the number format.
+
+// Example of embedding a visualization with a custom separator in the number format.
 <Visualization
-    projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
-    identifier="aby3polcaFxy"
+    projectId=<project-id>
+    identifier=<visualization-id>
     config={{
         separators: {
             thousand: ',',
             decimal: '.'
+        }
+    }}
+/>
+```
+
+## Axis configuration
+To change axis visibility, set the `config.xaxis.visible` property.
+
+To hide axis labels, set the `config.xaxis.labelsEnabled` property to false.
+When `config.xaxis.visible` is set to false, axis labels are hidden automatically, regardless of this option.
+
+To rotate axis labels, set `config.xaxis.rotation` to a desired value.
+
+To set scale of axis, set `config.xaxis.min` and `config.<xaxis>.max`.
+
+> For y-axis, replace `xaxis` with `yaxis`.
+
+```javascript
+import { Visualization } from '@gooddata/react-components';
+
+// Example of embedding a visualization with settings for the x-axis.
+<Visualization
+    projectId=<project-id>
+    identifier=<visualization-id>
+    config={{
+        xaxis: {
+            visible: false,
+            labelsEnabled: false,
+            rotation: '-90',
+            min: '150',
+            max: '440'
+        }
+    }}
+/>
+```
+
+## Canvas configuration
+To configure data labels in chart, set `config.dataLabels` property.
+
+```javascript
+import { Visualization } from '@gooddata/react-components';
+
+// Example of embedding a visualization with settings for the canvas.
+<Visualization
+    projectId=<project-id>
+    identifier=<visualization-id>
+    config={{
+        dataLabels: true,
+        grid: {
+            enabled: false
         }
     }}
 />

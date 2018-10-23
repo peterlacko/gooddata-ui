@@ -85,3 +85,36 @@ const attribute = {
 | height | false | number | Height of the component in pixels |
 | pushData | false | Function | A callback after AFM is resolved |
 -->
+
+The following example shows the supported `config` structure with sample values. To see descriptions of individual options, see [ChartConfig section](chart_config.md).
+```javascript
+{
+    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'],
+    xaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto'
+    },
+    yaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto',
+        min: '20',
+        max: '30'
+    },
+    legend: {
+        enabled: true,
+        position: 'top',
+    },
+    dataLabels: {
+        visible: 'auto'
+    },
+    grid: {
+        enabled: true
+    }
+    separators: {
+        thousand: ',',
+        decimal: '.'
+    }
+}
+```

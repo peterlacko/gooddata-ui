@@ -108,3 +108,34 @@ const attribute = {
 | pushData | false | Function | A callback after AFM is resolved |
 | visualizationProperties | false | {} | The chart configuration object |
 -->
+
+The following example shows the supported `config` structure with sample values. To see descriptions of individual options, see [ChartConfig section](chart_config.md).
+```javascript
+{
+    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'],
+    xaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto',
+        min: '20',
+        max: '30'
+    },
+    yaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto',
+        min: '40',
+        max: '50'
+    },
+    dataLabels: {
+        visible: 'auto'
+    },
+    grid: {
+        enabled: true
+    }
+    separators: {
+        thousand: ',',
+        decimal: '.'
+    }
+}
+```
