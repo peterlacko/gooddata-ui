@@ -5,9 +5,15 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: pivot_table_component
 ---
 
-Pivot table shows data in columns and rows. In contrast to the standard [table](table_component.md), a pivot table allows you to break measures into columns by setting attributes in the ```columns``` prop. In pivot tables, you can choose to display only attributes (without any measures). Also, pivot tables have higher limits for the number of datapoints to display than charts.
+Pivot table component expands capabilities of a regular (flat) table by allowing you to reorganize and summarize selected data beyond the typical row-column relationship.
 
-![Pivot Table Component](assets/pivot_table.png "Pivot Table Component")
+In GoodData.UI, a pivot table allows you to break measures into columns by setting attributes in the ```columns``` prop. You can also choose to display only attributes (without any measures). On the other hand, a flat table cannot display attributes in columns. 
+
+Compared with charts, pivot tables have higher limits for the number of datapoints to display.
+
+In the following example, we are watching franchise fees (measure) which we split down horizontaly by location state (attribute) and vertically by month (column attribute).
+
+![Pivot Table Component](assets/pivot_table_description.png "Pivot Table Component")
 
 ## Structure
 
@@ -24,45 +30,7 @@ import { PivotTable } from '@gooddata/react-components';
 
 ## Examples
 
-### Standard table
-
-```jsx
-const measures = [
-    {
-        measure: {
-            localIdentifier: 'franchiseFees',
-            definition: {
-                measureDefinition: {
-                    item: {
-                        identifier: franchiseFeesIdentifier
-                    }
-                }
-            },
-            format: '#,##0'
-        }
-    }
-];
-
-const rows = [
-    {
-        visualizationAttribute: {
-            displayForm: {
-                identifier: locationStateDisplayFormIdentifier
-            },
-            localIdentifier: 'location'
-        }
-    }
-];
-
-<div style={{ height: 300 }}>
-    <PivotTable
-        projectId={projectId}
-        measures={measures}
-        rows={rows}
-        columns={columns}
-    />
-</div>
-```
+The following code sample shows arrangement for a typical pivot table.
 
 ### Pivot table
 
@@ -115,9 +83,53 @@ const rows = [
 </div>
 ```
 
-## Sorting
+### Flat table
 
-You can [sort](result_specification.md#sorting) rows and attribute columns. Measures are always listed in the same order they were defined in the ```measures``` prop.
+You can also use the pivot table component to create a regular, flat, table.
+
+```jsx
+const measures = [
+    {
+        measure: {
+            localIdentifier: 'franchiseFees',
+            definition: {
+                measureDefinition: {
+                    item: {
+                        identifier: franchiseFeesIdentifier
+                    }
+                }
+            },
+            format: '#,##0'
+        }
+    }
+];
+
+const rows = [
+    {
+        visualizationAttribute: {
+            displayForm: {
+                identifier: locationStateDisplayFormIdentifier
+            },
+            localIdentifier: 'location'
+        }
+    }
+];
+
+<div style={{ height: 300 }}>
+    <PivotTable
+        projectId={projectId}
+        measures={measures}
+        rows={rows}
+        columns={columns}
+    />
+</div>
+```
+
+## Sorting in pivot tables
+
+You can [sort](result_specification.md#sorting) rows and attribute columns in any pivot table. Measures are always listed in the same order in which they were defined in the ```measures``` prop.
+
+**Important!** Sorting must be applied to any column attribute that is used in the pivot table. For example, in the table above, you apply sorting to both the Franchise Fees (measure) and the Date (column attribute)
 
 ### Example: Sorting by measure
 
@@ -158,9 +170,9 @@ const sortBy = [
 
 ## Totals
 
-Defining aggregation with the ```totals``` prop adds one or more fixed rows below the table with aggregated measure data.
+Defining aggregation with the ```totals``` prop adds one or more fixed rows below the table with the aggregated measure data.
 
-Supported aggregation functions:
+The following are the supported aggregation functions:
 * sum
 * count
 * average
@@ -169,7 +181,7 @@ Supported aggregation functions:
 * median
 * running sum
 
-For information about the aggregation functions, see [Aggregate Table Data](https://help.gooddata.com/display/doc/Aggregate+Table+Data).
+For more information about the aggregation functions, see [Aggregate Table Data](https://help.gooddata.com/display/doc/Aggregate+Table+Data).
 
 ```jsx
     // ...using Pivot Table Example
@@ -196,10 +208,10 @@ For information about the aggregation functions, see [Aggregate Table Data](http
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
-| measures | false | Measure[] | An array of measure definitions (either measures, or rows, or columns must be provided for the pivot table to render properly) |
-| rows | false | Attribute[] | An array of attribute definitions that breaks measure data into rows (either measures, or rows, or columns must be provided for the pivot table to render properly) |
-| columns | false | Attribute[] | An array of attribute definitions that breaks measure data into columns (either measures, or rows, or columns must be provided for the pivot table to render properly) |
-| totals | false | Total[] | An array of total definitions |
+| measures | false | [Measure[]](afm.md#Measure) | An array of measure definitions (either measures, or rows, or columns must be provided for the pivot table to render properly) |
+| rows | false | [Attribute[]](afm.md#attribute) | An array of attribute definitions that breaks measure data into rows (either measures, or rows, or columns must be provided for the pivot table to render properly) |
+| columns | false | [Attribute[]](afm.md#attribute) | An array of attribute definitions that breaks measure data into columns (either measures, or rows, or columns must be provided for the pivot table to render properly) |
+| totals | false | [Total[]](table_totals_in_execution_context.md#grand_totals) | An array of total definitions |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
 | config | false | [ChartConfig](chart_config.md) | The configuration object |
 | sortBy | false | [SortItem[]](result_specification.md#sorting) | An array of sort definitions |
