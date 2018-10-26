@@ -34,6 +34,7 @@ import { Visualization } from '@gooddata/react-components';
     />
 </div>
 ```
+**NOTE**: A set of options in <chart-config> is different for each Visualization component and depends on the type of the embedded visualization.
 
 ## Example
 
