@@ -1,74 +1,101 @@
 ---
-title: Treemap
-sidebar_label: Treemap
+title: Heatmap
+sidebar_label: Heatmap
 copyright: (C) 2007-2018 GoodData Corporation
-id: treemap_component
+id: version-6.0.0-heatmap_component
+original_id: heatmap_component
 ---
-Treemap chart presents your data hierarchically as nested rectangles. Treemaps are useful for comparing proportions within the hierarchy.
+Heatmap represents data as a matrix where individual values are represented as colors. Heatmaps can help you discover trends and understand complex datasets.
 
-![Treemap Component](assets/treemap.png "Treemap Component")
+![Heatmap Component](assets/heatmap.png "Heatmap Component")
 
 ## Structure
 
 ```jsx
 import '@gooddata/react-components/styles/css/main.css';
-import { Treemap } from '@gooddata/react-components';
+import { Heatmap } from '@gooddata/react-components';
 
-<Treemap
+<Heatmap
     projectId={<project-id>}
-    measures={<measures>}
-    viewBy={<attribute>}
-    segmentBy={<attribute>}
+    measure={<measure>}
+    rows={<attribute>}
+    columns={<attribute>}
     config={<chart-config>}
     …
 />
+```
+The following example shows the supported `config` structure with sample values. To see descriptions of individual options, see [ChartConfig section](chart_config.md).
+```javascript
+{
+    xaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto'
+    },
+    yaxis: {
+        visible: true,
+        labelsEnabled: true,
+        rotation: 'auto'
+    },
+    legend: {
+        enabled: true,
+        position: 'top'
+    },
+    dataLabels: {
+        visible: 'auto'
+    },
+    separators: {
+        thousand: ',',
+        decimal: '.'
+    }
+}
 ```
 
 ## Example
 
 ```jsx
 import '@gooddata/react-components/styles/css/main.css';
-import { Treemap } from '@gooddata/react-components';
+import { Heatmap } from '@gooddata/react-components';
 
-const numberOfChecks = {
-        measure: {
-            localIdentifier: 'numberOfChecks',
-            definition: {
-                measureDefinition: {
-                    item: {
-                        identifier: numberOfChecksIdentifier
-                    }
+const totalSales = {
+    measure: {
+        localIdentifier: 'totalSales',
+        definition: {
+            measureDefinition: {
+                item: {
+                    identifier: totalSalesIdentifier
                 }
-            },
-            alias: '# Checks',
-            format: '#,##0'
-        }
-    };
+            }
+        },
+        alias: '$ Total Sales',
+        format: '#,##0'
+    }
+};
+
+const menuCategory = {
+    visualizationAttribute: {
+        displayForm: {
+            identifier: menuCategoryAttributeDFIdentifier
+        },
+        localIdentifier: 'menu'
+    }
+};
 
 const locationState = {
     visualizationAttribute: {
         displayForm: {
             identifier: locationStateDisplayFormIdentifier
         },
-        localIdentifier: 'label.restaurantlocation.locationstate'
+        localIdentifier: 'state'
     }
 };
 
-const locationCity = {
-    visualizationAttribute: {
-        displayForm: {
-            identifier: locationCityDisplayFormIdentifier
-        },
-        localIdentifier: 'label.restaurantlocation.locationcity'
-    }
-};
-
-<div style={{ height: 300 }}>
-    <Treemap
+<div style={{ height: 300 }} className="s-heat-map">
+    <Heatmap
         projectId={projectId}
-        measures={[numberOfChecks]}
-        viewBy={locationState}
-        segmentBy={locationCity}
+        measure={totalSales}
+        rows={locationState}
+        columns={menuCategory}
         onLoadingChanged={this.onLoadingChanged}
         onError={this.onError}
     />
@@ -80,9 +107,9 @@ const locationCity = {
 | Name | Required? | Type | Description |
 | :--- | :--- | :--- | :--- |
 | projectId | true | string | The project ID |
-| measures | true | Measure[] | An array of measure definitions|
-| viewBy | false | Attribute | An attribute definition |
-| segmentBy | false | Attribute | An attribute definition |
+| measure | true | Measure | A measure definition |
+| rows | false | Attribute | An attribute definition |
+| columns | false | Attribute | An attribute definition |
 | filters | false | [Filter[]](filter_visual_components.md) | An array of filter definitions |
 | config | false | [ChartConfig](chart_config.md) | The chart configuration object |
 | locale | false | string | The localization of the chart. Defaults to `en-US`. For other languages, see the [full list of available localizations](https://github.com/gooddata/gooddata-react-components/tree/master/src/translations). |
@@ -99,21 +126,3 @@ const locationCity = {
 | height | false | number | Height of the component in pixels |
 | pushData | false | Function | A callback after AFM is resolved |
 -->
-
-The following example shows the supported `config` structure with sample values. To see descriptions of individual options, see [ChartConfig section](chart_config.md).
-```javascript
-{
-    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'],
-    legend: {
-        enabled: true,
-        position: 'right',
-    },
-    dataLabels: {
-        visible: 'auto'
-    },
-    separators: {
-        thousand: ',',
-        decimal: '.'
-    }
-}
-```

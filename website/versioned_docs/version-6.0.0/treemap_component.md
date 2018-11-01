@@ -2,7 +2,8 @@
 title: Treemap
 sidebar_label: Treemap
 copyright: (C) 2007-2018 GoodData Corporation
-id: treemap_component
+id: version-6.0.0-treemap_component
+original_id: treemap_component
 ---
 Treemap chart presents your data hierarchically as nested rectangles. Treemaps are useful for comparing proportions within the hierarchy.
 
