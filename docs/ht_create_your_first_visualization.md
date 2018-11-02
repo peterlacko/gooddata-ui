@@ -12,15 +12,19 @@ After you complete this tutorial, you will be able to display various measures 
 **NOTE:** Before you start this tutorial, make sure that you have a GoodData account (see [About GoodData.UI](about_gooddataui.md#supported-technologies)).
 
 ## Step 1. Get create-react-app
+
 Run the following command from the command line:
+
 ```bash
 yarn global add create-react-app
 ```
+
 This command installs the `create-react-app` tool that will help you create a functional skeleton of a React application. The current version of `create-react-app` installs React 16.
 
 **NOTE:** The supported versions of Node are ^8.10.0 or >=9.10.0. Using a different version may result in errors.
 
 ## Step 2. Create your React application
+
 1. Run the following command from the command line:
     ```bash
     create-react-app my-first-app
@@ -33,15 +37,44 @@ This command installs the `create-react-app` tool that will help you create a fu
 2. Change your current working directory to `my-first-app` (for example, by running `cd my-first-app` on Mac or Linux).
 
 ## Step 3. Add GoodData SDK dependencies
+
 Run the following command from the command line:
+
 ```bash
 yarn add @gooddata/react-components
 ```
+
 This command adds the latest `@gooddata/react-components` to the list of your project dependencies in `package.json` and downloads all required packages.
 
-
 ## Step 4. Start the development server
-**Before** you start your development server, prevent cross-origin issues by [adding proxy settings](cors.md).
+
+**Before** you start your development server, prevent cross-origin issues by [adding proxy settings](cors.md). To set up a proxy, in your project's `/src` directory, create the `setupProxy.js` file with the following content:
+
+```javascript
+const proxy = require('http-proxy-middleware');
+
+module.exports = function (app) {
+     app.use(proxy("/gdc", {
+         "changeOrigin": true,
+         "cookieDomainRewrite": "localhost",
+         "secure": false,
+         "target": "https://developer.na.gooddata.com",
+         "headers": {
+             "host": "developer.na.gooddata.com",
+             "origin": null
+         }
+     }));
+     app.use(proxy("/*.html", {
+         "changeOrigin": true,
+         "secure": false,
+         "target": "https://developer.na.gooddata.com"
+     }));
+     app.use(proxy("/packages/*.{js,css}", {
+         "changeOrigin": true,
+         "secure": false,
+         "target": "https://developer.na.gooddata.com"
+     }));
+ };
 
 > **Careful:** Only use the proxy authentication for development. Do not use this authentication method for production.
 
@@ -101,6 +134,7 @@ Now, you can start adding your first GoodData component:
     </div>
     ```
     > This example uses the project ID from the [live examples](https://gooddata-examples.herokuapp.com/). If you want to use this code in your project, replace the properties with the appropriate values from your project. For more details, see [Line Chart](line_chart_component.md).
+
 5. Save the changes. The content of your `App.js` file should now look something like the following example:
     ```javascript
     import React, { Component } from 'react';
