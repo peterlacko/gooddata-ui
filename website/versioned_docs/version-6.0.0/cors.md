@@ -26,23 +26,23 @@ To set up a proxy, in your project's `/src` directory, create the `setupProxy.js
 ```javascript
 const proxy = require('http-proxy-middleware');
 
-module.exports = function (app) \{
-     app.use(proxy("/gdc", \{
+module.exports = function (app) {
+     app.use(proxy("/gdc", {
          "changeOrigin": true,
          "cookieDomainRewrite": "localhost",
          "secure": false,
          "target": "https://secure.gooddata.com",
-         "headers": \{
+         "headers": {
              "host": "secure.gooddata.com",
              "origin": null
          }
      }));
-     app.use(proxy("/*.html", \{
+     app.use(proxy("/*.html", {
          "changeOrigin": true,
          "secure": false,
          "target": "https://secure.gooddata.com"
      }));
-     app.use(proxy("/packages/*.{js,css}", \{
+     app.use(proxy("/packages/*.{js,css}", {
          "changeOrigin": true,
          "secure": false,
          "target": "https://secure.gooddata.com"
