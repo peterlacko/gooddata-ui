@@ -103,7 +103,7 @@ const measures = [
 The following example shows the supported `config` structure with sample values. To see descriptions of individual options, see [ChartConfig section](chart_config.md).
 ```javascript
 {
-    colors: ['rgba(195, 49, 73, 1)', 'rgba(168, 194, 86, 1)'],
+    colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)'],
     legend: {
         enabled: true,
         position: 'top',
