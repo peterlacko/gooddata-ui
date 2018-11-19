@@ -133,8 +133,8 @@ Each measure can be filtered by attribute filters. Filters are represented by an
 
 Only one filter of the `DateFilter` type is allowed in the measure's filter definition.
 
-* When both the measure filter of the `DateFilter` type and the AFM global filter of the `DateFilter` type are set with the **same** dataset, the measure date filter overrides the AFM global date filter for this measure \(global date filters are still applied to other measures that do not have a measure date filter defined\).
-* When the measure filter of the DateFilter type and the AFM global filter of the DateFilter type are set with **different** datasets, the filters are interpreted as an intersection of those filters (f1 AND f2).
+* When both the measure filter of the `DateFilter` type and the AFM global filter of the `DateFilter` type are set with the **same** date dimension, the measure date filter overrides the AFM global date filter for this measure \(global date filters are still applied to other measures that do not have a measure date filter defined\).
+* When the measure filter of the DateFilter type and the AFM global filter of the DateFilter type are set with **different** date dimensions, the filters are interpreted as an intersection of those filters (f1 AND f2).
 
 ### Show a measure as a percentage
 
