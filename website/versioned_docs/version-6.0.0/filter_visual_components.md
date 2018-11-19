@@ -138,7 +138,7 @@ The `from` and `to` properties set the number of granularity units (for example,
 }
 ```
 
-# Filters set on a specific measure
+## Filters set on a specific measure
 
 Applying a filter to a specific measure is helpful when you have duplicate measures with different filters.
 
