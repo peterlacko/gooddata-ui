@@ -138,11 +138,14 @@ The `from` and `to` properties set the number of granularity units (for example,
 }
 ```
 
-# Filters set on a specific measure
+## Filters set on a specific measure
 
 Applying a filter to a specific measure is helpful when you have duplicate measures with different filters.
 
 To apply a filter to a specific measure, pass an array of attribute filters or date filters as the `filters` prop inside the definition of this measure.
+
+* When both the measure filter of the `DateFilter` type and the AFM global filter of the `DateFilter` type are set with the **same** date dimension, the measure date filter overrides the AFM global date filter for this measure \(global date filters are still applied to other measures that do not have a measure date filter defined\).
+* When the measure filter of the DateFilter type and the AFM global filter of the DateFilter type are set with **different** date dimensions, the filters are interpreted as an intersection of those filters (f1 AND f2).
 
 ```jsx
 <div style={{ height: 300 }}>
