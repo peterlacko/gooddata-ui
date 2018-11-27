@@ -42,12 +42,15 @@
       "execute_component",
       "execution_rest_api_and_result"
     ],
+    "Miscellaneous Features": [
+      "time_over_time_comparison",
+      "arithmetic_measure"
+    ],
     "Development Tips": [
       "gdc_catalog_export",
       "sso",
       "cors",
       "data_layer",
-      "time_over_time_comparison",
       "filter_visual_components",
       "create_custom_attribute_filter",
       "ht_render_visualization_from_different_domain",

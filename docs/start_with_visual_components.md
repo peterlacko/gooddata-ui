@@ -88,14 +88,14 @@ The **object identifier** is a reference to a project object. The object identif
 Although you can use either object URIs or object identifiers with all visual components, we recommend that you use the **object identifiers**, which are consistent across your domain regardless of the GoodData project they live in. That is, an object used in any project within your domain would have the **same** object identifier in **any** of those projects.
 
 #### Measure definition
-You can find full TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L29).
+You can find full TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.4.2/src/AFM.ts#L30).
 
 ```ts
 IMeasure = {
   measure: {
     localIdentifier: string 
           // An arbitrary identifier, which is later used in sorting and filtering
-    definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition
+    definition: IMeasureDefinition | IPoPMeasureDefinition | IPreviousPeriodMeasureDefinition | IArithmeticMeasureDefinition
           // The definition of the measure, see below
     alias: string // Optional; an alternative measure name to be displayed 
     format: string // Optional; rules for number formatting; if empty, the default formatting is used
@@ -136,9 +136,18 @@ IPreviousPeriodMeasureDefinition = {
        }]
    }
 }
+
+IArithmeticMeasureDefinition = {
+    arithmeticMeasure: {
+        measureIdentifiers: Identifier[] // localIdentifiers of the referenced measures
+        operator: string // possible values: sum, difference, multiplication, ratio, change 
+    }
+}
 ```
 
 For more information about the derived measures, see [Time Over Time Comparison](time_over_time_comparison.md).
+
+For more information about the arithmetic measures, see [Arithmetic Measure](arithmetic_measure.md).
 
 #### Attribute definition
 You can find full TypeScript typings [here](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L23).
@@ -157,7 +166,7 @@ IVisualizationAttribute = {
 
 Visualization lifecycle is a series of events that take place between mounting and rendering a visualization. During this time, a new datasource is created based on the saved visualization identifier or URI. Once its execution is resolved, the result is rendered.
 
-Ad hoc insights rendered using components like pie chart or table follow the same lifecycle.
+Ad hoc visualizations rendered using components like pie chart or table follow the same lifecycle.
 
 The following component props can be used as lifecycle callbacks:
 

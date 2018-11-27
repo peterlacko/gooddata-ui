@@ -5,9 +5,7 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: time_over_time_comparison
 ---
 
-[comment]: <> (Reconsider location of this article, it really does not belong to the dev tips.)
-
-Time over time comparison allows you to add a measure representing data from the past and compare it to another measure in an insight. The insight must contain at least one measure that the measure with the data from the past can reference.
+Time over time comparison allows you to add a measure representing data from the past and compare it to another measure in a visualization. The visualization must contain at least one measure that the measure with the data from the past can reference.
 
 The measure with the data from the past is called **derived measure**. The referenced measure is called **master measure**.
 
@@ -21,7 +19,7 @@ You can compare data to:
 
 **Period**: 1 year
  
-To add a SP derived measure to an insight, use the following `PopMeasureDefinition` structure (for the full TypeScript definition, see [this code section](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L42)):
+To add a SP derived measure to a visualization, use the following `PopMeasureDefinition` structure (for the full TypeScript definition, see [this code section](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L42)):
  
  ```javascript
 // Type: IMeasure 
@@ -81,7 +79,7 @@ const measures = [
 
 **Period**: defined by global [date filters](filter_visual_components.html#date-filter) referenced by the date data set URI or identifier in the derived measure definition (if no global date filter is defined, the derived measure returns the same data as the master measure)
 
-To add a PP derived measure to an insight, use the following `PreviousPeriodMeasureDefinition` structure  (for the full TypeScript definition, see [this code section](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L46)):
+To add a PP derived measure to a visualization, use the following `PreviousPeriodMeasureDefinition` structure  (for the full TypeScript definition, see [this code section](https://github.com/gooddata/gooddata-typings/blob/v2.3.0/src/AFM.ts#L46)):
 
 ```javascript
 // Type: IMeasure 

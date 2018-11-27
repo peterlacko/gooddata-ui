@@ -147,6 +147,10 @@ When `computeRatio` is not specified, it defaults to `false`, and values fr
 
 To compare a measure over time, add one of the supported measure types described in [Time Over Time Comparison](time_over_time_comparison.md) to `afm.measures`.
 
+### Calculated measures
+
+To create calculated measures (for example, when you want to subtract a measure from another measure), add arithmetic measures described in [Arithmetic Measure](arithmetic_measure.md) to `afm.measures`.
+
 ### Examples of measures
 
 #### Simple measure
