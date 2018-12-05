@@ -141,6 +141,12 @@ const FeaturesBlockGallery = props => {
         alt={item.title}
         src={item.image}
       />
+      {item.text && <p className="featuresBlockGalleryText">{item.text}</p>}
+      {item.linkHref &&
+        <a href={item.linkHref} className="featuresBlockGalleryLink">
+          {item.linkText || 'Learn more'}
+        </a>
+      }
     </li>
   ));
 
@@ -301,13 +307,19 @@ const Features = props => (
         example={<FeaturesBlockGallery>
           {[{
             title: 'Discover',
-            image: './img/homepage/discover.png'
+            image: './img/homepage/discover.png',
+            text: <span>Discover relations in your data using Analytical&nbsp;Designer,&nbsp;our&nbsp;tool for ad hoc analysis.</span>,
+            linkHref: 'https://help.gooddata.com/display/doc/Analytical+Designer'
           },{
             title: 'Publish',
-            image: './img/homepage/publish.png'
+            image: './img/homepage/publish.png',
+            text: <span>Publish discovered insights to&nbsp;KPI&nbsp;dashboards. No&nbsp;coding involved.</span>,
+            linkHref: 'https://help.gooddata.com/display/doc/KPI+Dashboards'
           },{
             title: 'Embed',
-            image: './img/homepage/embed.png'
+            image: './img/homepage/embed.png',
+            text: <span>…or&nbsp;easily embed insights into your&nbsp;application using&nbsp;the&nbsp;GoodData.UI library.</span>,
+            linkHref: './docs/start_with_visual_components.html'
           }]}
         </FeaturesBlockGallery>}
         linkTitle="View live examples"
