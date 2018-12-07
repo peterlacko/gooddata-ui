@@ -5,7 +5,7 @@ copyright: (C) 2007-2018 GoodData Corporation
 id: chart_config
 ---
 
-This article describes your options for chart configuration and the basic usage.
+This article describes the options for configuring a chart.
 
 ## Structure
 
@@ -26,6 +26,14 @@ This article describes your options for chart configuration and the basic usage.
         min: '30', // numeral string
         max: '40' // numeral string
     },
+    secondary_yaxis: {
+        visible: true, // boolean
+        labelsEnabled: true, // boolean
+        rotation: 'auto', // string
+        min: '300', // numeral string
+        max: '400', // numeral string
+        measures: ['metricLocalIdentifier']
+    },
     legend: {
         enabled: true, // boolean
         position: 'bottom', // 'top' | 'left' | 'right' | 'bottom'
@@ -43,20 +51,21 @@ This article describes your options for chart configuration and the basic usage.
 }
 ```
 
-## Color configuration
+## Configure colors
 
-Color array example
+The following are examples of a color array:
+
 ```javascript
 ['rgb(195, 49, 73)', 'rgb(168, 194, 86)']
 
 ```
-or
+
 ```javascript
 ['#fa0510', '#AA2030']
 
 ```
 
-If there are fewer colors than data points, then the colors are repeated. For example, for the two colors and three data points, here is how colors will be used:
+If there are fewer colors than data points, then the colors are repeated. For example, here is how colors will be used for two colors and three data points:
 
 ```javascript
 ['rgb(195, 49, 73)', 'rgb(168, 194, 86)', 'rgb(195, 49, 73)']
@@ -69,7 +78,7 @@ To change colors in a chart, provide a `config` for each component where you wan
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with custom colors and palette options.
+// Example of embedding a visualization with custom colors and palette options
 <Visualization
     projectId=<project-id>
     identifier=<visualization-id>
@@ -88,7 +97,7 @@ To override the uploaded custom color palette for a specific insight, define the
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with custom palette.
+// Example of embedding a visualization with custom palette
 <Visualization
    projectId=<project-id>
    identifier=<visualization-id>
@@ -121,14 +130,13 @@ import { Visualization } from '@gooddata/react-components';
 
 ## Change legend visibility and position
 
-To hide the legend, set the `config.legend.enabled` property to `false`.
-
-To change the legend position, adjust the `config.legend.position` property \(`'left'`/`'right'`/`'top'`/`'bottom'`\).
+* To hide the legend, set the `config.legend.enabled` property to `false`.
+* To change the legend position, adjust the `config.legend.position` property \(`'left'`/`'right'`/`'top'`/`'bottom'`\).
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with a custom legend position.
+// Example of embedding a visualization with a custom legend position
 <Visualization
     projectId=<project-id>
     identifier=<visualization-id>
@@ -143,14 +151,13 @@ import { Visualization } from '@gooddata/react-components';
 
 ## Change a separator in the number format
 
-To change the thousands separator, adjust the `config.separators.thousand` property.
-
-To change the decimal separator, adjust the `config.separators.decimal` property.
+* To change the thousands separator, adjust the `config.separators.thousand` property.
+* To change the decimal separator, adjust the `config.separators.decimal` property.
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with a custom separator in the number format.
+// Example of embedding a visualization with a custom separator in the number format
 <Visualization
     projectId=<project-id>
     identifier=<visualization-id>
@@ -163,22 +170,22 @@ import { Visualization } from '@gooddata/react-components';
 />
 ```
 
-## Axis configuration
-To change axis visibility, set the `config.xaxis.visible` property.
+## Configure axes
 
-To hide axis labels, set the `config.xaxis.labelsEnabled` property to false.
-When `config.xaxis.visible` is set to false, axis labels are hidden automatically, regardless of this option.
+* To change axis visibility, set the `config.xaxis.visible` property.
+* To hide axis labels, set the `config.xaxis.labelsEnabled` property to `false`.
 
-To rotate axis labels, set `config.xaxis.rotation` to a desired value.
+    **NOTE:** When `config.xaxis.visible` is set to `false`, axis labels are hidden automatically regardless of what `config.xaxis.labelsEnabled` is set to.
+* To rotate axis labels, set `config.xaxis.rotation` to a desired value.
+* To set the axis scale, set `config.xaxis.min` and `config.xaxis.max`.
+* To show measures on a secondary axis, set `config.secondary_xaxis.measures`. If `config.secondary_xaxis.measures` is not configured, all measures are displayed on the main axis by default.
 
-To set scale of axis, set `config.xaxis.min` and `config.<xaxis>.max`.
-
-> For y-axis, replace `xaxis` with `yaxis`.
+> For the properties of the Y axis, replace `xaxis` with `yaxis`.
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with settings for the x-axis.
+// Example of embedding a visualization with settings for the x-axis
 <Visualization
     projectId=<project-id>
     identifier=<visualization-id>
@@ -189,18 +196,27 @@ import { Visualization } from '@gooddata/react-components';
             rotation: '-90',
             min: '150',
             max: '440'
+        },
+        secondary_xaxis: {
+            visible: true,
+            labelsEnabled: true,
+            rotation: '-90',
+            min: '1500',
+            max: '4400',
+            measures: ['metricLocalIdentifier1', 'metricLocalIdentifier2']
         }
     }}
 />
 ```
 
-## Canvas configuration
-To configure data labels in chart, set `config.dataLabels` property.
+## Configure canvases
+
+To configure data labels, set the `config.dataLabels` property.
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with settings for the canvas.
+// Example of embedding a visualization with settings for the canvas
 <Visualization
     projectId=<project-id>
     identifier=<visualization-id>
