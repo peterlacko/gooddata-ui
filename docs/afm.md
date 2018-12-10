@@ -28,7 +28,7 @@ Each attribute requires `localIdentifier` and `displayForm`.
 
 * `localIdentifier` \(string\) is specified by the attribute's `displayForm` identifier.
 
-    `displayForm`, or attribute label, is a different means of representing an attribute. For example, the `Name` attribute might have labels for `Firstname` and `Lastname`.
+    `displayForm`, or attribute label, is a different means of representing an attribute. For example, the `Name` attribute might have labels for `Firstname` and `Lastname`. For more information, see [Determine the Attribute Value ID](https://help.gooddata.com/display/doc/Determine+the+Attribute+Value+ID).
 * `type` \(string\) can be either `date` or `attribute`.
 
 ```javascript
