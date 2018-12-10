@@ -18,6 +18,7 @@ import { Kpi } from '@gooddata/react-components';
     projectId="<project-id>"
     filters={<filters>}
     format="<format>"
+    sdk={<sdk>}
 />
 ```
 
@@ -88,5 +89,6 @@ import { Kpi } from '@gooddata/react-components';
 | measure | true | string | The measure URI |
 | filters | false | [FilterItem[]](filter_visual_components.md) | An array of filter definitions |
 | format | false | string | The measure format. If specified, overrides the format stored with the measure. |
+| sdk | false | SDK | A configuration object where you can define a custom domain and other API options |
 | onError | false | function | Custom error handler. Called with the argument containing the state and original error message, for example: `{ status:ErrorStates.BAD_REQUEST,error: {...} }` See the [full list of error states](https://github.com/gooddata/gooddata-react-components/blob/master/src/constants/errorStates.ts). Defaults to `console.error`. |
 | onLoadingChanged | false | function | Custom loading handler. Called when a KPI changes to/from the loading state. Called with the argument denoting a valid state, for example: `{ isLoading:false}` |

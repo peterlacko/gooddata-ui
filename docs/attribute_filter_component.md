@@ -36,6 +36,7 @@ export class AttributeFilterExample extends Component {
                     identifier={employeeNameIdentifier}
                     projectId={projectId}
                     onApply={this.onApply}
+                    sdk={<sdk>}
                 />
             </div>
         );

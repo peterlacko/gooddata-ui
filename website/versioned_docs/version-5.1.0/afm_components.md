@@ -20,6 +20,7 @@ The AFM components use the [AFM](afm.md) property instead of specific properties
 | projectId | true | string | The project ID |
 | resultSpec  | false | [ResultSpec](result_specification.md) | The structure of the result data |
 | config  | false | [ChartConfig](chart_config.md) | The chart configuration object |
+| sdk | false | SDK | A configuration object where you can define a custom domain and other API options |
 
 ### Structure
 
@@ -34,6 +35,7 @@ const { BarChart } = AfmComponents; // replace BarChart with ColumnChart, LineCh
     projectId="<project-id>"
     resultSpec={<resultSpec>}
     config={<chart-config>}
+    sdk={<sdk>}
 />
 ```
 
@@ -83,6 +85,7 @@ const { BarChart } = AfmComponents;
 | afm | true | [AFM](afm.md) | A combination of attributes, measures, and filters |
 | projectId | true | string | The project ID |
 | resultSpec  | false | [ResultSpec](result_specification.md) | The structure of the result data |
+| sdk | false | SDK | A configuration object where you can define a custom domain and other API options |
 
 ### Structure
 
@@ -96,6 +99,7 @@ const { Table } = AfmComponents;
     afm={<afm>}
     projectId="<project-id>"
     resultSpec={<resultSpec>}
+    sdk={<sdk>}
 />
 ```
 
