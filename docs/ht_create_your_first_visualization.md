@@ -75,6 +75,7 @@ module.exports = function (app) {
          "target": "https://developer.na.gooddata.com"
      }));
  };
+```
 
 > **Careful:** Only use the proxy authentication for development. Do not use this authentication method for production.
 
