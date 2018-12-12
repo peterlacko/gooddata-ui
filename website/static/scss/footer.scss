@@ -1,6 +1,15 @@
-footer {
+footer.nav-footer {
+    flex: 0 0 auto;
+    padding: 0;
+    box-shadow: none;
+    color: $gd-color-link;
+    text-align: center;
+    background-color: transparentize(#59626b, 0.89);
+
     .copyright {
+        padding: 1rem 20px;
         color: transparentize($gd-color-text-light, 0.2);
+        background-color: $gray-4;
 
         a {
             color: inherit;
@@ -11,6 +20,49 @@ footer {
             &:focus {
                 color: $gd-color-text-light;
             }
+        }
+    }
+}
+
+.footer-links {
+    display: none;
+    padding: 20px;
+
+    body.doc & {
+        display: block;
+    }
+
+    h3 {
+        margin: 1.5rem 0;
+        color: inherit;
+    }
+
+    .social-buttons {
+        margin-top: 0;
+        padding: 1.5rem 0 0;
+        border-top-color: transparentize($gd-color-link, 0.5);
+        color: inherit;
+
+        a {
+            color: inherit;
+        }
+    }
+
+    .social-button {
+        &.github::before {
+            background-image: url('../img/footer/github-logo.png');
+        }
+
+        &.stackoverflow::before {
+            background-image: url('../img/footer/stackoverflow-logo.png');
+        }
+
+        &.twitter::before {
+            background-image: url('../img/footer/twitter-logo.png');
+        }
+
+        &.npm::before {
+            background-image: url('../img/footer/npm-logo.png');
         }
     }
 }
