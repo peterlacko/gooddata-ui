@@ -48,6 +48,7 @@
     ],
     "Development Tips": [
       "gdc_catalog_export",
+      "model_helpers",
       "sso",
       "cors",
       "data_layer",
