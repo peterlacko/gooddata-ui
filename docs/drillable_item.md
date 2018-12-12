@@ -68,7 +68,7 @@ In the `drillableItems` property, add an array of `IHeaderPredicate` functions
 
 ```javascript 1.6
 // This is an example of event drilling on the visualization from the GoodSales demo project.
-import HeaderPredicateFactory from '@gooddata/react-components';
+import { HeaderPredicateFactory } from '@gooddata/react-components';
 
 <Visualization
   projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"
@@ -84,7 +84,7 @@ import HeaderPredicateFactory from '@gooddata/react-components';
 
 ```javascript 1.6
 // This is an example of event drilling on the visualization from the GoodSales demo project.
-import HeaderPredicateFactory from '@gooddata/react-components';
+import { HeaderPredicateFactory } from '@gooddata/react-components';
 
 <Visualization
   projectId="la84vcyhrq8jwbu4wpipw66q2sqeb923"

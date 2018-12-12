@@ -46,7 +46,7 @@ When a user clicks a [drillable item](drillable_item.md) in a visualization on a
 ## Example
 
 ```javascript 1.6
-import HeaderPredicateFactory from '@gooddata/react-components';
+import { HeaderPredicateFactory } from '@gooddata/react-components';
 
 <Visualization
    projectId="<project-id>"
