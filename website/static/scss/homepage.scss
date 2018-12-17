@@ -213,6 +213,10 @@ $homesplashBgOverflowProduct: ($homesplashBgOverflow * ((100 - 2 * $homesplashBg
         }
     }
 
+    &:first-child {
+        margin-left: 0;
+    }
+
     &.github::before {
         background-image: url('../img/homepage/github-logo.png');
     }
