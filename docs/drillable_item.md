@@ -9,7 +9,7 @@ You can enable eventing and drilling in a visualization. Drilling is the process
 
 To add drilling, use function predicates.
 
-> Before Version 6.1, you could implement drilling using a list of `drillableItems` that contained the URI or identifier of a measure or attribute (for example, `{ identifier: 'label.owner.department' } // or { uri: '/gdc/md/projectHash/obj/1027' }`. While we do not recommend that you use this method anymore, it is still supported. For more information, see [DrillableItems](https://sdk.gooddata.com/gooddata-ui/docs/6.0.0/drillable_item.html) in the Version 6.0 documentation.
+> Before Version 6.2, you could implement drilling using a list of `drillableItems` that contained the URI or identifier of a measure or attribute (for example, `{ identifier: 'label.owner.department' }`  or `{ uri: '/gdc/md/projectHash/obj/1027' }`). While we do not recommend that you use this method anymore, it is still supported. For more information, see [DrillableItems](https://sdk.gooddata.com/gooddata-ui/docs/6.1.0/drillable_item.html) in the Version 6.1 documentation.
 
 To turn on eventing and drilling, specify at least one drillableItem.
 
@@ -22,7 +22,7 @@ Drillable items can consist of the following entities:
 
 Visualization points that intersect any defined measures, attributes, or attribute values become drillable and will emit events when interacted with.
 
-**NOTE:** Visualizations created and saved in Analytical Designer contain URIs, not identifiers. When you set up drilling for such visualizations, use URIs in `drillableItems` and not identifiers.
+**NOTE:** Ad-hoc measures (measures created from attribute or measures using [computeRatio option](https://sdk.gooddata.com/gooddata-ui/docs/afm.html#show-a-measure-as-a-percentage) are defined using URI or identifier in AFM. When you want set up drilling for such ad-hoc measures, use same parameter (URI or identifier) as you used in AFM. Keep on mind, that Analytical Designer creates such measures only using URI. When you want to activate drilling on ad-hoc measures created by Analytical Designer, you can use only URIs to activate drill.
 
 ## Structure
 
@@ -30,12 +30,12 @@ For the full TypeScript definition, see [this code section](https://github.com/g
 
 ```javascript
 drillableItems: [
-    (header: IMappingHeader, afm: IAfm) => boolean, // Type: IHeaderPredicate
+    (header: IMappingHeader, context: IMappingHeaderContext) => boolean, // Type: IHeaderPredicate
     ...
 ]
 ```
 
-`IHeaderPredicate` defines the function that accepts `IMappingHeader` and `IAfm` as its parameters and returns a `boolean` value. This function is executed against every measure and attribute in a visualization. If the function returns `true`, the measure or attribute is drillable. If the function returns `false`, the measure or attribute is not drillable.
+`IHeaderPredicate` defines the function that accepts `IMappingHeader` and `context` as its parameters and returns a `boolean` value. This function is executed against every measure and attribute in a visualization. If the function returns `true`, the measure or attribute is drillable. If the function returns `false`, the measure or attribute is not drillable.
 
 You can program any logic to determine whether a particular measure or attribute should be drillable. However, this is not required often.
 
