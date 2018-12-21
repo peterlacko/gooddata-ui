@@ -128,6 +128,56 @@ import { Visualization } from '@gooddata/react-components';
 />
 ```
 
+### Color mapping
+
+ColorMapping configuration property allows you to assign colors to individual measures or attribute elements.
+
+Color mapping is represented as an array of objects containing mapping predicate and color guid or color value.
+
+Predicate is a function that takes a result header as a first argument and returns boolean value, indicating whether color will be assigned to particular measure or attribute element.
+For more detailed information on how to create predicates see chapter [how to create predicates](ht_create_predicates.md).
+
+Color is an object containing two keys, `type` and `value`.
+When you want to assign color from colorPalette, set type to `guid` and value to guid of color from palette.
+When you want to assign custom color, set type to `rgb` and value to object containing keys `r`, `g`, `b` with numerical values.
+
+Following example shows how to assign color with guid `02` to a measure with local identifier `m1_localIdentifier`,
+and black color to a measure with local identifier `m2_localIdentifier`.
+
+```javascript
+import { Visualization } from '@gooddata/react-components';
+
+// Example of embedding a visualization with a custom color mapping
+<Visualization
+    projectId=<project-id>
+    identifier=<visualization-id>
+    config={{
+        colorMapping: [{
+            predicate: (headerItem) => {
+                return headerItem.measureHeaderItem && (headerItem.measureHeaderItem.localIdentifier === 'm1_localIdentifier')
+            },
+            color: {
+                type: 'guid',
+                value: '02'
+            }
+        }, {
+            predicate: (headerItem) => {
+                return headerItem.measureHeaderItem && (headerItem.measureHeaderItem.localIdentifier === 'm2_localIdentifier')
+            },
+            color: {
+                type: 'rgb',
+                value: {
+                    r: 0,
+                    g: 0,
+                    b: 0
+                }
+            }
+        }]
+    }}
+/>
+
+```
+
 ## Change legend visibility and position
 
 * To hide the legend, set the `config.legend.enabled` property to `false`.

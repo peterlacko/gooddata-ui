@@ -106,6 +106,30 @@ The following example shows the supported `config` structure with sample values.
 ```javascript
 {
     colors: ['rgb(195, 49, 73)', 'rgb(168, 194, 86)'],
+    colorPalette: [{
+        guid: '01',
+        fill: {
+            r: 195,
+            g: 49,
+            b: 73
+        }
+    }, {
+        guid: '02',
+        fill: {
+            r: 168,
+            g: 194,
+            b: 86
+        }
+    }],
+    colorMapping: [{
+        predicate: (headerItem) => {
+            return headerItem.measureHeaderItem && (headerItem.measureHeaderItem.localIdentifier === 'm1_localIdentifier')
+        },
+        color: {
+            type: 'guid',
+            value: '02'
+        }
+    }],
     legend: {
         enabled: true,
         position: 'top',
