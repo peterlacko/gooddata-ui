@@ -60,6 +60,8 @@
     "Build a Visualization Using a Custom React Application": "Build a Visualization Using a Custom React Application",
     "ht_configure_webpack_proxy": "Configure a Webpack Proxy",
     "Configure a Webpack Proxy": "Configure a Webpack Proxy",
+    "ht_create_predicates": "Create Predicates",
+    "Create Predicates": "Create Predicates",
     "ht_create_your_first_visualization": "Create Your First Application",
     "Create Your First Application": "Create Your First Application",
     "ht_customize_visualization": "Customize a Visualization",
