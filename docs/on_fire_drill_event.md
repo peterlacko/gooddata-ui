@@ -45,12 +45,17 @@ When a user clicks a [drillable item](drillable_item.md) in a visualization on a
 
 ## Example
 
-```javascript
+```javascript 1.6
+import { HeaderPredicateFactory } from '@gooddata/react-components';
+
 <Visualization
    projectId="<project-id>"
    identifier="<visualization-identifier>"
    config={<chart-config>}
    onFiredDrillEvent={(data) => { console.log(data.executionContext); }}
-   drillableItems={[{ identifier: 'drillable-Identifier1' }, { uri: 'drillable-Uri2' }]}
+   drillableItems={[
+        HeaderPredicateFactory.identifierMatch('drillable-Identifier1'), 
+        HeaderPredicateFactory.uriMatch('/drillable-Uri2')
+   ]}
 />
 ```
