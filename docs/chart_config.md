@@ -43,7 +43,7 @@ This article describes the options for configuring a chart.
     },
     grid: {
         enabled: true // boolean
-    }
+    },
     separators: {
         thousand: ',',
         decimal: '.'
