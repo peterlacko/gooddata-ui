@@ -36,7 +36,7 @@ This article describes your options for chart configuration and the basic usage.
     },
     grid: {
         enabled: true // boolean
-    }
+    },
     separators: {
         thousand: ',',
         decimal: '.'
