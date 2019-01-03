@@ -20,7 +20,7 @@ Run the following command from the command line:
 yarn global add create-react-app
 ```
 
-This command installs the `create-react-app` tool that will help you create a functional skeleton of a React application. The current version of `create-react-app` installs React 16. This version supports TypeScript ([`@gooddata/typings`](about_gooddataui.md)).
+This command installs the `create-react-app` tool that will help you create a functional skeleton of a React application. The current version of `create-react-app` installs React 16. This version supports TypeScript ([`@gooddata/typings`](https://github.com/gooddata/gooddata-typings)).
 
 **NOTE:** The supported versions of Node are ^8.10.0 or >=9.10.0. Using a different version may result in errors.
 
