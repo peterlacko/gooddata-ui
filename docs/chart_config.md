@@ -73,6 +73,8 @@ If there are fewer colors than data points, then the colors are repeated. For ex
 
 To change colors in a chart, provide a `config` for each component where you want to change colors, or create a wrapped components with a `config` baked in.
 
+> The `color` property overrides custom color palette uploaded through the API, but is overriden by the `colorPalette` property.
+
 **NOTE:** Heatmaps use only the first color from the provided colors as the base color, and generate the other colors themselves.
 
 ```javascript
@@ -92,7 +94,9 @@ import { Visualization } from '@gooddata/react-components';
 
 If you [uploaded a custom color palette](https://help.gooddata.com/display/doc/Importing+Custom+Color+Palettes) to your project, the visualizations created based on the [Visualization component](visualization_component.md) use this palette instead of the default colors.
 
-To override the uploaded custom color palette for a specific visualization, define the `colorPalette` property for this visualization. The `colorPalette` property overrides the uploaded custom palette and the `colors` property, if it has been set for this visualization.
+To override the uploaded custom color palette for a specific visualization, define the `colorPalette` property for this visualization.
+
+> The `colorPalette` property overrides the uploaded custom palette and the `colors` property, if it has been set for this visualization.
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
