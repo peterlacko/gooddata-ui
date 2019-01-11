@@ -1,6 +1,6 @@
 ---
-title: Creating Predicates
-sidebar_label: Creating Predicates
+title: Create Predicates
+sidebar_label: Create Predicates
 copyright: (C) 2007-2019 GoodData Corporation
 id: ht_create_predicates
 ---
