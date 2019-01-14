@@ -53,6 +53,18 @@ This article describes the options for configuring a chart.
 
 ## Configure colors
 
+To configure colors, use the following options:
+* [Color array (the `colors` property)](#Color-array)
+* [Custom color palette (the `colorPalette` property)](#Custom-color-palette)
+* [Color mapping (the `colorMapping` property)](#Color-mapping)
+
+If you have more than one option configured for a visualization, the following rules apply:
+* The `colors` property overrides a custom color palette uploaded through the API.
+* The `colorPalette` property overrides both the `colors` property and the custom color palette uploaded through the API.
+* The `colorMapping` property overrides the `colorPalette` property, the `colors` property, and the custom color palette uploaded through the API.
+
+### Color array
+
 The following are examples of a color array:
 
 ```javascript
@@ -73,8 +85,6 @@ If there are fewer colors than data points, then the colors are repeated. For ex
 
 To change colors in a chart, provide a `config` for each component where you want to change colors, or create a wrapped components with a `config` baked in.
 
-> The `color` property overrides custom color palette uploaded through the API, but is overriden by the `colorPalette` property.
-
 **NOTE:** Heatmaps use only the first color from the provided colors as the base color, and generate the other colors themselves.
 
 ```javascript
@@ -90,18 +100,20 @@ import { Visualization } from '@gooddata/react-components';
 />
 ```
 
+Within one visualization:
+* The `colors` property overrides a custom color palette uploaded through the API.
+* The `colors` property can be overriden by the [`colorPalette` property](#Custom-color-palette) or the [`colorMapping` property](#Color-mapping).
+
 ### Custom color palette
 
 If you [uploaded a custom color palette](https://help.gooddata.com/display/doc/Importing+Custom+Color+Palettes) to your project, the visualizations created based on the [Visualization component](visualization_component.md) use this palette instead of the default colors.
 
 To override the uploaded custom color palette for a specific visualization, define the `colorPalette` property for this visualization.
 
-> The `colorPalette` property overrides the uploaded custom palette and the `colors` property, if it has been set for this visualization.
-
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with custom palette
+// Example of embedding a visualization with a custom palette
 <Visualization
    projectId=<project-id>
    identifier=<visualization-id>
@@ -132,26 +144,28 @@ import { Visualization } from '@gooddata/react-components';
 />
 ```
 
+Within one visualization:
+* The `colorPalette` property overrides the custom color palette uploaded through the API and the `colors` property.
+* The `colorPalette` property can be overriden by the `colorMapping` property.
+
 ### Color mapping
 
-ColorMapping configuration property allows you to assign colors to individual measures or attribute elements.
+Color mapping allows you to assign colors to individual measures or attribute elements. To set up color mapping, set the `colorMapping` property.
 
-Color mapping is represented as an array of objects containing mapping predicate and color guid or color value.
+The `colorMapping` property contains an array of objects. Each object is represented by a pair of a mapping predicate and a color (color GUID or color value).
 
-Predicate is a function that takes a result header as a first argument and returns boolean value, indicating whether color will be assigned to particular measure or attribute element.
-For more detailed information on how to create predicates see chapter [how to create predicates](ht_create_predicates.md).
+* A **mapping predicate** is a function that takes a result header as the first argument and returns a Boolean value indicating whether the color will be assigned to a particular measure or attribute element.
+ For more information on how to create predicates, see [Create Predicates](ht_create_predicates.md).
+* A **color** is an object that contains two keys, `type` and `value`.
+    * To assign a color from `colorPalette`, set `type` to `guid` and set `value` to the GUID of the color from the palette.
+    * To assign a custom color, set `type` to `rgb` and set `value` to an object containing the keys `r`, `g`, and `b` with numerical values.
 
-Color is an object containing two keys, `type` and `value`.
-When you want to assign color from colorPalette, set type to `guid` and value to guid of color from palette.
-When you want to assign custom color, set type to `rgb` and value to object containing keys `r`, `g`, `b` with numerical values.
-
-Following example shows how to assign color with guid `02` to a measure with local identifier `m1_localIdentifier`,
-and black color to a measure with local identifier `m2_localIdentifier`.
+The following example shows how to assign the color with GUID `02` to the measure with the local identifier `m1_localIdentifier` and the black color to the measure with the local identifier `m2_localIdentifier`:
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
 
-// Example of embedding a visualization with a custom color mapping
+// Example of embedding a visualization with custom color mapping
 <Visualization
     projectId=<project-id>
     identifier=<visualization-id>
@@ -179,7 +193,6 @@ import { Visualization } from '@gooddata/react-components';
         }]
     }}
 />
-
 ```
 
 ## Change legend visibility and position
