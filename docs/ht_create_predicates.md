@@ -7,7 +7,7 @@ id: ht_create_predicates
 
 Predicates allow you to create a match between elements (for example, a measure header item or an attribute header item) with an arbitrary level of complexity.
 
-For example, a predicate that creates a simple match based on equality may look like the following:
+For example, a predicate that creates a simple match based on an equation may look like the following:
 
 ```javascript
 (headerItem) => headerItem.measureHeaderItem.localIdentifier === 'm1_localIdentifier'
@@ -28,7 +28,7 @@ A predicate can be called with the following parameters:
     
     Context is an object that contains the `afm` and `executionResponse` keys. These keys can be used for building complex matching conditions.
 
-For example, this following predicate matches a color based on a measure's localIdentifier:
+For example, the following predicate matches a color based on a measure's localIdentifier:
 
 ```javascript
 (header, _context): boolean => {
