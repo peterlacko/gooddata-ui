@@ -60,7 +60,7 @@ To configure colors, use the following options:
 
 If you have more than one option configured for a visualization, the following rules apply:
 * The `colors` property overrides a custom color palette uploaded through the API.
-* The `colorPalette` property overrides both the `colors` property and the custom color palette uploaded through the API.
+* The `colorPalette` property overrides the `colors` property and the custom color palette uploaded through the API.
 * The `colorMapping` property overrides the `colorPalette` property, the `colors` property, and the custom color palette uploaded through the API.
 
 ### Color array
@@ -157,10 +157,10 @@ The `colorMapping` property contains an array of objects. Each object is represe
 * A **mapping predicate** is a function that takes a result header as the first argument and returns a Boolean value indicating whether the color will be assigned to a particular measure or attribute element.
  For more information on how to create predicates, see [Create Predicates](ht_create_predicates.md).
 * A **color** is an object that contains two keys, `type` and `value`.
-    * To assign a color from `colorPalette`, set `type` to `guid` and set `value` to the GUID of the color from the palette.
-    * To assign a custom color, set `type` to `rgb` and set `value` to an object containing the keys `r`, `g`, and `b` with numerical values.
+    * To assign a color from a color palette (either the custom color palette uploaded through the API or the palette defined by the `colorPalette` property), set `type` to `guid`, and set `value` to the GUID of the color from the palette.
+    * To assign a custom color, set `type` to `rgb`, and set `value` to an object containing the keys `r`, `g`, and `b` with numerical values.
 
-The following example shows how to assign the color with GUID `02` to the measure with the local identifier `m1_localIdentifier` and the black color to the measure with the local identifier `m2_localIdentifier`:
+The following example shows how to assign the color with GUID `02` to the measure with the local identifier `m1_localIdentifier`, and the black color to the measure with the local identifier `m2_localIdentifier`:
 
 ```javascript
 import { Visualization } from '@gooddata/react-components';
@@ -194,6 +194,7 @@ import { Visualization } from '@gooddata/react-components';
     }}
 />
 ```
+Within one visualization, the `colorMapping` property overrides the `colorPalette` property (while still can use its colors), the `colors` property, and the custom color palette uploaded through the API.
 
 ## Change legend visibility and position
 
