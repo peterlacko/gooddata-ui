@@ -59,7 +59,7 @@ An **absolute date filter** shows data that falls within a defined time range.
 {
     absoluteDateFilter: {
         dataSet: {
-            identifier: '<attribute-display-form-identifier>'
+            identifier: '<date-dataset-identifier>' // Or URI: '<date-dataset-uri>'
         },
         from: '<YYYY-MM-DD>',
         to: '<YYYY-MM-DD>'
